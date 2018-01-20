@@ -27,6 +27,7 @@
 		3A5F5EAA2013113500DB1967 /* SpinWheelWedge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9C2013113500DB1967 /* SpinWheelWedge.swift */; };
 		3A5F5EAB2013113500DB1967 /* SpinWheelWedgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */; };
 		3A5F5EAC2013113500DB1967 /* SpinWheelWedgeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */; };
+		3A6B3F5F20131F2D005C9FDA /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */; };
 		3AE2BBA02013120C00CBBA0E /* ruleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB962013120C00CBBA0E /* ruleVC.swift */; };
 		3AE2BBA12013120C00CBBA0E /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */; };
 		3AE2BBA22013120C00CBBA0E /* ParentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB992013120C00CBBA0E /* ParentTableViewController.swift */; };
@@ -87,6 +88,7 @@
 		3A5F5E9C2013113500DB1967 /* SpinWheelWedge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedge.swift; sourceTree = "<group>"; };
 		3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedgeLabel.swift; sourceTree = "<group>"; };
 		3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedgeShape.swift; sourceTree = "<group>"; };
+		3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AE2BB93201311D400CBBA0E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AE2BB962013120C00CBBA0E /* ruleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ruleVC.swift; sourceTree = "<group>"; };
 		3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6B3F5F20131F2D005C9FDA /* GoogleMobileAds.framework in Frameworks */,
 				B7026CFCD882981DC1FD16E5 /* Pods_Namit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +165,9 @@
 				3AE2BB9E2013120C00CBBA0E /* Punishment */,
 				3A5F5E5820130FE400DB1967 /* AppDelegate.swift */,
 				3A5F5E6420130FE400DB1967 /* LaunchScreen.storyboard */,
-				3A5F5E8B2013113500DB1967 /* support */,
-				3AA8616D2013158200A3326E /* Others */,
+				3A5F5E8B2013113500DB1967 /* Support */,
+				3A5F5E6720130FE400DB1967 /* Info.plist */,
+				3A5F5E6220130FE400DB1967 /* Assets.xcassets */,
 			);
 			path = Namit;
 			sourceTree = "<group>";
@@ -186,7 +190,7 @@
 			path = NamitUITests;
 			sourceTree = "<group>";
 		};
-		3A5F5E8B2013113500DB1967 /* support */ = {
+		3A5F5E8B2013113500DB1967 /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				3A5F5E5F20130FE400DB1967 /* Namit.xcdatamodeld */,
@@ -196,7 +200,7 @@
 				3A5F5E942013113500DB1967 /* icon */,
 				3A5F5E962013113500DB1967 /* SpinWheelControl */,
 			);
-			path = support;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		3A5F5E8C2013113500DB1967 /* buttons */ = {
@@ -240,15 +244,6 @@
 				3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */,
 			);
 			path = SpinWheelControl;
-			sourceTree = "<group>";
-		};
-		3AA8616D2013158200A3326E /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				3A5F5E6220130FE400DB1967 /* Assets.xcassets */,
-				3A5F5E6720130FE400DB1967 /* Info.plist */,
-			);
-			path = Others;
 			sourceTree = "<group>";
 		};
 		3AE2BB942013120C00CBBA0E /* 1VC */ = {
@@ -297,6 +292,7 @@
 		CA8788C4C0C06B6DEF09CA33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */,
 				D2EA080FFDC546E813FE62DF /* Pods_Namit.framework */,
 				1D4B7D20B439583A3D8D6AF1 /* Pods_NamitTests.framework */,
 				ABDF6214C4E4603B8D1B9621 /* Pods_NamitUITests.framework */,
@@ -783,6 +779,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Namit",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Namit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -803,6 +800,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Namit",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Namit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

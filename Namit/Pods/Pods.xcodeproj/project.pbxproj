@@ -48,7 +48,6 @@
 		C34018E1743B7C34ECEE578274D551D6 /* Pods-NamitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NamitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C53074A1AC1A4633B346A0E4CAFE6B1B /* Pods-NamitUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitUITests-frameworks.sh"; sourceTree = "<group>"; };
 		C5BD88950A6C61F0EBFEBD2F200118EF /* Pods-NamitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C99DE5C77CF3C59B5EDC268EF8382FF9 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D5E28F56C53E793C0CF2A2301D249E42 /* Pods-NamitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8B6D2AFDBE9FCD048E93027C208ECDE /* Pods-Namit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Namit-frameworks.sh"; sourceTree = "<group>"; };
 		DDE02F177A7888E388D2D9A2851D59C2 /* Pods-Namit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Namit.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,23 +112,6 @@
 			path = "Target Support Files/Pods-Namit";
 			sourceTree = "<group>";
 		};
-		1B0F2DC688CE78411EC05BD210977960 /* GoogleMobileAds */ = {
-			isa = PBXGroup;
-			children = (
-				6318081299013A5AEE78920CED6A563F /* Frameworks */,
-			);
-			name = GoogleMobileAds;
-			path = GoogleMobileAds;
-			sourceTree = "<group>";
-		};
-		6318081299013A5AEE78920CED6A563F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C99DE5C77CF3C59B5EDC268EF8382FF9 /* GoogleMobileAds.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		659A19F70BB0BB45DE4C4624C223EF12 /* Pods-NamitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +135,6 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				D9F53F10C6636F70D55EC3B4FBE90722 /* Pods */,
 				8E99639421DF2EF0B3E28CD418A78CBF /* Products */,
 				06DDD142518BFA5C799ED0A8FC14D9DC /* Targets Support Files */,
 			);
@@ -201,14 +182,6 @@
 			);
 			name = "Pods-NamitUITests";
 			path = "Target Support Files/Pods-NamitUITests";
-			sourceTree = "<group>";
-		};
-		D9F53F10C6636F70D55EC3B4FBE90722 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1B0F2DC688CE78411EC05BD210977960 /* GoogleMobileAds */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

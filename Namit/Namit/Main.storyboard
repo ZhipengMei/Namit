@@ -18,7 +18,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NameIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fEu-uj-wGo"/>
                         <viewControllerLayoutGuide type="bottom" id="c0F-bI-SAW"/>
@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-wI-6GQ" customClass="PressableButton" customModule="NameIt" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-wI-6GQ" customClass="PressableButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="102" y="258" width="171" height="151"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -36,7 +36,7 @@
                                     <segue destination="32a-Os-w0y" kind="modal" id="RiF-eV-mF3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBD-eq-ysB" customClass="FlatButton" customModule="NameIt" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBD-eq-ysB" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="252" y="533" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,7 +48,7 @@
                                     <segue destination="Dg4-t5-Qdz" kind="modal" id="9cF-Qb-AjL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-Y0-3HB" customClass="FlatButton" customModule="NameIt" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-Y0-3HB" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="42" y="533" width="80" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,7 +80,7 @@
         <!--RuleVC-->
         <scene sceneID="WMF-8f-tAW">
             <objects>
-                <viewController id="Dg4-t5-Qdz" customClass="ruleVC" customModule="NameIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dg4-t5-Qdz" customClass="ruleVC" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Qp-2A-wwh"/>
                         <viewControllerLayoutGuide type="bottom" id="lgC-8S-1bf"/>
@@ -113,7 +113,7 @@ Losing:
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-gL-IUn" customClass="FlatButton" customModule="NameIt" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-gL-IUn" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="340" y="103" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="X">
@@ -141,7 +141,7 @@ Losing:
         <!--CardVC-->
         <scene sceneID="YCO-by-aFE">
             <objects>
-                <viewController id="32a-Os-w0y" customClass="CardVC" customModule="NameIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="32a-Os-w0y" customClass="CardVC" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H48-Gq-PTV"/>
                         <viewControllerLayoutGuide type="bottom" id="R9a-12-PXO"/>
@@ -190,7 +190,7 @@ Losing:
                                     <segue destination="DeW-ZT-FbX" kind="modal" id="w9V-nu-zhs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-n6-eaj" customClass="FlatButton" customModule="NameIt" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-n6-eaj" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="329" y="20" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="X">
@@ -225,7 +225,7 @@ Losing:
         <!--Punishment View Controller-->
         <scene sceneID="6Hj-vF-xVw">
             <objects>
-                <viewController id="DeW-ZT-FbX" customClass="PunishmentViewController" customModule="NameIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DeW-ZT-FbX" customClass="PunishmentViewController" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ibj-uQ-F5Q"/>
                         <viewControllerLayoutGuide type="bottom" id="GS4-M2-TOs"/>
@@ -234,7 +234,7 @@ Losing:
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCK-dX-XO5" customClass="FlatButton" customModule="NameIt" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCK-dX-XO5" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="329" y="28" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="X">
@@ -297,7 +297,7 @@ Losing:
         <!--Parent Table View Controller-->
         <scene sceneID="orL-iC-7S3">
             <objects>
-                <tableViewController id="Sty-Qv-Sqe" customClass="ParentTableViewController" customModule="NameIt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Sty-Qv-Sqe" customClass="ParentTableViewController" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="XFN-SJ-jgx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,7 +345,7 @@ Losing:
         <!--Cards Table View Controller-->
         <scene sceneID="HNe-1T-8YB">
             <objects>
-                <tableViewController id="VH7-vu-SeU" customClass="CardsTableViewController" customModule="NameIt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="VH7-vu-SeU" customClass="CardsTableViewController" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="V6i-vQ-chb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,7 +417,7 @@ Losing:
         <image name="arrow.gif" width="180" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4TU-Gf-SO9"/>
+        <segue reference="RiF-eV-mF3"/>
         <segue reference="XkJ-6X-6Fj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -56,7 +56,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
                                   width: bannerView.frame.width,
                                   height: bannerView.frame.height)
         self.view.addSubview(bannerView)
-        bannerView.adUnitID = "ca-app-pub-5562078941559997/9122934955"
+        bannerView.adUnitID = "ca-app-pub-5562078941559997/8772933204"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         let requestAd: GADRequest = GADRequest()

@@ -6,7 +6,6 @@ target 'Namit' do
   use_frameworks!
 
   # Pods for Namit
-  pod 'GoogleMobileAds'
 
   target 'NamitTests' do
     inherit! :search_paths

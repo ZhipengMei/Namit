@@ -70,7 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for item in list {
             let newCard = NSManagedObject(entity: punishments_entity!, insertInto: context)
             newCard.setValue(item, forKey: "name")
-            
         }
         do {
             try context.save()
@@ -111,6 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Save Core Data
         for item in wordbank {
             let newCard = NSManagedObject(entity: card_entity!, insertInto: context)
+            newCard.setValue(item, forKey: "name")
         }
         do {
             try context.save()
