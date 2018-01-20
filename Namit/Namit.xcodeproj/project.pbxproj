@@ -161,11 +161,9 @@
 				3AE2BB9D2013120C00CBBA0E /* Main.storyboard */,
 				3AE2BB9E2013120C00CBBA0E /* Punishment */,
 				3A5F5E5820130FE400DB1967 /* AppDelegate.swift */,
-				3A5F5E6220130FE400DB1967 /* Assets.xcassets */,
 				3A5F5E6420130FE400DB1967 /* LaunchScreen.storyboard */,
-				3A5F5E6720130FE400DB1967 /* Info.plist */,
-				3A5F5E5F20130FE400DB1967 /* Namit.xcdatamodeld */,
 				3A5F5E8B2013113500DB1967 /* support */,
+				3AA8616D2013158200A3326E /* Others */,
 			);
 			path = Namit;
 			sourceTree = "<group>";
@@ -191,6 +189,7 @@
 		3A5F5E8B2013113500DB1967 /* support */ = {
 			isa = PBXGroup;
 			children = (
+				3A5F5E5F20130FE400DB1967 /* Namit.xcdatamodeld */,
 				3A5F5E8C2013113500DB1967 /* buttons */,
 				3A5F5E902013113500DB1967 /* gif */,
 				3A5F5E932013113500DB1967 /* GoogleIcon.swift */,
@@ -241,6 +240,15 @@
 				3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */,
 			);
 			path = SpinWheelControl;
+			sourceTree = "<group>";
+		};
+		3AA8616D2013158200A3326E /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F5E6220130FE400DB1967 /* Assets.xcassets */,
+				3A5F5E6720130FE400DB1967 /* Info.plist */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		3AE2BB942013120C00CBBA0E /* 1VC */ = {
