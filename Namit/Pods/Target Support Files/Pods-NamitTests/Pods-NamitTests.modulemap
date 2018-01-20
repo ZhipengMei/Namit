@@ -1,0 +1,6 @@
+framework module Pods_NamitTests {
+  umbrella header "Pods-NamitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

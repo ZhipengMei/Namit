@@ -1,0 +1,12 @@
+PODS:
+  - GoogleMobileAds (7.8.0)
+
+DEPENDENCIES:
+  - GoogleMobileAds
+
+SPEC CHECKSUMS:
+  GoogleMobileAds: c79931d6eef16b1e4c35d331cf23c47e0dd490d2
+
+PODFILE CHECKSUM: 0d425762eed18cccf3bc3d19a268190eb3fa51f4
+
+COCOAPODS: 1.2.1
