@@ -6,7 +6,7 @@
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/kenchiu100/NameIt/blob/master/NameIt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/ZhipengMei/Namit/blob/master/NameIt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
