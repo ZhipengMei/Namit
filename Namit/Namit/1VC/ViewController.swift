@@ -14,7 +14,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var play_button: PressableButton!
     @IBOutlet weak var rule_button: FlatButton!
     @IBOutlet var play_view: UIView!
-    @IBOutlet weak var setting_button: FlatButton!
+    @IBOutlet weak var setting_button: UIButton!
     
     var bannerView: GADBannerView!
     
@@ -36,7 +36,12 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 //        play_button.shadowHeight = 10
         play_button.cornerRadius = 0.5 * play_button.bounds.size.width
         play_button.clipsToBounds = true
+
         play_button.depth = 0.5 // In percentage of shadowHeight
+        play_button.layer.borderWidth = 1.0
+        play_button.layer.borderColor = UIColor.blue.cgColor
+//        play_button.layer
+        play_button.layer.cornerRadius = 5.0
         
         rule_button.setTitleColor(UIColor.white, for: .normal)
         rule_button.color = color3
@@ -46,11 +51,8 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         
         let white = UIColor(red: 148/255, green: 149/255, blue: 156/255, alpha: 1.0)
         setting_button.setTitleColor(white, for: .normal)
-        setting_button.color = UIColor.clear
-//        setting_button.highlightedColor = color4
-//        setting_button.selectedColor = .blue
-        setting_button.cornerRadius = 8
         setting_button.setTitle(GoogleIcon.icons()[196], for: .normal)
+        setting_button.backgroundColor = UIColor.clear
         
         //Google Ads banner view
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
@@ -69,7 +71,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         requestAd.testDevices = [kGADSimulatorID]
         
         requestAd.testDevices = ["c5825252428348a3b99ab1e2919f0337" ]
-        
+
         bannerView.load(requestAd)
     }
     

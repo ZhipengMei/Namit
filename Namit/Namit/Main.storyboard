@@ -39,7 +39,7 @@
                                     <segue destination="Dg4-t5-Qdz" kind="modal" id="9cF-Qb-AjL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-Y0-3HB" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-Y0-3HB">
                                 <rect key="frame" x="16" y="563" width="80" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,28 +168,6 @@ Losing:
                                     <outletCollection property="gestureRecognizers" destination="iY4-s7-XAX" appends="YES" id="vds-Cf-aMR"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz0-3Q-aOh">
-                                <rect key="frame" x="252" y="608" width="107" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Next Card">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="show_next_card:" destination="32a-Os-w0y" eventType="touchUpInside" id="7Q1-KY-PI5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd9-uc-Vpg">
-                                <rect key="frame" x="16" y="608" width="107" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Punishment">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="DeW-ZT-FbX" kind="modal" id="w9V-nu-zhs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-n6-eaj" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="329" y="20" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -197,7 +175,18 @@ Losing:
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="IHx-uD-FC9"/>
+                                    <action selector="cancel_button_cation:" destination="32a-Os-w0y" eventType="touchUpInside" id="hHa-dR-4kn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd9-uc-Vpg">
+                                <rect key="frame" x="16" y="541" width="107" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Punishment">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="DeW-ZT-FbX" kind="modal" id="w9V-nu-zhs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -209,7 +198,6 @@ Losing:
                         <outlet property="cardView" destination="grj-Lz-7o9" id="NQh-lj-SVg"/>
                         <outlet property="card_label" destination="hSz-NC-o4R" id="vrd-dB-e3M"/>
                         <outlet property="card_vc_view" destination="1kj-m8-ld4" id="XXi-hE-FI1"/>
-                        <outlet property="next_button" destination="Hz0-3Q-aOh" id="AeZ-vG-gYv"/>
                         <outlet property="punishment_button" destination="Hd9-uc-Vpg" id="N5w-NU-uen"/>
                     </connections>
                 </viewController>
@@ -249,7 +237,7 @@ Losing:
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVi-2p-xS7">
-                                <rect key="frame" x="0.0" y="131" width="375" height="386"/>
+                                <rect key="frame" x="0.0" y="158" width="350" height="350"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.8996838976" green="0.94351074400000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -417,7 +405,8 @@ Losing:
         <image name="arrow.gif" width="180" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RiF-eV-mF3"/>
-        <segue reference="XkJ-6X-6Fj"/>
+        <segue reference="w9V-nu-zhs"/>
+        <segue reference="4TU-Gf-SO9"/>
+        <segue reference="CEe-Vi-F5X"/>
     </inferredMetricsTieBreakers>
 </document>

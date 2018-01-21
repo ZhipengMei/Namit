@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
-class PunishmentViewController: UIViewController,SpinWheelControlDataSource, SpinWheelControlDelegate, NSFetchedResultsControllerDelegate{
+class PunishmentViewController: UIViewController,SpinWheelControlDataSource, SpinWheelControlDelegate, NSFetchedResultsControllerDelegate, GADBannerViewDelegate{
     
     @IBOutlet var punishment_view: UIView!
     @IBOutlet weak var spinWheelView: UIView!
@@ -18,6 +19,7 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
     @IBOutlet weak var punishment_label: UILabel!
     @IBOutlet weak var label_view: UIView!
     @IBOutlet weak var again_button: UIButton!
+    var bannerView: GADBannerView!
     
     let c1 = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1.0)
     let c2 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
@@ -91,6 +93,7 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
         let bg_color = UIColor(red: 19/255, green: 38/255, blue: 51/255, alpha: 1.0)
         self.punishment_view.backgroundColor = bg_color
         self.spinWheelView.backgroundColor = bg_color
+//        self.spinWheelView.frame.size
         
         let view_color = UIColor(red: 196/255, green: 55/255, blue: 48/255, alpha: 0.95)
         self.label_view.layer.cornerRadius = 8
@@ -116,6 +119,22 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
         spinWheelControl.reloadData()
         spinWheelControl.delegate = self
         spinWheelView.addSubview(spinWheelControl)
+        
+        //Google Ads banner view
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.frame = CGRect(x: 0.0,
+                                  y: view.frame.size.height - bannerView.frame.height, //bottom of the view
+            width: bannerView.frame.width,
+            height: bannerView.frame.height)
+        self.view.addSubview(bannerView)
+        //        bannerView.adUnitID = "ca-app-pub-5562078941559997/8772933204"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
+        let requestAd: GADRequest = GADRequest()
+        requestAd.testDevices = [kGADSimulatorID]
+        bannerView.load(requestAd)
     }
     
     //Target was added in viewDidLoad for the valueChanged UIControlEvent

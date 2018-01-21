@@ -141,7 +141,8 @@ open class SpinWheelControl: UIControl {
     
     //The radius of the spin wheel's circle
     var radius: CGFloat {
-        return diameter / 2
+//        return diameter / 2
+        return diameter / 2.2
     }
     
     //How far the wheel is turned from its default position

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class ruleVC: UIViewController {
+class ruleVC: UIViewController, GADBannerViewDelegate {
     
     @IBOutlet var ruleVC_view: UIView!
     @IBOutlet weak var cancel_button: FlatButton!
     @IBOutlet weak var rule_textview: UITextView!
-    
+    var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,22 @@ class ruleVC: UIViewController {
         cancel_button.highlightedColor = color
         cancel_button.selectedColor = .blue
         cancel_button.cornerRadius = 8
+        
+        //Google Ads banner view
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.frame = CGRect(x: 0.0,
+                                y: view.frame.size.height - bannerView.frame.height, //bottom of the view
+                                width: bannerView.frame.width,
+                                height: bannerView.frame.height)
+        self.view.addSubview(bannerView)
+        //        bannerView.adUnitID = "ca-app-pub-5562078941559997/8772933204"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
+        let requestAd: GADRequest = GADRequest()
+        requestAd.testDevices = [kGADSimulatorID]
+        bannerView.load(requestAd)
     }
 
 }
