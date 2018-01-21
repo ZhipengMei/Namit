@@ -28,6 +28,9 @@
 		3A5F5EAB2013113500DB1967 /* SpinWheelWedgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */; };
 		3A5F5EAC2013113500DB1967 /* SpinWheelWedgeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */; };
 		3A6B3F5F20131F2D005C9FDA /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */; };
+		3A6B3F68201472BB005C9FDA /* NativeAppInstallAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B3F67201472BB005C9FDA /* NativeAppInstallAdCell.xib */; };
+		3A6B3F6C20147592005C9FDA /* Card_Content.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B3F6B20147592005C9FDA /* Card_Content.xib */; };
+		3A6B3F6E201477E3005C9FDA /* Card_Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B3F6D201477E3005C9FDA /* Card_Content.swift */; };
 		3AE2BBA02013120C00CBBA0E /* ruleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB962013120C00CBBA0E /* ruleVC.swift */; };
 		3AE2BBA12013120C00CBBA0E /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */; };
 		3AE2BBA22013120C00CBBA0E /* ParentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB992013120C00CBBA0E /* ParentTableViewController.swift */; };
@@ -89,6 +92,9 @@
 		3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedgeLabel.swift; sourceTree = "<group>"; };
 		3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedgeShape.swift; sourceTree = "<group>"; };
 		3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		3A6B3F67201472BB005C9FDA /* NativeAppInstallAdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAppInstallAdCell.xib; sourceTree = "<group>"; };
+		3A6B3F6B20147592005C9FDA /* Card_Content.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card_Content.xib; sourceTree = "<group>"; };
+		3A6B3F6D201477E3005C9FDA /* Card_Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_Content.swift; sourceTree = "<group>"; };
 		3AE2BB93201311D400CBBA0E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AE2BB962013120C00CBBA0E /* ruleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ruleVC.swift; sourceTree = "<group>"; };
 		3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +171,9 @@
 				3AE2BB9E2013120C00CBBA0E /* Punishment */,
 				3A5F5E5820130FE400DB1967 /* AppDelegate.swift */,
 				3A5F5E6420130FE400DB1967 /* LaunchScreen.storyboard */,
+				3A6B3F67201472BB005C9FDA /* NativeAppInstallAdCell.xib */,
+				3A6B3F6B20147592005C9FDA /* Card_Content.xib */,
+				3A6B3F6D201477E3005C9FDA /* Card_Content.swift */,
 				3A5F5E8B2013113500DB1967 /* Support */,
 				3A5F5E6720130FE400DB1967 /* Info.plist */,
 				3A5F5E6220130FE400DB1967 /* Assets.xcassets */,
@@ -430,8 +439,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5F5EA22013113500DB1967 /* arrow.gif in Resources */,
+				3A6B3F68201472BB005C9FDA /* NativeAppInstallAdCell.xib in Resources */,
 				3AE2BBA52013120C00CBBA0E /* Main.storyboard in Resources */,
 				3A5F5EA52013113500DB1967 /* googleicon.ttf in Resources */,
+				3A6B3F6C20147592005C9FDA /* Card_Content.xib in Resources */,
 				3A5F5E6620130FE400DB1967 /* LaunchScreen.storyboard in Resources */,
 				3A5F5E6320130FE400DB1967 /* Assets.xcassets in Resources */,
 			);
@@ -598,6 +609,7 @@
 			files = (
 				3A5F5EA82013113500DB1967 /* SpinWheelControlDataSource.swift in Sources */,
 				3A5F5EA02013113500DB1967 /* PressableButton.swift in Sources */,
+				3A6B3F6E201477E3005C9FDA /* Card_Content.swift in Sources */,
 				3A5F5EA42013113500DB1967 /* GoogleIcon.swift in Sources */,
 				3AE2BBA62013120C00CBBA0E /* PunishmentViewController.swift in Sources */,
 				3A5F5EA92013113500DB1967 /* SpinWheelControlDelegate.swift in Sources */,

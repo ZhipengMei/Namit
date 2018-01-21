@@ -21,6 +21,7 @@ class CardVC: UIViewController, NSFetchedResultsControllerDelegate, GADBannerVie
     public var context: NSManagedObjectContext!
     var previous_index = 0
     var bannerView: GADBannerView!
+    let Card_Content_View = Bundle.main.loadNibNamed("Card_Content", owner: self, options: nil)?.first as! Card_Content
     
     // MARK: -
     //default for NSFetchedResultsController
@@ -109,7 +110,10 @@ class CardVC: UIViewController, NSFetchedResultsControllerDelegate, GADBannerVie
     var cardObj: [Cards] = []
     func show_next_card() {
         if cardCount > 0 && cardCount < (fetchedResultsController.fetchedObjects?.count)! {
-//            let indexPath = IndexPath(row: cardCount, section: 0)
+            //let indexPath = IndexPath(row: cardCount, section: 0)
+            if cardCount % 5 == 0 { //every other 5 card shows an ad
+                cardView.addSubview(Card_Content_View)
+            }
             card_label.text = cardObj[cardCount].name!
             cardCount += 1
         } else if cardCount == 0 || cardCount >= (fetchedResultsController.fetchedObjects?.count)! {
