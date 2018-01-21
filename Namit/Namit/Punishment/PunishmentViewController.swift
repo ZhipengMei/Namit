@@ -104,7 +104,6 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
         self.again_button.layer.cornerRadius = 8
         self.again_button.setTitle(GoogleIcon.icons()[1518], for: .normal)
 
-        
         //instantiate the UI control with a frame
         let frame = CGRect(x:0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
 

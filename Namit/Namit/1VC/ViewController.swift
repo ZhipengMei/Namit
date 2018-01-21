@@ -33,35 +33,46 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         play_button.setTitleColor(UIColor.white, for: .normal)
         play_button.colors = .init(button: color1, shadow: color2)
         //play_button.disabledColors = .init(button: color1, shadow: color1)
-        play_button.shadowHeight = 10
-        play_button.cornerRadius = 8
+//        play_button.shadowHeight = 10
+        play_button.cornerRadius = 0.5 * play_button.bounds.size.width
+        play_button.clipsToBounds = true
         play_button.depth = 0.5 // In percentage of shadowHeight
         
         rule_button.setTitleColor(UIColor.white, for: .normal)
         rule_button.color = color3
-        rule_button.highlightedColor = color3
-        rule_button.selectedColor = .blue
+//        rule_button.highlightedColor = color3
+//        rule_button.selectedColor = .blue
         rule_button.cornerRadius = 8
         
-        setting_button.setTitleColor(UIColor.white, for: .normal)
-        setting_button.color = color4
-        setting_button.highlightedColor = color4
-        setting_button.selectedColor = .blue
+        let white = UIColor(red: 148/255, green: 149/255, blue: 156/255, alpha: 1.0)
+        setting_button.setTitleColor(white, for: .normal)
+        setting_button.color = UIColor.clear
+//        setting_button.highlightedColor = color4
+//        setting_button.selectedColor = .blue
         setting_button.cornerRadius = 8
+        setting_button.setTitle(GoogleIcon.icons()[196], for: .normal)
         
         //Google Ads banner view
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         bannerView.frame = CGRect(x: 0.0,
-                                  y: UIApplication.shared.statusBarFrame.size.height,
+//                                  y: UIApplication.shared.statusBarFrame.size.height, //under the status bar
+                                  y: view.frame.size.height - bannerView.frame.height, //bottom of the view
                                   width: bannerView.frame.width,
                                   height: bannerView.frame.height)
         self.view.addSubview(bannerView)
-        bannerView.adUnitID = "ca-app-pub-5562078941559997/8772933204"
+//        bannerView.adUnitID = "ca-app-pub-5562078941559997/8772933204"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         let requestAd: GADRequest = GADRequest()
         requestAd.testDevices = [kGADSimulatorID]
+        
+        requestAd.testDevices = ["c5825252428348a3b99ab1e2919f0337" ]
+        
         bannerView.load(requestAd)
     }
+    
+    
 }
 
