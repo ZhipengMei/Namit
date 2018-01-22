@@ -33,12 +33,11 @@ class CardsTableViewController: UITableViewController, NSFetchedResultsControlle
         
         // title
         self.navigationItem.title = self.viewTitle!
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)]
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
+
         //set view background color
-        let bg_color = UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 0.5)
-        self.tableView.backgroundColor = bg_color
+        self.tableView.backgroundColor = UIColor(red: 19/255, green: 38/255, blue: 51/255, alpha: 1.0)
         
         //chage separatorColor
         let separatorColor = UIColor(red: 46/255, green: 48/255, blue: 48/255, alpha: 1.0)
@@ -83,7 +82,7 @@ class CardsTableViewController: UITableViewController, NSFetchedResultsControlle
         if row! == 0 {
             content = fetchedResultsController.object(at: indexPath) as! Cards
         } else {
-            content = fetchedResultsController.object(at: indexPath) as! Punishments
+            content = fetchedResultsController.object(at: indexPath) as! Penalties
         }
         
         
@@ -182,14 +181,14 @@ class CardsTableViewController: UITableViewController, NSFetchedResultsControlle
     //alert view for updating object
     func alerView(indexPath: IndexPath) {
         //1. Create the alert controller.
-        let alertController = UIAlertController(title: "Hint", message: "You have selected row \(indexPath.row).", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
         
         var fetchObject: Any
         
         if row! == 0 {
             fetchObject = fetchedResultsController.object(at: indexPath) as! Cards
         } else {
-            fetchObject = fetchedResultsController.object(at: indexPath) as! Punishments
+            fetchObject = fetchedResultsController.object(at: indexPath) as! Penalties
         }
         
         //2. Add the text field. You can configure it however you need.
@@ -208,7 +207,7 @@ class CardsTableViewController: UITableViewController, NSFetchedResultsControlle
             if self.row! == 0 {
                 (fetchObject as! Cards).name = textField?.text!
             } else {
-                (fetchObject as! Punishments).name = textField?.text!
+                (fetchObject as! Penalties).name = textField?.text!
             }
             
             do{
@@ -228,7 +227,13 @@ class CardsTableViewController: UITableViewController, NSFetchedResultsControlle
     @IBAction func addCard(_ sender: Any) {
         
         //1. Create the alert controller.
-        let addAlertController = UIAlertController(title: "Hint", message: "You have selected row.", preferredStyle: .alert)
+        var word:String
+        if self.row! == 0 {
+            word = "card"
+        }else{
+            word = "penalty"
+        }
+        let addAlertController = UIAlertController(title: "Add a new \(word)", message: "", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         addAlertController.addTextField { (textField) in
@@ -250,8 +255,8 @@ class CardsTableViewController: UITableViewController, NSFetchedResultsControlle
                 let newCard = NSManagedObject(entity: card_entity!, insertInto: context)
                 newCard.setValue(text!, forKey: "name")
             } else {
-                let punishments_entity = NSEntityDescription.entity(forEntityName: "Punishments", in: context)
-                let newCard = NSManagedObject(entity: punishments_entity!, insertInto: context)
+                let Penalties_entity = NSEntityDescription.entity(forEntityName: "Penalties", in: context)
+                let newCard = NSManagedObject(entity: Penalties_entity!, insertInto: context)
                 newCard.setValue(text!, forKey: "name")
             }
 

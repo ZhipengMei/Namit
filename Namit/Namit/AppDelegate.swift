@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let context = appDelegate.persistentContainer.viewContext
         
         // Punishments Entity
-        let punishments_entity = NSEntityDescription.entity(forEntityName: "Punishments", in: context)
+        let punishments_entity = NSEntityDescription.entity(forEntityName: "Penalties", in: context)
         
         let list = [
             "Exchange clothes with the person sitting on your left.",

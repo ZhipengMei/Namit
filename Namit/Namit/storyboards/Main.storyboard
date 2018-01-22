@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="4h0-I0-ple">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,11 +40,11 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ibx-xc-vUu" kind="modal" id="0bA-dx-IHd"/>
+                                    <segue destination="Sty-Qv-Sqe" kind="push" id="qxH-EE-aNB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-wI-6GQ">
-                                <rect key="frame" x="87" y="217" width="200" height="200"/>
+                                <rect key="frame" x="87" y="261" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Qby-Ge-Fsh"/>
                                 </constraints>
@@ -81,9 +81,7 @@
                             <constraint firstItem="lZQ-Y0-3HB" firstAttribute="bottom" secondItem="SBD-eq-ysB" secondAttribute="bottom" id="mdf-Vx-PlQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xNs-tk-gdU">
-                        <barButtonItem key="rightBarButtonItem" title="Instruction" id="EI0-88-nNu"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="xNs-tk-gdU"/>
                     <connections>
                         <outlet property="play_button" destination="bRi-wI-6GQ" id="jdB-3u-pJM"/>
                         <outlet property="play_view" destination="8bC-Xf-vdC" id="vLt-mF-AZz"/>
@@ -93,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.5" y="124.5"/>
+            <point key="canvasLocation" x="347.5" y="124.5"/>
         </scene>
         <!--RuleVC-->
         <scene sceneID="WMF-8f-tAW">
@@ -138,7 +136,7 @@ Losing:
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="CEe-Vi-F5X"/>
+                                    <segue destination="4h0-I0-ple" kind="modal" id="CEe-Vi-F5X"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -221,7 +219,7 @@ Losing:
                                 </state>
                                 <connections>
                                     <action selector="cancel_button_cation:" destination="32a-Os-w0y" eventType="touchUpInside" id="hHa-dR-4kn"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="Jrj-cU-7X7"/>
+                                    <segue destination="4h0-I0-ple" kind="modal" id="Jrj-cU-7X7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -355,17 +353,11 @@ Losing:
                             <outlet property="delegate" destination="Sty-Qv-Sqe" id="ngd-pN-S44"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="onn-kR-NU3">
-                        <barButtonItem key="rightBarButtonItem" title="X" style="done" id="e1Q-OP-uu4">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="modal" id="XkJ-6X-6Fj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="onn-kR-NU3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcL-iw-bd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1155" y="125"/>
+            <point key="canvasLocation" x="1366.5" y="124.5"/>
         </scene>
         <!--Cards Table View Controller-->
         <scene sceneID="HNe-1T-8YB">
@@ -416,33 +408,32 @@ Losing:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51i-5l-eNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="125"/>
+            <point key="canvasLocation" x="1927" y="125"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="UlW-Wd-Tqw">
+        <scene sceneID="naF-Tk-loz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ibx-xc-vUu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4h0-I0-ple" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="r15-qN-kJs"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hhQ-mO-d3P">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hlx-eh-Tuc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Sty-Qv-Sqe" kind="relationship" relationship="rootViewController" id="tSm-6s-wLu"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="D3e-UT-zEV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NpB-20-lH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5nX-lM-eUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="125"/>
+            <point key="canvasLocation" x="348" y="-725"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.gif" width="180" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CEe-Vi-F5X"/>
         <segue reference="RiF-eV-mF3"/>
-        <segue reference="Jrj-cU-7X7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,12 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.navigationBar.tintColor = UIColor.white;
+//        //change navigationBar tintColor
+//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 19/255, green: 38/255, blue: 51/255, alpha: 1.0)
+//        self.navigationController?.navigationBar.isTranslucent = true
+        
         //change UIview background
         let bg_color = UIColor(red: 19/255, green: 38/255, blue: 51/255, alpha: 1.0)
         self.play_view.backgroundColor = bg_color
@@ -79,6 +85,9 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         bannerView.load(requestAd)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
 }
 

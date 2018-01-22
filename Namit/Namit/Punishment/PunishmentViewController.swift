@@ -42,7 +42,7 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
     // MARK: -
     //default for NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Punishments")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Penalties")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -145,7 +145,7 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
         print("Value changed to " + String(self.spinWheelControl.selectedIndex))
         
         let curIndexPath = IndexPath(row: self.spinWheelControl.selectedIndex, section: 0)
-        let card = self.fetchedResultsController.object(at: curIndexPath) as! Punishments
+        let card = self.fetchedResultsController.object(at: curIndexPath) as! Penalties
         self.punishment_label.text = card.name!
 
         self.label_view.alpha = 1

@@ -11,15 +11,17 @@ import UIKit
 class ParentTableViewController: UITableViewController {
     
     let sectionLabel = ["Content"]
-    let contentLabel = [["Cards", "Punishments"]]
-
+    let contentLabel = [["Cards", "Penalties"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // title
         self.navigationItem.title = "Settings"
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)]
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        UINavigationBar.appearance().tintColor = UIColor.white
+
         
         //chage separatorColor
         let separatorColor = UIColor(red: 46/255, green: 48/255, blue: 48/255, alpha: 1.0)
@@ -133,7 +135,7 @@ class ParentTableViewController: UITableViewController {
                 break
 
             case 1:
-                controller.viewTitle = "Punishments"
+                controller.viewTitle = "Penalties"
                 break
 
             default:

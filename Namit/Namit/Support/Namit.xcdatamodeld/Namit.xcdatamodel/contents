@@ -3,11 +3,11 @@
     <entity name="Cards" representedClassName="Cards" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Punishments" representedClassName="Punishments" syncable="YES" codeGenerationType="class">
+    <entity name="Penalties" representedClassName="Penalties" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Cards" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="Punishments" positionX="-54" positionY="0" width="128" height="60"/>
+        <element name="Penalties" positionX="-54" positionY="0" width="128" height="60"/>
     </elements>
 </model>
