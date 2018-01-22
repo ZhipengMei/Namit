@@ -21,21 +21,21 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
     @IBOutlet weak var again_button: UIButton!
     var bannerView: GADBannerView!
     
-    let c1 = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1.0)
-    let c2 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
-    let c3 = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0)
-    let c4 = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
-    let c5 = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1.0)
-    let c6 = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-    let c7 = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 1.0)
-    let c8 = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1.0)
-    
-    let c9 = UIColor(red: 248/255, green: 194/255, blue: 215/255, alpha: 1.0)
-    let c10 = UIColor(red: 120/255, green: 172/255, blue: 232/255, alpha: 1.0)
-    let c11 = UIColor(red: 206/255, green: 214/255, blue: 226/255, alpha: 1.0)
-    let c12 = UIColor(red: 212/255, green: 133/255, blue: 245/255, alpha: 1.0)
-    let c13 = UIColor(red: 136/255, green: 225/255, blue: 122/255, alpha: 1.0)
-    let c14 = UIColor(red: 243/255, green: 87/255, blue: 109/255, alpha: 1.0)
+//    let c1 = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1.0)
+//    let c2 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
+//    let c3 = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0)
+//    let c4 = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
+//    let c5 = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1.0)
+//    let c6 = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+//    let c7 = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 1.0)
+//    let c8 = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1.0)
+//
+//    let c9 = UIColor(red: 248/255, green: 194/255, blue: 215/255, alpha: 1.0)
+//    let c10 = UIColor(red: 120/255, green: 172/255, blue: 232/255, alpha: 1.0)
+//    let c11 = UIColor(red: 206/255, green: 214/255, blue: 226/255, alpha: 1.0)
+//    let c12 = UIColor(red: 212/255, green: 133/255, blue: 245/255, alpha: 1.0)
+//    let c13 = UIColor(red: 136/255, green: 225/255, blue: 122/255, alpha: 1.0)
+//    let c14 = UIColor(red: 243/255, green: 87/255, blue: 109/255, alpha: 1.0)
     
     var colorPalette: [UIColor] = []
 
@@ -58,7 +58,8 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
         let wedge = SpinWheelWedge()
 
         wedge.shape.fillColor = colorPalette[Int(index)].cgColor
-        wedge.label.text = " " + String(index)
+        wedge.label.text = String(index)
+//        wedge.label.transform = CGAffineTransform(rotationAngle: CGFloat(index) + -CGFloat.pi / 2)
         
         return wedge
     }
@@ -76,7 +77,9 @@ class PunishmentViewController: UIViewController,SpinWheelControlDataSource, Spi
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
         
-        colorPalette = [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14]
+//        colorPalette = [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14]
+        let c = UIColor.clear
+        colorPalette = [c,c,c,c,c,c,c,c,c,c,c,c,c,c]
         
         // A UIImageView with async loading
         down_arrow_image.loadGif(name: "arrow")

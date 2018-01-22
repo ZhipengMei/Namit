@@ -11,8 +11,8 @@ import GoogleMobileAds
 
 class ViewController: UIViewController, GADBannerViewDelegate {
 
-    @IBOutlet weak var play_button: PressableButton!
-    @IBOutlet weak var rule_button: FlatButton!
+    @IBOutlet weak var play_button: UIButton!
+    @IBOutlet weak var rule_button: UIButton!
     @IBOutlet var play_view: UIView!
     @IBOutlet weak var setting_button: UIButton!
     
@@ -26,28 +26,32 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         self.play_view.backgroundColor = bg_color
         
         let color1 = UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)
-        let color2 = UIColor(red: 196/255, green: 55/255, blue: 48/255, alpha: 1.0)
-        let color3 = UIColor(red: 117/255, green: 145/255, blue: 247/255, alpha: 1.0)
+//        let color2 = UIColor(red: 196/255, green: 55/255, blue: 48/255, alpha: 1.0)
+//        let color3 = UIColor(red: 117/255, green: 145/255, blue: 247/255, alpha: 1.0)
 //        let color4 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
         
-        play_button.setTitleColor(UIColor.white, for: .normal)
-        play_button.colors = .init(button: color1, shadow: color2)
-        //play_button.disabledColors = .init(button: color1, shadow: color1)
-//        play_button.shadowHeight = 10
-        play_button.cornerRadius = 0.5 * play_button.bounds.size.width
+        //customize play button
         play_button.clipsToBounds = true
+        play_button.layer.borderWidth = 5.0
+        play_button.layer.borderColor = color1.cgColor
+        play_button.layer.cornerRadius = 0.5 * play_button.bounds.size.width
+        play_button.setTitleColor(UIColor.white, for: .normal)
+        //kerning play_button's title
+        let attributedString = NSMutableAttributedString(string: "PLAY")
+        attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
+        play_button.titleLabel?.attributedText = attributedString
 
-        play_button.depth = 0.5 // In percentage of shadowHeight
-        play_button.layer.borderWidth = 1.0
-        play_button.layer.borderColor = UIColor.blue.cgColor
-//        play_button.layer
-        play_button.layer.cornerRadius = 5.0
-        
+        //customize rule button
+        //rule_button.clipsToBounds = true
+        rule_button.layer.borderWidth = 3.0
+        rule_button.layer.borderColor = UIColor.white.cgColor
+        rule_button.layer.cornerRadius = 5
         rule_button.setTitleColor(UIColor.white, for: .normal)
-        rule_button.color = color3
-//        rule_button.highlightedColor = color3
-//        rule_button.selectedColor = .blue
-        rule_button.cornerRadius = 8
+        let rule_attributedString = NSMutableAttributedString(string: "RULES")
+        rule_attributedString.addAttribute(NSAttributedStringKey.kern, value: 3, range: NSRange(location: 0, length: rule_attributedString.length - 1))
+        rule_button.titleLabel?.attributedText = rule_attributedString
+
+        
         
         let white = UIColor(red: 148/255, green: 149/255, blue: 156/255, alpha: 1.0)
         setting_button.setTitleColor(white, for: .normal)

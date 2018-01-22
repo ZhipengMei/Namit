@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,41 +28,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBD-eq-ysB" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
-                                <rect key="frame" x="279" y="563" width="80" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Rule">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Dg4-t5-Qdz" kind="modal" id="9cF-Qb-AjL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-Y0-3HB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-Y0-3HB">
                                 <rect key="frame" x="16" y="563" width="80" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="GcN-Zd-WX0"/>
+                                    <constraint firstAttribute="height" constant="36" id="jzo-en-KCN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="googleicon" family="googleicon" pointSize="30"/>
-                                <state key="normal" title="Setting">
+                                <state key="normal" title="s">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="Ibx-xc-vUu" kind="modal" id="0bA-dx-IHd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-wI-6GQ" customClass="PressableButton" customModule="Namit" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-wI-6GQ">
                                 <rect key="frame" x="87" y="217" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Qby-Ge-Fsh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="PLAY"/>
                                 <connections>
                                     <segue destination="32a-Os-w0y" kind="modal" id="RiF-eV-mF3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBD-eq-ysB">
+                                <rect key="frame" x="269" y="559" width="90" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="J0O-9E-aXm"/>
+                                    <constraint firstAttribute="width" constant="90" id="sIK-4r-U6J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="RULES">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Dg4-t5-Qdz" kind="modal" id="9cF-Qb-AjL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c0F-bI-SAW" firstAttribute="top" secondItem="lZQ-Y0-3HB" secondAttribute="bottom" constant="68" id="4bZ-F7-CpS"/>
+                            <constraint firstItem="lZQ-Y0-3HB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Cs6-P2-E3n"/>
+                            <constraint firstItem="SBD-eq-ysB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Hhz-cd-hKd"/>
+                            <constraint firstItem="bRi-wI-6GQ" firstAttribute="top" secondItem="fEu-uj-wGo" secondAttribute="bottom" constant="197" id="J3G-lT-rmZ"/>
+                            <constraint firstItem="bRi-wI-6GQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="RGT-x8-bGS"/>
+                            <constraint firstItem="bRi-wI-6GQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gpD-Of-rrr"/>
+                            <constraint firstItem="lZQ-Y0-3HB" firstAttribute="bottom" secondItem="SBD-eq-ysB" secondAttribute="bottom" id="mdf-Vx-PlQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xNs-tk-gdU">
                         <barButtonItem key="rightBarButtonItem" title="Instruction" id="EI0-88-nNu"/>
@@ -151,7 +169,7 @@ Losing:
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grj-Lz-7o9">
-                                <rect key="frame" x="44" y="133" width="287" height="400"/>
+                                <rect key="frame" x="44" y="96" width="287" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSz-NC-o4R">
@@ -169,23 +187,13 @@ Losing:
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDX-OL-x2i">
-                                <rect key="frame" x="44" y="133" width="287" height="400"/>
+                                <rect key="frame" x="44" y="96" width="287" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.31205758449999998" green="0.58982783559999996" blue="0.99928563829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-n6-eaj" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
-                                <rect key="frame" x="329" y="20" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancel_button_cation:" destination="32a-Os-w0y" eventType="touchUpInside" id="hHa-dR-4kn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd9-uc-Vpg">
-                                <rect key="frame" x="16" y="541" width="107" height="39"/>
+                                <rect key="frame" x="134" y="541" width="107" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Punishment">
@@ -196,13 +204,24 @@ Losing:
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvL-BR-prq" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
-                                <rect key="frame" x="329" y="95" width="30" height="30"/>
+                                <rect key="frame" x="329" y="58" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="close_Ad:" destination="32a-Os-w0y" eventType="touchUpInside" id="fFp-H8-yQY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-n6-eaj" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
+                                <rect key="frame" x="6" y="28" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;- BACK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel_button_cation:" destination="32a-Os-w0y" eventType="touchUpInside" id="hHa-dR-4kn"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="Jrj-cU-7X7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -423,8 +442,7 @@ Losing:
         <image name="arrow.gif" width="180" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w9V-nu-zhs"/>
-        <segue reference="4TU-Gf-SO9"/>
-        <segue reference="CEe-Vi-F5X"/>
+        <segue reference="RiF-eV-mF3"/>
+        <segue reference="Jrj-cU-7X7"/>
     </inferredMetricsTieBreakers>
 </document>

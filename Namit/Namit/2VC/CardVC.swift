@@ -67,9 +67,7 @@ GADNativeContentAdLoaderDelegate, GADVideoControllerDelegate {
         let indexPath = IndexPath(row: previous_index, section: 0)
         let card = fetchedResultsController.object(at: indexPath) as! Cards
         card_label.textColor = UIColor.white
-
-        self.punishment_button.layer.cornerRadius = 10
-        self.punishment_button.backgroundColor = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 0.5)
+        
 
         self.cardView.layer.cornerRadius = 10
         self.cardView.backgroundColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.00)
@@ -81,6 +79,17 @@ GADNativeContentAdLoaderDelegate, GADVideoControllerDelegate {
         cancel_button.highlightedColor = color
         cancel_button.selectedColor = .blue
         cancel_button.cornerRadius = 8
+        
+        //customize rule button
+        //rule_button.clipsToBounds = true
+        punishment_button.layer.borderWidth = 3.0
+        punishment_button.layer.borderColor = UIColor.white.cgColor
+        punishment_button.layer.cornerRadius = 5
+        punishment_button.setTitleColor(UIColor.white, for: .normal)
+        punishment_button.backgroundColor = UIColor.clear
+        let punishment_attributedString = NSMutableAttributedString(string: "PUNISHMENT")
+        punishment_attributedString.addAttribute(NSAttributedStringKey.kern, value: 3, range: NSRange(location: 0, length: punishment_attributedString.length - 1))
+        punishment_button.titleLabel?.attributedText = punishment_attributedString
         
         // Mark Google Ads banner view
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
@@ -140,7 +149,6 @@ GADNativeContentAdLoaderDelegate, GADVideoControllerDelegate {
     
     @IBAction func cancel_button_cation(_ sender: Any) {
         cardCount = 0
-        dismiss(animated: true, completion: nil)
     }
     
 //    func fadein_effect() {
