@@ -28,7 +28,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         let color1 = UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)
         let color2 = UIColor(red: 196/255, green: 55/255, blue: 48/255, alpha: 1.0)
         let color3 = UIColor(red: 117/255, green: 145/255, blue: 247/255, alpha: 1.0)
-        let color4 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
+//        let color4 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
         
         play_button.setTitleColor(UIColor.white, for: .normal)
         play_button.colors = .init(button: color1, shadow: color2)

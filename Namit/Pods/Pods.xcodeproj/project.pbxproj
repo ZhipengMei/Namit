@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,9 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02947AF7018773F23D7CE4D1B57F86D5 /* Pods_NamitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NamitTests.framework; path = "Pods-NamitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		02947AF7018773F23D7CE4D1B57F86D5 /* Pods_NamitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7D19E7F878FA6518BEF335A7209B43 /* Pods-NamitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitTests.release.xcconfig"; sourceTree = "<group>"; };
-		231772B03B7D39E1821F622BD3AF540D /* Pods-NamitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NamitUITests.modulemap"; sourceTree = "<group>"; };
+		231772B03B7D39E1821F622BD3AF540D /* Pods-NamitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NamitUITests.modulemap"; sourceTree = "<group>"; };
 		28A58475A07D56E9D0ED675120CEACE7 /* Pods-NamitUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NamitUITests-dummy.m"; sourceTree = "<group>"; };
 		3887B05B575B990D1217D12079A7C2BC /* Pods-NamitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitTests-frameworks.sh"; sourceTree = "<group>"; };
 		3C7BD3BDD0FF3D060452EE9733062C1E /* Pods-Namit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Namit-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -29,20 +29,20 @@
 		41D6464756EB59144CA9CDC98667377F /* Pods-NamitTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitTests-resources.sh"; sourceTree = "<group>"; };
 		52F0730A108F2628B8A4300E9DA0FACB /* Pods-NamitUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NamitUITests-umbrella.h"; sourceTree = "<group>"; };
 		53ADC27E6158705BA2D1EF85B8D1ABA8 /* Pods-Namit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Namit-resources.sh"; sourceTree = "<group>"; };
-		5CAB8059FEE5FCB3DDAFA3454639EDDC /* Pods-NamitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NamitTests.modulemap"; sourceTree = "<group>"; };
+		5CAB8059FEE5FCB3DDAFA3454639EDDC /* Pods-NamitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NamitTests.modulemap"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		689906CBAAAD48C287BBBC4C19D40151 /* Pods-NamitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NamitTests-dummy.m"; sourceTree = "<group>"; };
-		6BF8324872F4DB8A1AF09855D147F763 /* Pods-Namit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Namit.modulemap"; sourceTree = "<group>"; };
+		6BF8324872F4DB8A1AF09855D147F763 /* Pods-Namit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Namit.modulemap"; sourceTree = "<group>"; };
 		6DAB4F05C282E2C5BADC387AEBF84AEE /* Pods-Namit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Namit-umbrella.h"; sourceTree = "<group>"; };
 		85AEC31EB680E46F588F5819B132E244 /* Pods-Namit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Namit-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2A90B79B02DBB4A5568044E936D815B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3637BDFF788CDB1657D842F3866CA0D /* Pods_Namit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Namit.framework; path = "Pods-Namit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3637BDFF788CDB1657D842F3866CA0D /* Pods_Namit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Namit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58C29F492A82ECF630555DBBE8936D4 /* Pods-NamitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A91275866553AF798E4BBBCDEA482CC7 /* Pods-Namit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Namit-dummy.m"; sourceTree = "<group>"; };
 		AAEB7DB58FE6C87F96CB2E2C15F80372 /* Pods-NamitUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NamitUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		B4760ADC42977D13D25E051191B8B4C2 /* Pods-NamitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NamitTests-umbrella.h"; sourceTree = "<group>"; };
-		B75D1142D9F07B1AD3D598064FF2B7DA /* Pods_NamitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NamitUITests.framework; path = "Pods-NamitUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75D1142D9F07B1AD3D598064FF2B7DA /* Pods_NamitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B96C6FE478A1D4AE1C8DDB5BA402B5 /* Pods-NamitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NamitTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C2D8FD867D0C06225A0A2CDD7F7C1D06 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C34018E1743B7C34ECEE578274D551D6 /* Pods-NamitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NamitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -331,7 +331,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -339,15 +341,21 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -523,7 +531,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -531,14 +541,20 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",

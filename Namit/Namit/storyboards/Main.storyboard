@@ -168,6 +168,12 @@ Losing:
                                     <outletCollection property="gestureRecognizers" destination="iY4-s7-XAX" appends="YES" id="vds-Cf-aMR"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDX-OL-x2i">
+                                <rect key="frame" x="44" y="133" width="287" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.31205758449999998" green="0.58982783559999996" blue="0.99928563829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-n6-eaj" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
                                 <rect key="frame" x="329" y="20" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -189,6 +195,16 @@ Losing:
                                     <segue destination="DeW-ZT-FbX" kind="modal" id="w9V-nu-zhs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvL-BR-prq" customClass="FlatButton" customModule="Namit" customModuleProvider="target">
+                                <rect key="frame" x="329" y="95" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="close_Ad:" destination="32a-Os-w0y" eventType="touchUpInside" id="fFp-H8-yQY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8996838976" green="0.94351074400000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -198,6 +214,8 @@ Losing:
                         <outlet property="cardView" destination="grj-Lz-7o9" id="NQh-lj-SVg"/>
                         <outlet property="card_label" destination="hSz-NC-o4R" id="vrd-dB-e3M"/>
                         <outlet property="card_vc_view" destination="1kj-m8-ld4" id="XXi-hE-FI1"/>
+                        <outlet property="closeAd_button" destination="nvL-BR-prq" id="Vtb-8c-u0r"/>
+                        <outlet property="nativeAdPlaceholder" destination="pDX-OL-x2i" id="VbA-Da-hWH"/>
                         <outlet property="punishment_button" destination="Hd9-uc-Vpg" id="N5w-NU-uen"/>
                     </connections>
                 </viewController>
