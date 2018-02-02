@@ -15,6 +15,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var rule_button: UIButton!
     @IBOutlet var play_view: UIView!
     @IBOutlet weak var setting_button: UIButton!
+    @IBOutlet weak var play_label: UILabel!
     
     var bannerView: GADBannerView!
     
@@ -22,19 +23,20 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
-//        self.navigationController?.navigationBar.tintColor = UIColor.white;
-//        //change navigationBar tintColor
-//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 19/255, green: 38/255, blue: 51/255, alpha: 1.0)
-//        self.navigationController?.navigationBar.isTranslucent = true
+        
+        //customize play button
+        self.play_label.clipsToBounds = true
+        self.play_label.layer.borderWidth = 5.0
+        let color1 = UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)
+        self.play_label.layer.borderColor = color1.cgColor
+        self.play_label.layer.cornerRadius = 0.5 * self.play_label.bounds.size.width
+        self.play_label.textColor = UIColor.white
         
         //change UIview background
         let bg_color = UIColor(red: 19/255, green: 38/255, blue: 51/255, alpha: 1.0)
         self.play_view.backgroundColor = bg_color
         
-        let color1 = UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)
-//        let color2 = UIColor(red: 196/255, green: 55/255, blue: 48/255, alpha: 1.0)
-//        let color3 = UIColor(red: 117/255, green: 145/255, blue: 247/255, alpha: 1.0)
-//        let color4 = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1.0)
+//        let color1 = UIColor(red: 236/255, green: 74/255, blue: 66/255, alpha: 1.0)
         
         //customize play button
         play_button.clipsToBounds = true
@@ -57,7 +59,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         rule_attributedString.addAttribute(NSAttributedStringKey.kern, value: 3, range: NSRange(location: 0, length: rule_attributedString.length - 1))
         rule_button.titleLabel?.attributedText = rule_attributedString
 
-        
+        play_label.isHidden = true
         
         let white = UIColor(red: 148/255, green: 149/255, blue: 156/255, alpha: 1.0)
         setting_button.setTitleColor(white, for: .normal)
@@ -87,7 +89,39 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        
+        self.play_button.isHidden = false
     }
+    
+    @IBAction func play_action(_ sender: Any) {
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            
+            self.play_label.isHidden = false
+            self.play_button.isHidden = true
+            self.play_label.text = "3"
+            self.play_label.alpha = 0.99
+            
+        }, completion: {
+            (finished: Bool) -> Void in
+            
+            //Once the label is completely invisible, set the text and fade it back in
+            self.play_label.text = "2"
+            
+            // Fade in
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                self.play_label.alpha = 1.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                    self.play_label.alpha = 0.99
+                    self.play_label.text = "1"
+                    UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                        self.play_label.alpha = 1.0
+                    }, completion: nil)
+            })
+        })
+    }
+    
     
 }
 

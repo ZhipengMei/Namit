@@ -51,7 +51,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="PLAY"/>
                                 <connections>
-                                    <segue destination="32a-Os-w0y" kind="modal" id="RiF-eV-mF3"/>
+                                    <action selector="play_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HsW-vc-Oyx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBD-eq-ysB">
@@ -69,21 +69,32 @@
                                     <segue destination="Dg4-t5-Qdz" kind="modal" id="9cF-Qb-AjL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqK-7q-tqb">
+                                <rect key="frame" x="87" y="261" width="200" height="200"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="c0F-bI-SAW" firstAttribute="top" secondItem="lZQ-Y0-3HB" secondAttribute="bottom" constant="68" id="4bZ-F7-CpS"/>
+                            <constraint firstItem="WqK-7q-tqb" firstAttribute="leading" secondItem="bRi-wI-6GQ" secondAttribute="leading" id="5yH-7I-Bc0"/>
                             <constraint firstItem="lZQ-Y0-3HB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Cs6-P2-E3n"/>
+                            <constraint firstItem="WqK-7q-tqb" firstAttribute="top" secondItem="bRi-wI-6GQ" secondAttribute="top" id="HAt-bX-18g"/>
                             <constraint firstItem="SBD-eq-ysB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Hhz-cd-hKd"/>
                             <constraint firstItem="bRi-wI-6GQ" firstAttribute="top" secondItem="fEu-uj-wGo" secondAttribute="bottom" constant="197" id="J3G-lT-rmZ"/>
                             <constraint firstItem="bRi-wI-6GQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="RGT-x8-bGS"/>
+                            <constraint firstItem="WqK-7q-tqb" firstAttribute="bottom" secondItem="bRi-wI-6GQ" secondAttribute="bottom" id="VkG-4g-4wY"/>
                             <constraint firstItem="bRi-wI-6GQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gpD-Of-rrr"/>
                             <constraint firstItem="lZQ-Y0-3HB" firstAttribute="bottom" secondItem="SBD-eq-ysB" secondAttribute="bottom" id="mdf-Vx-PlQ"/>
+                            <constraint firstItem="WqK-7q-tqb" firstAttribute="trailing" secondItem="bRi-wI-6GQ" secondAttribute="trailing" id="v9m-vg-oE0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xNs-tk-gdU"/>
                     <connections>
                         <outlet property="play_button" destination="bRi-wI-6GQ" id="jdB-3u-pJM"/>
+                        <outlet property="play_label" destination="WqK-7q-tqb" id="H7s-fS-hn1"/>
                         <outlet property="play_view" destination="8bC-Xf-vdC" id="vLt-mF-AZz"/>
                         <outlet property="rule_button" destination="SBD-eq-ysB" id="eH2-J0-IKp"/>
                         <outlet property="setting_button" destination="lZQ-Y0-3HB" id="pTe-hP-jna"/>
@@ -157,7 +168,7 @@ Losing:
         <!--CardVC-->
         <scene sceneID="YCO-by-aFE">
             <objects>
-                <viewController id="32a-Os-w0y" customClass="CardVC" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardVC" id="32a-Os-w0y" customClass="CardVC" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H48-Gq-PTV"/>
                         <viewControllerLayoutGuide type="bottom" id="R9a-12-PXO"/>
@@ -433,7 +444,7 @@ Losing:
         <image name="arrow.gif" width="180" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CEe-Vi-F5X"/>
-        <segue reference="RiF-eV-mF3"/>
+        <segue reference="w9V-nu-zhs"/>
+        <segue reference="Jrj-cU-7X7"/>
     </inferredMetricsTieBreakers>
 </document>
