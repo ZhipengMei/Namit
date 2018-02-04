@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Namit
 //
-//  Created by Adrian on 1/19/18.
-//  Copyright © 2018 Zhipeng. All rights reserved.
+//  Created by Adrian on 2/2/18.
+//  Copyright © 2018 Mei. All rights reserved.
 //
 
 import UIKit
@@ -17,109 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //set coredata at first launch
-        if(!UserDefaults.standard.bool(forKey: "firstlaunch1.0")){
-            //Put any code here and it will be executed only once.
-            
-            reset_default_punishments()
-            
-            print("Is a first launch")
-            UserDefaults.standard.set(true, forKey: "firstlaunch1.0")
-            UserDefaults.standard.synchronize();
+        
+        // get appearance object
+        let navigationAppearance = UINavigationBar.appearance()
+        
+        // change color of navigation bar background
+        navigationAppearance.barTintColor = UIColor.red
+        
+        // change color of navigation bar items (buttons)
+        navigationAppearance.tintColor = UIColor.white
+        
+        // change color of navigation bar title
+        navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];
+        
+        // programmatically adding Navigation Controller to "Home Page"
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let home_vc = storyboard.instantiateViewController(withIdentifier: "home") as UIViewController
+        let navigationController = UINavigationController(rootViewController: home_vc)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if let window = window {
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
         }
+
+        
         return true
-    }
-    
-    //reset device's core data
-    func reset_default_punishments() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        // Punishments Entity
-        let punishments_entity = NSEntityDescription.entity(forEntityName: "Penalties", in: context)
-        
-        let list = [
-            "Exchange clothes with the person sitting on your left.",
-            "Wear your swimming suit and pretend you are swimming.",
-            "Lick your elbow while singing an alphabet.",
-            "Let others do your hair.",
-            "Go outside on the street and hold the sign “Honk if I’m cute”.",
-            "Eat 1 teaspoon of mustard.",
-            "Go make snacks for everybody.",
-            "Build a tower as tall as you are using whatever is in the room.",
-            "Wear socks on your hands, pants instead of shirt and shirt instead of pants.",
-            "Gargle a song. Fill your mouth with water and try singing a song.",
-            "Sit on the lap of the person on your left for entire game.",
-            "Brush your teeth in front of everyone while dancing.",
-            "Give piggy back rides to everybody.",
-            "Imitate a monkey as best you can.",
-            "Go outside and scream on top of your lungs.",
-            "Act like a dog and get petted by everyone.",
-            "Make up a story about the item to your right.",
-            "Make a poem using the words orange and moose.",
-            "Dance like crazy.",
-            "Draw a mustache and keep it until the end of the game.",
-            "Draw a picture using your toes.",
-            "Smell everybody’s feet and find ‘the winner’.",
-            "Wrap yourself in toilet paper and take a selfie.",
-            "Let others paint on your face.",
-            "Go and call the neighbor to play the game."]
-        
-        //Save Core Data
-        for item in list {
-            let newCard = NSManagedObject(entity: punishments_entity!, insertInto: context)
-            newCard.setValue(item, forKey: "name")
-        }
-        do {
-            try context.save()
-            print("Punishments entity saved")
-        } catch {
-            print("Failed saving")
-        }
-        
-        
-        // Cards Entity
-        let card_entity = NSEntityDescription.entity(forEntityName: "Cards", in: context)
-        
-        let wordbank:[String] = ["Fruits",
-                                 "Car brands",
-                                 "South-American countries",
-                                 "European countries",
-                                 "Asian countries",
-                                 "African countries",
-                                 "NBA teams",
-                                 "MLB teams",
-                                 "NFL teams",
-                                 "Animals (A-L)",
-                                 "Animals (M-Z)",
-                                 "Cities in Africa",
-                                 "Presidents of the United States",
-                                 "Dog breeds",
-                                 "Olympic sports",
-                                 "Vegetables",
-                                 "Fish",
-                                 "Beer brands",
-                                 "Vodka brands",
-                                 "Tequila brands",
-                                 "Soda brands",
-                                 "Solar System Planets (8)",
-                                 "Animated movies",
-                                 "Capitals of the 50 states (State + Capital)"]
-        
-        //Save Core Data
-        for item in wordbank {
-            let newCard = NSManagedObject(entity: card_entity!, insertInto: context)
-            newCard.setValue(item, forKey: "name")
-        }
-        do {
-            try context.save()
-            print("Cards entity saved")
-        } catch {
-            print("Failed saving")
-        }
-        
-        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

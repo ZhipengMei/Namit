@@ -7,339 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A5F5E5920130FE400DB1967 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E5820130FE400DB1967 /* AppDelegate.swift */; };
-		3A5F5E6120130FE400DB1967 /* Namit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E5F20130FE400DB1967 /* Namit.xcdatamodeld */; };
-		3A5F5E6320130FE400DB1967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5E6220130FE400DB1967 /* Assets.xcassets */; };
-		3A5F5E6620130FE400DB1967 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5E6420130FE400DB1967 /* LaunchScreen.storyboard */; };
-		3A5F5E7120130FE500DB1967 /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E7020130FE500DB1967 /* NamitTests.swift */; };
-		3A5F5E7C20130FE500DB1967 /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E7B20130FE500DB1967 /* NamitUITests.swift */; };
-		3A5F5E9F2013113500DB1967 /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E8D2013113500DB1967 /* FlatButton.swift */; };
-		3A5F5EA02013113500DB1967 /* PressableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E8E2013113500DB1967 /* PressableButton.swift */; };
-		3A5F5EA12013113500DB1967 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E8F2013113500DB1967 /* Utils.swift */; };
-		3A5F5EA22013113500DB1967 /* arrow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5E912013113500DB1967 /* arrow.gif */; };
-		3A5F5EA32013113500DB1967 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E922013113500DB1967 /* UIImage+Gif.swift */; };
-		3A5F5EA42013113500DB1967 /* GoogleIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E932013113500DB1967 /* GoogleIcon.swift */; };
-		3A5F5EA52013113500DB1967 /* googleicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5E952013113500DB1967 /* googleicon.ttf */; };
-		3A5F5EA62013113500DB1967 /* Degrees+MathMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E972013113500DB1967 /* Degrees+MathMethods.swift */; };
-		3A5F5EA72013113500DB1967 /* SpinWheelControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E992013113500DB1967 /* SpinWheelControl.swift */; };
-		3A5F5EA82013113500DB1967 /* SpinWheelControlDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9A2013113500DB1967 /* SpinWheelControlDataSource.swift */; };
-		3A5F5EA92013113500DB1967 /* SpinWheelControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9B2013113500DB1967 /* SpinWheelControlDelegate.swift */; };
-		3A5F5EAA2013113500DB1967 /* SpinWheelWedge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9C2013113500DB1967 /* SpinWheelWedge.swift */; };
-		3A5F5EAB2013113500DB1967 /* SpinWheelWedgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */; };
-		3A5F5EAC2013113500DB1967 /* SpinWheelWedgeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */; };
-		3A6B3F5F20131F2D005C9FDA /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */; };
-		3AAE00A22015AE4900B18E82 /* NativeContentAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAE00A02015AE4900B18E82 /* NativeContentAdView.xib */; };
-		3AAE00A32015AE4900B18E82 /* NativeAppInstallAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAE00A12015AE4900B18E82 /* NativeAppInstallAdView.xib */; };
-		3AE2BBA02013120C00CBBA0E /* ruleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB962013120C00CBBA0E /* ruleVC.swift */; };
-		3AE2BBA12013120C00CBBA0E /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */; };
-		3AE2BBA22013120C00CBBA0E /* ParentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB992013120C00CBBA0E /* ParentTableViewController.swift */; };
-		3AE2BBA32013120C00CBBA0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB9A2013120C00CBBA0E /* ViewController.swift */; };
-		3AE2BBA42013120C00CBBA0E /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB9C2013120C00CBBA0E /* CardVC.swift */; };
-		3AE2BBA52013120C00CBBA0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2BB9D2013120C00CBBA0E /* Main.storyboard */; };
-		3AE2BBA62013120C00CBBA0E /* PunishmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BB9F2013120C00CBBA0E /* PunishmentViewController.swift */; };
-		5E7762F4F510A61B984F21D2 /* Pods_NamitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4B7D20B439583A3D8D6AF1 /* Pods_NamitTests.framework */; };
-		6A22394B2E84C06BDE70AE3C /* Pods_NamitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDF6214C4E4603B8D1B9621 /* Pods_NamitUITests.framework */; };
-		B7026CFCD882981DC1FD16E5 /* Pods_Namit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EA080FFDC546E813FE62DF /* Pods_Namit.framework */; };
+		3A3103C52026833700253DE8 /* playVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3103C42026833700253DE8 /* playVC.swift */; };
+		3A3FF21C20267FBC00707BEF /* ruleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FF21B20267FBC00707BEF /* ruleVC.swift */; };
+		3A5A475B20259D5E004FE06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A475A20259D5E004FE06D /* AppDelegate.swift */; };
+		3A5A475D20259D5E004FE06D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A475C20259D5E004FE06D /* ViewController.swift */; };
+		3A5A476020259D5E004FE06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A475E20259D5E004FE06D /* Main.storyboard */; };
+		3A5A476320259D5E004FE06D /* Namit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A476120259D5E004FE06D /* Namit.xcdatamodeld */; };
+		3A5A476520259D5E004FE06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A476420259D5E004FE06D /* Assets.xcassets */; };
+		3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A476620259D5E004FE06D /* LaunchScreen.storyboard */; };
+		3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477220259D5E004FE06D /* NamitTests.swift */; };
+		3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477D20259D5E004FE06D /* NamitUITests.swift */; };
+		3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A478B2025A47A004FE06D /* settingVC.swift */; };
+		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3A5F5E6D20130FE500DB1967 /* PBXContainerItemProxy */ = {
+		3A5A476F20259D5E004FE06D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3A5F5E4D20130FE400DB1967 /* Project object */;
+			containerPortal = 3A5A474F20259D5E004FE06D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3A5F5E5420130FE400DB1967;
+			remoteGlobalIDString = 3A5A475620259D5E004FE06D;
 			remoteInfo = Namit;
 		};
-		3A5F5E7820130FE500DB1967 /* PBXContainerItemProxy */ = {
+		3A5A477A20259D5E004FE06D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3A5F5E4D20130FE400DB1967 /* Project object */;
+			containerPortal = 3A5A474F20259D5E004FE06D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3A5F5E5420130FE400DB1967;
+			remoteGlobalIDString = 3A5A475620259D5E004FE06D;
 			remoteInfo = Namit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B880309CCAD6DFA3422C458 /* Pods-NamitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1D4B7D20B439583A3D8D6AF1 /* Pods_NamitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		22FAE29ADD8E32EEBB6B320C /* Pods-Namit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Namit/Pods-Namit.release.xcconfig"; sourceTree = "<group>"; };
-		3A5F5E5520130FE400DB1967 /* Namit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Namit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5F5E5820130FE400DB1967 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A5F5E6020130FE400DB1967 /* Namit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Namit.xcdatamodel; sourceTree = "<group>"; };
-		3A5F5E6220130FE400DB1967 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A5F5E6520130FE400DB1967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3A5F5E6720130FE400DB1967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A5F5E6C20130FE500DB1967 /* NamitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5F5E7020130FE500DB1967 /* NamitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitTests.swift; sourceTree = "<group>"; };
-		3A5F5E7220130FE500DB1967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A5F5E7720130FE500DB1967 /* NamitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5F5E7B20130FE500DB1967 /* NamitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitUITests.swift; sourceTree = "<group>"; };
-		3A5F5E7D20130FE500DB1967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A5F5E8D2013113500DB1967 /* FlatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
-		3A5F5E8E2013113500DB1967 /* PressableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressableButton.swift; sourceTree = "<group>"; };
-		3A5F5E8F2013113500DB1967 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		3A5F5E912013113500DB1967 /* arrow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = arrow.gif; sourceTree = "<group>"; };
-		3A5F5E922013113500DB1967 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
-		3A5F5E932013113500DB1967 /* GoogleIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleIcon.swift; sourceTree = "<group>"; };
-		3A5F5E952013113500DB1967 /* googleicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = googleicon.ttf; sourceTree = "<group>"; };
-		3A5F5E972013113500DB1967 /* Degrees+MathMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+MathMethods.swift"; sourceTree = "<group>"; };
-		3A5F5E982013113500DB1967 /* SpinWheelControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinWheelControl.h; sourceTree = "<group>"; };
-		3A5F5E992013113500DB1967 /* SpinWheelControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelControl.swift; sourceTree = "<group>"; };
-		3A5F5E9A2013113500DB1967 /* SpinWheelControlDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelControlDataSource.swift; sourceTree = "<group>"; };
-		3A5F5E9B2013113500DB1967 /* SpinWheelControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelControlDelegate.swift; sourceTree = "<group>"; };
-		3A5F5E9C2013113500DB1967 /* SpinWheelWedge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedge.swift; sourceTree = "<group>"; };
-		3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedgeLabel.swift; sourceTree = "<group>"; };
-		3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinWheelWedgeShape.swift; sourceTree = "<group>"; };
-		3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		3AAE00A02015AE4900B18E82 /* NativeContentAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeContentAdView.xib; sourceTree = "<group>"; };
-		3AAE00A12015AE4900B18E82 /* NativeAppInstallAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAppInstallAdView.xib; sourceTree = "<group>"; };
-		3AE2BB93201311D400CBBA0E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		3AE2BB962013120C00CBBA0E /* ruleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ruleVC.swift; sourceTree = "<group>"; };
-		3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
-		3AE2BB992013120C00CBBA0E /* ParentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTableViewController.swift; sourceTree = "<group>"; };
-		3AE2BB9A2013120C00CBBA0E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3AE2BB9C2013120C00CBBA0E /* CardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
-		3AE2BB9D2013120C00CBBA0E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		3AE2BB9F2013120C00CBBA0E /* PunishmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunishmentViewController.swift; sourceTree = "<group>"; };
-		6E411D3B35E6DBCBA68AA38F /* Pods-NamitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7167AAC6A8FE70B19917854C /* Pods-Namit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Namit/Pods-Namit.debug.xcconfig"; sourceTree = "<group>"; };
-		83B803294251C11FE4AABACC /* Pods-NamitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests.release.xcconfig"; sourceTree = "<group>"; };
-		ABDF6214C4E4603B8D1B9621 /* Pods_NamitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C22A2AA3FD19CDA19BF61E53 /* Pods-NamitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D2EA080FFDC546E813FE62DF /* Pods_Namit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Namit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3103C42026833700253DE8 /* playVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playVC.swift; sourceTree = "<group>"; };
+		3A3FF21B20267FBC00707BEF /* ruleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ruleVC.swift; sourceTree = "<group>"; };
+		3A5A475720259D5E004FE06D /* Namit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Namit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5A475A20259D5E004FE06D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A5A475C20259D5E004FE06D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3A5A475F20259D5E004FE06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A5A476220259D5E004FE06D /* Namit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Namit.xcdatamodel; sourceTree = "<group>"; };
+		3A5A476420259D5E004FE06D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A5A476720259D5E004FE06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A5A476920259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5A476E20259D5E004FE06D /* NamitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5A477220259D5E004FE06D /* NamitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitTests.swift; sourceTree = "<group>"; };
+		3A5A477420259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5A477920259D5E004FE06D /* NamitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5A477D20259D5E004FE06D /* NamitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitUITests.swift; sourceTree = "<group>"; };
+		3A5A477F20259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5A478B2025A47A004FE06D /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
+		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3A5F5E5220130FE400DB1967 /* Frameworks */ = {
+		3A5A475420259D5E004FE06D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6B3F5F20131F2D005C9FDA /* GoogleMobileAds.framework in Frameworks */,
-				B7026CFCD882981DC1FD16E5 /* Pods_Namit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5F5E6920130FE500DB1967 /* Frameworks */ = {
+		3A5A476B20259D5E004FE06D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7762F4F510A61B984F21D2 /* Pods_NamitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5F5E7420130FE500DB1967 /* Frameworks */ = {
+		3A5A477620259D5E004FE06D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A22394B2E84C06BDE70AE3C /* Pods_NamitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A5F5E4C20130FE400DB1967 = {
+		3A3103C32026831E00253DE8 /* Play Page */ = {
 			isa = PBXGroup;
 			children = (
-				3A5F5E5720130FE400DB1967 /* Namit */,
-				3A5F5E6F20130FE500DB1967 /* NamitTests */,
-				3A5F5E7A20130FE500DB1967 /* NamitUITests */,
-				3A5F5E5620130FE400DB1967 /* Products */,
-				DD8027B78210FA738C26B050 /* Pods */,
-				CA8788C4C0C06B6DEF09CA33 /* Frameworks */,
+				3A3103C42026833700253DE8 /* playVC.swift */,
+				3AA43C992026DBBB00D98218 /* Time.swift */,
+			);
+			path = "Play Page";
+			sourceTree = "<group>";
+		};
+		3A3FF21820267F3B00707BEF /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				3A5A475C20259D5E004FE06D /* ViewController.swift */,
+			);
+			path = "Home Page";
+			sourceTree = "<group>";
+		};
+		3A3FF21920267F4400707BEF /* Settings Page */ = {
+			isa = PBXGroup;
+			children = (
+				3A5A478B2025A47A004FE06D /* settingVC.swift */,
+			);
+			path = "Settings Page";
+			sourceTree = "<group>";
+		};
+		3A3FF21A20267F5200707BEF /* Rules Page */ = {
+			isa = PBXGroup;
+			children = (
+				3A3FF21B20267FBC00707BEF /* ruleVC.swift */,
+			);
+			path = "Rules Page";
+			sourceTree = "<group>";
+		};
+		3A5A474E20259D5E004FE06D = {
+			isa = PBXGroup;
+			children = (
+				3A5A475920259D5E004FE06D /* Namit */,
+				3A5A477120259D5E004FE06D /* NamitTests */,
+				3A5A477C20259D5E004FE06D /* NamitUITests */,
+				3A5A475820259D5E004FE06D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3A5F5E5620130FE400DB1967 /* Products */ = {
+		3A5A475820259D5E004FE06D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A5F5E5520130FE400DB1967 /* Namit.app */,
-				3A5F5E6C20130FE500DB1967 /* NamitTests.xctest */,
-				3A5F5E7720130FE500DB1967 /* NamitUITests.xctest */,
+				3A5A475720259D5E004FE06D /* Namit.app */,
+				3A5A476E20259D5E004FE06D /* NamitTests.xctest */,
+				3A5A477920259D5E004FE06D /* NamitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A5F5E5720130FE400DB1967 /* Namit */ = {
+		3A5A475920259D5E004FE06D /* Namit */ = {
 			isa = PBXGroup;
 			children = (
-				3A6B3F7720148B00005C9FDA /* storyboards */,
-				3AE2BB942013120C00CBBA0E /* 1VC */,
-				3AE2BB9B2013120C00CBBA0E /* 2VC */,
-				3AE2BB9E2013120C00CBBA0E /* Punishment */,
-				3A5F5E8B2013113500DB1967 /* Support */,
-				3A5F5E5820130FE400DB1967 /* AppDelegate.swift */,
-				3A5F5E6720130FE400DB1967 /* Info.plist */,
-				3A5F5E6220130FE400DB1967 /* Assets.xcassets */,
+				3A3103C32026831E00253DE8 /* Play Page */,
+				3A3FF21820267F3B00707BEF /* Home Page */,
+				3A3FF21920267F4400707BEF /* Settings Page */,
+				3A3FF21A20267F5200707BEF /* Rules Page */,
+				3A5A475A20259D5E004FE06D /* AppDelegate.swift */,
+				3A5A475E20259D5E004FE06D /* Main.storyboard */,
+				3A5A476420259D5E004FE06D /* Assets.xcassets */,
+				3A5A476620259D5E004FE06D /* LaunchScreen.storyboard */,
+				3A5A476920259D5E004FE06D /* Info.plist */,
+				3A5A476120259D5E004FE06D /* Namit.xcdatamodeld */,
 			);
 			path = Namit;
 			sourceTree = "<group>";
 		};
-		3A5F5E6F20130FE500DB1967 /* NamitTests */ = {
+		3A5A477120259D5E004FE06D /* NamitTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A5F5E7020130FE500DB1967 /* NamitTests.swift */,
-				3A5F5E7220130FE500DB1967 /* Info.plist */,
+				3A5A477220259D5E004FE06D /* NamitTests.swift */,
+				3A5A477420259D5E004FE06D /* Info.plist */,
 			);
 			path = NamitTests;
 			sourceTree = "<group>";
 		};
-		3A5F5E7A20130FE500DB1967 /* NamitUITests */ = {
+		3A5A477C20259D5E004FE06D /* NamitUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3A5F5E7B20130FE500DB1967 /* NamitUITests.swift */,
-				3A5F5E7D20130FE500DB1967 /* Info.plist */,
+				3A5A477D20259D5E004FE06D /* NamitUITests.swift */,
+				3A5A477F20259D5E004FE06D /* Info.plist */,
 			);
 			path = NamitUITests;
-			sourceTree = "<group>";
-		};
-		3A5F5E8B2013113500DB1967 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				3A5F5E5F20130FE400DB1967 /* Namit.xcdatamodeld */,
-				3A5F5E8C2013113500DB1967 /* buttons */,
-				3A5F5E902013113500DB1967 /* gif */,
-				3A5F5E932013113500DB1967 /* GoogleIcon.swift */,
-				3A5F5E942013113500DB1967 /* icon */,
-				3A5F5E962013113500DB1967 /* SpinWheelControl */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		3A5F5E8C2013113500DB1967 /* buttons */ = {
-			isa = PBXGroup;
-			children = (
-				3A5F5E8D2013113500DB1967 /* FlatButton.swift */,
-				3A5F5E8E2013113500DB1967 /* PressableButton.swift */,
-				3A5F5E8F2013113500DB1967 /* Utils.swift */,
-			);
-			path = buttons;
-			sourceTree = "<group>";
-		};
-		3A5F5E902013113500DB1967 /* gif */ = {
-			isa = PBXGroup;
-			children = (
-				3A5F5E912013113500DB1967 /* arrow.gif */,
-				3A5F5E922013113500DB1967 /* UIImage+Gif.swift */,
-			);
-			path = gif;
-			sourceTree = "<group>";
-		};
-		3A5F5E942013113500DB1967 /* icon */ = {
-			isa = PBXGroup;
-			children = (
-				3A5F5E952013113500DB1967 /* googleicon.ttf */,
-			);
-			path = icon;
-			sourceTree = "<group>";
-		};
-		3A5F5E962013113500DB1967 /* SpinWheelControl */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB93201311D400CBBA0E /* GoogleMobileAds.framework */,
-				3A5F5E972013113500DB1967 /* Degrees+MathMethods.swift */,
-				3A5F5E982013113500DB1967 /* SpinWheelControl.h */,
-				3A5F5E992013113500DB1967 /* SpinWheelControl.swift */,
-				3A5F5E9A2013113500DB1967 /* SpinWheelControlDataSource.swift */,
-				3A5F5E9B2013113500DB1967 /* SpinWheelControlDelegate.swift */,
-				3A5F5E9C2013113500DB1967 /* SpinWheelWedge.swift */,
-				3A5F5E9D2013113500DB1967 /* SpinWheelWedgeLabel.swift */,
-				3A5F5E9E2013113500DB1967 /* SpinWheelWedgeShape.swift */,
-			);
-			path = SpinWheelControl;
-			sourceTree = "<group>";
-		};
-		3A6B3F7720148B00005C9FDA /* storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB9D2013120C00CBBA0E /* Main.storyboard */,
-				3A5F5E6420130FE400DB1967 /* LaunchScreen.storyboard */,
-				3AAE00A12015AE4900B18E82 /* NativeAppInstallAdView.xib */,
-				3AAE00A02015AE4900B18E82 /* NativeContentAdView.xib */,
-			);
-			path = storyboards;
-			sourceTree = "<group>";
-		};
-		3AE2BB942013120C00CBBA0E /* 1VC */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB952013120C00CBBA0E /* rule_VC */,
-				3AE2BB972013120C00CBBA0E /* setting */,
-				3AE2BB9A2013120C00CBBA0E /* ViewController.swift */,
-			);
-			path = 1VC;
-			sourceTree = "<group>";
-		};
-		3AE2BB952013120C00CBBA0E /* rule_VC */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB962013120C00CBBA0E /* ruleVC.swift */,
-			);
-			path = rule_VC;
-			sourceTree = "<group>";
-		};
-		3AE2BB972013120C00CBBA0E /* setting */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB982013120C00CBBA0E /* CardsTableViewController.swift */,
-				3AE2BB992013120C00CBBA0E /* ParentTableViewController.swift */,
-			);
-			path = setting;
-			sourceTree = "<group>";
-		};
-		3AE2BB9B2013120C00CBBA0E /* 2VC */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB9C2013120C00CBBA0E /* CardVC.swift */,
-			);
-			path = 2VC;
-			sourceTree = "<group>";
-		};
-		3AE2BB9E2013120C00CBBA0E /* Punishment */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2BB9F2013120C00CBBA0E /* PunishmentViewController.swift */,
-			);
-			path = Punishment;
-			sourceTree = "<group>";
-		};
-		CA8788C4C0C06B6DEF09CA33 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3A6B3F5E20131F2C005C9FDA /* GoogleMobileAds.framework */,
-				D2EA080FFDC546E813FE62DF /* Pods_Namit.framework */,
-				1D4B7D20B439583A3D8D6AF1 /* Pods_NamitTests.framework */,
-				ABDF6214C4E4603B8D1B9621 /* Pods_NamitUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DD8027B78210FA738C26B050 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7167AAC6A8FE70B19917854C /* Pods-Namit.debug.xcconfig */,
-				22FAE29ADD8E32EEBB6B320C /* Pods-Namit.release.xcconfig */,
-				0B880309CCAD6DFA3422C458 /* Pods-NamitTests.debug.xcconfig */,
-				83B803294251C11FE4AABACC /* Pods-NamitTests.release.xcconfig */,
-				6E411D3B35E6DBCBA68AA38F /* Pods-NamitUITests.debug.xcconfig */,
-				C22A2AA3FD19CDA19BF61E53 /* Pods-NamitUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A5F5E5420130FE400DB1967 /* Namit */ = {
+		3A5A475620259D5E004FE06D /* Namit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A5F5E8020130FE500DB1967 /* Build configuration list for PBXNativeTarget "Namit" */;
+			buildConfigurationList = 3A5A478220259D5E004FE06D /* Build configuration list for PBXNativeTarget "Namit" */;
 			buildPhases = (
-				68DE6F75EECFF38A2D9E7097 /* [CP] Check Pods Manifest.lock */,
-				3A5F5E5120130FE400DB1967 /* Sources */,
-				3A5F5E5220130FE400DB1967 /* Frameworks */,
-				3A5F5E5320130FE400DB1967 /* Resources */,
-				1248D86559E5E0AFB8143A69 /* [CP] Embed Pods Frameworks */,
-				B50A65CDC3E9FFC509241E94 /* [CP] Copy Pods Resources */,
+				3A5A475320259D5E004FE06D /* Sources */,
+				3A5A475420259D5E004FE06D /* Frameworks */,
+				3A5A475520259D5E004FE06D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -347,78 +189,72 @@
 			);
 			name = Namit;
 			productName = Namit;
-			productReference = 3A5F5E5520130FE400DB1967 /* Namit.app */;
+			productReference = 3A5A475720259D5E004FE06D /* Namit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3A5F5E6B20130FE500DB1967 /* NamitTests */ = {
+		3A5A476D20259D5E004FE06D /* NamitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A5F5E8320130FE500DB1967 /* Build configuration list for PBXNativeTarget "NamitTests" */;
+			buildConfigurationList = 3A5A478520259D5E004FE06D /* Build configuration list for PBXNativeTarget "NamitTests" */;
 			buildPhases = (
-				C85F2A65F4FC06AEA67C6782 /* [CP] Check Pods Manifest.lock */,
-				3A5F5E6820130FE500DB1967 /* Sources */,
-				3A5F5E6920130FE500DB1967 /* Frameworks */,
-				3A5F5E6A20130FE500DB1967 /* Resources */,
-				0D63475247F678C44744965B /* [CP] Embed Pods Frameworks */,
-				859D4ECDB50BBE5B516BFC40 /* [CP] Copy Pods Resources */,
+				3A5A476A20259D5E004FE06D /* Sources */,
+				3A5A476B20259D5E004FE06D /* Frameworks */,
+				3A5A476C20259D5E004FE06D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3A5F5E6E20130FE500DB1967 /* PBXTargetDependency */,
+				3A5A477020259D5E004FE06D /* PBXTargetDependency */,
 			);
 			name = NamitTests;
 			productName = NamitTests;
-			productReference = 3A5F5E6C20130FE500DB1967 /* NamitTests.xctest */;
+			productReference = 3A5A476E20259D5E004FE06D /* NamitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3A5F5E7620130FE500DB1967 /* NamitUITests */ = {
+		3A5A477820259D5E004FE06D /* NamitUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A5F5E8620130FE500DB1967 /* Build configuration list for PBXNativeTarget "NamitUITests" */;
+			buildConfigurationList = 3A5A478820259D5E004FE06D /* Build configuration list for PBXNativeTarget "NamitUITests" */;
 			buildPhases = (
-				ED07ED63B0E3A92825EFBA42 /* [CP] Check Pods Manifest.lock */,
-				3A5F5E7320130FE500DB1967 /* Sources */,
-				3A5F5E7420130FE500DB1967 /* Frameworks */,
-				3A5F5E7520130FE500DB1967 /* Resources */,
-				238E964F282A731C498EB091 /* [CP] Embed Pods Frameworks */,
-				A2AF9AF6354891110DC0E78E /* [CP] Copy Pods Resources */,
+				3A5A477520259D5E004FE06D /* Sources */,
+				3A5A477620259D5E004FE06D /* Frameworks */,
+				3A5A477720259D5E004FE06D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3A5F5E7920130FE500DB1967 /* PBXTargetDependency */,
+				3A5A477B20259D5E004FE06D /* PBXTargetDependency */,
 			);
 			name = NamitUITests;
 			productName = NamitUITests;
-			productReference = 3A5F5E7720130FE500DB1967 /* NamitUITests.xctest */;
+			productReference = 3A5A477920259D5E004FE06D /* NamitUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3A5F5E4D20130FE400DB1967 /* Project object */ = {
+		3A5A474F20259D5E004FE06D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = Zhipeng;
+				ORGANIZATIONNAME = Mei;
 				TargetAttributes = {
-					3A5F5E5420130FE400DB1967 = {
+					3A5A475620259D5E004FE06D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
-					3A5F5E6B20130FE500DB1967 = {
+					3A5A476D20259D5E004FE06D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3A5F5E5420130FE400DB1967;
+						TestTargetID = 3A5A475620259D5E004FE06D;
 					};
-					3A5F5E7620130FE500DB1967 = {
+					3A5A477820259D5E004FE06D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3A5F5E5420130FE400DB1967;
+						TestTargetID = 3A5A475620259D5E004FE06D;
 					};
 				};
 			};
-			buildConfigurationList = 3A5F5E5020130FE400DB1967 /* Build configuration list for PBXProject "Namit" */;
+			buildConfigurationList = 3A5A475220259D5E004FE06D /* Build configuration list for PBXProject "Namit" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -426,41 +262,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 3A5F5E4C20130FE400DB1967;
-			productRefGroup = 3A5F5E5620130FE400DB1967 /* Products */;
+			mainGroup = 3A5A474E20259D5E004FE06D;
+			productRefGroup = 3A5A475820259D5E004FE06D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A5F5E5420130FE400DB1967 /* Namit */,
-				3A5F5E6B20130FE500DB1967 /* NamitTests */,
-				3A5F5E7620130FE500DB1967 /* NamitUITests */,
+				3A5A475620259D5E004FE06D /* Namit */,
+				3A5A476D20259D5E004FE06D /* NamitTests */,
+				3A5A477820259D5E004FE06D /* NamitUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3A5F5E5320130FE400DB1967 /* Resources */ = {
+		3A5A475520259D5E004FE06D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5F5EA22013113500DB1967 /* arrow.gif in Resources */,
-				3AE2BBA52013120C00CBBA0E /* Main.storyboard in Resources */,
-				3A5F5EA52013113500DB1967 /* googleicon.ttf in Resources */,
-				3A5F5E6620130FE400DB1967 /* LaunchScreen.storyboard in Resources */,
-				3AAE00A22015AE4900B18E82 /* NativeContentAdView.xib in Resources */,
-				3AAE00A32015AE4900B18E82 /* NativeAppInstallAdView.xib in Resources */,
-				3A5F5E6320130FE400DB1967 /* Assets.xcassets in Resources */,
+				3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */,
+				3A5A476520259D5E004FE06D /* Assets.xcassets in Resources */,
+				3A5A476020259D5E004FE06D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5F5E6A20130FE500DB1967 /* Resources */ = {
+		3A5A476C20259D5E004FE06D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5F5E7520130FE500DB1967 /* Resources */ = {
+		3A5A477720259D5E004FE06D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -469,208 +301,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0D63475247F678C44744965B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1248D86559E5E0AFB8143A69 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		238E964F282A731C498EB091 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		68DE6F75EECFF38A2D9E7097 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		859D4ECDB50BBE5B516BFC40 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A2AF9AF6354891110DC0E78E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B50A65CDC3E9FFC509241E94 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C85F2A65F4FC06AEA67C6782 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ED07ED63B0E3A92825EFBA42 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		3A5F5E5120130FE400DB1967 /* Sources */ = {
+		3A5A475320259D5E004FE06D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5F5EA82013113500DB1967 /* SpinWheelControlDataSource.swift in Sources */,
-				3A5F5EA02013113500DB1967 /* PressableButton.swift in Sources */,
-				3A5F5EA42013113500DB1967 /* GoogleIcon.swift in Sources */,
-				3AE2BBA62013120C00CBBA0E /* PunishmentViewController.swift in Sources */,
-				3A5F5EA92013113500DB1967 /* SpinWheelControlDelegate.swift in Sources */,
-				3A5F5EA72013113500DB1967 /* SpinWheelControl.swift in Sources */,
-				3A5F5EA32013113500DB1967 /* UIImage+Gif.swift in Sources */,
-				3AE2BBA02013120C00CBBA0E /* ruleVC.swift in Sources */,
-				3A5F5EAB2013113500DB1967 /* SpinWheelWedgeLabel.swift in Sources */,
-				3A5F5E5920130FE400DB1967 /* AppDelegate.swift in Sources */,
-				3A5F5EAC2013113500DB1967 /* SpinWheelWedgeShape.swift in Sources */,
-				3A5F5E9F2013113500DB1967 /* FlatButton.swift in Sources */,
-				3A5F5E6120130FE400DB1967 /* Namit.xcdatamodeld in Sources */,
-				3AE2BBA42013120C00CBBA0E /* CardVC.swift in Sources */,
-				3AE2BBA32013120C00CBBA0E /* ViewController.swift in Sources */,
-				3A5F5EAA2013113500DB1967 /* SpinWheelWedge.swift in Sources */,
-				3AE2BBA22013120C00CBBA0E /* ParentTableViewController.swift in Sources */,
-				3AE2BBA12013120C00CBBA0E /* CardsTableViewController.swift in Sources */,
-				3A5F5EA62013113500DB1967 /* Degrees+MathMethods.swift in Sources */,
-				3A5F5EA12013113500DB1967 /* Utils.swift in Sources */,
+				3A5A475D20259D5E004FE06D /* ViewController.swift in Sources */,
+				3A3FF21C20267FBC00707BEF /* ruleVC.swift in Sources */,
+				3A3103C52026833700253DE8 /* playVC.swift in Sources */,
+				3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */,
+				3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */,
+				3A5A475B20259D5E004FE06D /* AppDelegate.swift in Sources */,
+				3A5A476320259D5E004FE06D /* Namit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5F5E6820130FE500DB1967 /* Sources */ = {
+		3A5A476A20259D5E004FE06D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5F5E7120130FE500DB1967 /* NamitTests.swift in Sources */,
+				3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5F5E7320130FE500DB1967 /* Sources */ = {
+		3A5A477520259D5E004FE06D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5F5E7C20130FE500DB1967 /* NamitUITests.swift in Sources */,
+				3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3A5F5E6E20130FE500DB1967 /* PBXTargetDependency */ = {
+		3A5A477020259D5E004FE06D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A5F5E5420130FE400DB1967 /* Namit */;
-			targetProxy = 3A5F5E6D20130FE500DB1967 /* PBXContainerItemProxy */;
+			target = 3A5A475620259D5E004FE06D /* Namit */;
+			targetProxy = 3A5A476F20259D5E004FE06D /* PBXContainerItemProxy */;
 		};
-		3A5F5E7920130FE500DB1967 /* PBXTargetDependency */ = {
+		3A5A477B20259D5E004FE06D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A5F5E5420130FE400DB1967 /* Namit */;
-			targetProxy = 3A5F5E7820130FE500DB1967 /* PBXContainerItemProxy */;
+			target = 3A5A475620259D5E004FE06D /* Namit */;
+			targetProxy = 3A5A477A20259D5E004FE06D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A5F5E6420130FE400DB1967 /* LaunchScreen.storyboard */ = {
+		3A5A475E20259D5E004FE06D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A5F5E6520130FE400DB1967 /* Base */,
+				3A5A475F20259D5E004FE06D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A5A476620259D5E004FE06D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A5A476720259D5E004FE06D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -678,7 +367,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3A5F5E7E20130FE500DB1967 /* Debug */ = {
+		3A5A478020259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -735,7 +424,7 @@
 			};
 			name = Debug;
 		};
-		3A5F5E7F20130FE500DB1967 /* Release */ = {
+		3A5A478120259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -785,59 +474,46 @@
 			};
 			name = Release;
 		};
-		3A5F5E8120130FE500DB1967 /* Debug */ = {
+		3A5A478320259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7167AAC6A8FE70B19917854C /* Pods-Namit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V5KYEP5U7A;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Namit",
-					"$(PROJECT_DIR)",
-				);
 				INFOPLIST_FILE = Namit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Zhipeng.Namit;
+				PRODUCT_BUNDLE_IDENTIFIER = Mei.Namit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		3A5F5E8220130FE500DB1967 /* Release */ = {
+		3A5A478420259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22FAE29ADD8E32EEBB6B320C /* Pods-Namit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V5KYEP5U7A;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Namit",
-					"$(PROJECT_DIR)",
-				);
 				INFOPLIST_FILE = Namit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Zhipeng.Namit;
+				PRODUCT_BUNDLE_IDENTIFIER = Mei.Namit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		3A5F5E8420130FE500DB1967 /* Debug */ = {
+		3A5A478620259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B880309CCAD6DFA3422C458 /* Pods-NamitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U79GV5TEWJ;
+				DEVELOPMENT_TEAM = V5KYEP5U7A;
 				INFOPLIST_FILE = NamitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Zhipeng.NamitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = Mei.NamitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -845,17 +521,16 @@
 			};
 			name = Debug;
 		};
-		3A5F5E8520130FE500DB1967 /* Release */ = {
+		3A5A478720259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83B803294251C11FE4AABACC /* Pods-NamitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U79GV5TEWJ;
+				DEVELOPMENT_TEAM = V5KYEP5U7A;
 				INFOPLIST_FILE = NamitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Zhipeng.NamitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = Mei.NamitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -863,16 +538,15 @@
 			};
 			name = Release;
 		};
-		3A5F5E8720130FE500DB1967 /* Debug */ = {
+		3A5A478920259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E411D3B35E6DBCBA68AA38F /* Pods-NamitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U79GV5TEWJ;
+				DEVELOPMENT_TEAM = V5KYEP5U7A;
 				INFOPLIST_FILE = NamitUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Zhipeng.NamitUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Mei.NamitUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -880,16 +554,15 @@
 			};
 			name = Debug;
 		};
-		3A5F5E8820130FE500DB1967 /* Release */ = {
+		3A5A478A20259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C22A2AA3FD19CDA19BF61E53 /* Pods-NamitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U79GV5TEWJ;
+				DEVELOPMENT_TEAM = V5KYEP5U7A;
 				INFOPLIST_FILE = NamitUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Zhipeng.NamitUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Mei.NamitUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -900,38 +573,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A5F5E5020130FE400DB1967 /* Build configuration list for PBXProject "Namit" */ = {
+		3A5A475220259D5E004FE06D /* Build configuration list for PBXProject "Namit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A5F5E7E20130FE500DB1967 /* Debug */,
-				3A5F5E7F20130FE500DB1967 /* Release */,
+				3A5A478020259D5E004FE06D /* Debug */,
+				3A5A478120259D5E004FE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A5F5E8020130FE500DB1967 /* Build configuration list for PBXNativeTarget "Namit" */ = {
+		3A5A478220259D5E004FE06D /* Build configuration list for PBXNativeTarget "Namit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A5F5E8120130FE500DB1967 /* Debug */,
-				3A5F5E8220130FE500DB1967 /* Release */,
+				3A5A478320259D5E004FE06D /* Debug */,
+				3A5A478420259D5E004FE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A5F5E8320130FE500DB1967 /* Build configuration list for PBXNativeTarget "NamitTests" */ = {
+		3A5A478520259D5E004FE06D /* Build configuration list for PBXNativeTarget "NamitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A5F5E8420130FE500DB1967 /* Debug */,
-				3A5F5E8520130FE500DB1967 /* Release */,
+				3A5A478620259D5E004FE06D /* Debug */,
+				3A5A478720259D5E004FE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A5F5E8620130FE500DB1967 /* Build configuration list for PBXNativeTarget "NamitUITests" */ = {
+		3A5A478820259D5E004FE06D /* Build configuration list for PBXNativeTarget "NamitUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A5F5E8720130FE500DB1967 /* Debug */,
-				3A5F5E8820130FE500DB1967 /* Release */,
+				3A5A478920259D5E004FE06D /* Debug */,
+				3A5A478A20259D5E004FE06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -939,17 +612,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3A5F5E5F20130FE400DB1967 /* Namit.xcdatamodeld */ = {
+		3A5A476120259D5E004FE06D /* Namit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3A5F5E6020130FE400DB1967 /* Namit.xcdatamodel */,
+				3A5A476220259D5E004FE06D /* Namit.xcdatamodel */,
 			);
-			currentVersion = 3A5F5E6020130FE400DB1967 /* Namit.xcdatamodel */;
+			currentVersion = 3A5A476220259D5E004FE06D /* Namit.xcdatamodel */;
 			path = Namit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 3A5F5E4D20130FE400DB1967 /* Project object */;
+	rootObject = 3A5A474F20259D5E004FE06D /* Project object */;
 }

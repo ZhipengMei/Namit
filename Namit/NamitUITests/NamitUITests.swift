@@ -2,8 +2,8 @@
 //  NamitUITests.swift
 //  NamitUITests
 //
-//  Created by Adrian on 1/19/18.
-//  Copyright © 2018 Zhipeng. All rights reserved.
+//  Created by Adrian on 2/2/18.
+//  Copyright © 2018 Mei. All rights reserved.
 //
 
 import XCTest
