@@ -19,7 +19,7 @@ class Time {
     var seconds = 5
     var timer = Timer()
     
-    // boolean
+    // conditional boolean to pause or check current timer status
     var isTimerRunning = false
     var resumeTapped = false
     

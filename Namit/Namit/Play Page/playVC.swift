@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class playVC: UIViewController {
+class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 
     // buttons
     @IBOutlet weak var exit_button: UIButton!
@@ -19,15 +20,36 @@ class playVC: UIViewController {
     @IBOutlet weak var exit_label: UILabel!
     @IBOutlet weak var pause_label: UILabel!
     @IBOutlet weak var timer_label: UILabel!
+    @IBOutlet weak var card_label: UILabel!
     
     // view
     @IBOutlet weak var card_view: UIView!
     
     // timer class
     let time = Time()
+    
+    //default for NSFetchedResultsController
+    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cards")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        return frc
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            // fetching coreData
+            try fetchedResultsController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("Unable to Save Note")
+            print("\(fetchError), \(fetchError.localizedDescription)")
+        }
 
         // exit button
         exit_button.backgroundColor = UIColor.red
@@ -63,6 +85,13 @@ class playVC: UIViewController {
         timer_label.backgroundColor = UIColor.clear
         timer_label.font =  UIFont(name: "helvetica neue", size: 40)
         
+        // card label
+        card_label.textAlignment = .center
+        card_label.textColor = .black
+        card_label.numberOfLines = 0
+        // display the first card
+        card_label.text = randomTask().name!
+        
         // card_view
         card_view.backgroundColor = UIColor.white
         card_view.layer.cornerRadius = 10
@@ -70,7 +99,7 @@ class playVC: UIViewController {
         // view
         self.view.backgroundColor = UIColor.black
         
-        // adding timer
+        // setup timer
         time.timerLabel = timer_label
         time.pauseButton = pause_button
         time.runTimer()
@@ -81,18 +110,15 @@ class playVC: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip_card(sender:)))
         
         // Optionally set the number of required taps, e.g., 2 for a double click
-        tapGestureRecognizer.numberOfTapsRequired = 2
+        tapGestureRecognizer.numberOfTapsRequired = 1
         
         // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
         card_view.isUserInteractionEnabled = true
         card_view.addGestureRecognizer(tapGestureRecognizer)
         // =================================================================================
-    }
-    
-    // tap gesture action method
-    @objc func flip_card(sender: UITapGestureRecognizer) {
-        //flip UIView animation
-        UIView.transition(with: card_view, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        
+
+        
     }
     
     // dismiss view
@@ -105,6 +131,27 @@ class playVC: UIViewController {
         time.pause()
     }
     
-    
-    
 }
+
+
+// Helper func
+extension playVC {
+    // randomize the order of the fetchedObjects
+    func randomTask() -> Cards {
+        let count = UInt32(fetchedResultsController.fetchedObjects!.count)
+        let index = Int(arc4random_uniform(count))
+        let results = fetchedResultsController.fetchedObjects![index] as! Cards
+        return results
+    }
+    
+    // tap gesture action method
+    @objc func flip_card(sender: UITapGestureRecognizer) {
+        
+        // display a new card
+        card_label.text = randomTask().name!
+        
+        //flip UIView animation
+        UIView.transition(with: card_view, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    }
+}
+

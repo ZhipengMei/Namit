@@ -11,7 +11,7 @@ import UIKit
 class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {    
 
     @IBOutlet weak var tableview: UITableView!
-    private var data:[String] = ["Edit Cards", "Edit Penalties", "Interval time", "Sound", "Remove Ads", "Privacy Policy", "Share with Friends"]
+    private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Remove Ads", "Privacy Policy", "Share with Friends"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +38,55 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // optional color
         cell?.backgroundColor = UIColor.yellow
+        cell?.selectionStyle = .none
+
+        if indexPath.row == 0 || indexPath.row == 1{
+            // cell right arrow
+            cell?.accessoryType = .disclosureIndicator
+        }
+
+        if indexPath.row == 2 {
+            // UISwitch setup
+            let interval_label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
+            interval_label.backgroundColor = UIColor.blue
+            interval_label.text = "5 seconds"
+            interval_label.textAlignment = .center
+            interval_label.textColor = .white
+            cell?.accessoryView = interval_label as UIView
+        }
         
+        if indexPath.row == 3 {
+            // UISwitch setup
+            let sound_switch = UISwitch(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
+            sound_switch.backgroundColor = .green
+            sound_switch.setOn(true, animated: true)
+            sound_switch.addTarget(self, action: #selector(sound_switch_action), for: .touchUpInside)
+            cell?.accessoryView = sound_switch as UIView
+        }
+
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var dataToPass: String?
+        // parse the string to obtain valid CoreData Entity name
+        if (data[indexPath.row]).range(of:"Cards") != nil {
+            dataToPass = "Cards"
+        }
+        if (data[indexPath.row]).range(of:"Punishments") != nil {
+            dataToPass = "Punishments"
+        }
+        
+        let detail_TableView = detailTableView()
+        detail_TableView.passedData = dataToPass!
+        self.navigationController?.pushViewController(detail_TableView, animated: true)
+    }
 
+    @objc func sound_switch_action() {
+        print("clicked")
+    }
+    
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -50,34 +95,4 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-
-//// extension by Paul Hudson
-//extension UIColor {
-//    public convenience init?(hexString: String) {
-//        let r, g, b, a: CGFloat
-//
-//        if hexString.hasPrefix("#") {
-//            let start = hexString.index(hexString.startIndex, offsetBy: 1)
-//            let hexColor = String(hexString[start...])
-//
-//            if hexColor.count == 8 {
-//                let scanner = Scanner(string: hexColor)
-//                var hexNumber: UInt64 = 0
-//
-//                if scanner.scanHexInt64(&hexNumber) {
-//                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-//                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-//                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-//                    a = CGFloat(hexNumber & 0x000000ff) / 255
-//
-//                    self.init(red: r, green: g, blue: b, alpha: a)
-//                    return
-//                }
-//            }
-//        }
-//
-//        return nil
-//    }
-//}
 

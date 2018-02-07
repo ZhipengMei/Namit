@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ViewController: UIViewController {
 
@@ -19,11 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var setting_label: UILabel!
     @IBOutlet weak var rule_label: UILabel!
     
+    // STEP 1: initialize ads banner view
+    var bannerView: GADBannerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // play btn
-//        self.play_button.clipsToBounds = true
+        self.play_button.clipsToBounds = true
         self.play_button.backgroundColor = UIColor.red
         self.play_button.layer.cornerRadius = self.play_button.bounds.size.width * 0.5
         self.play_button.setTitleColor(UIColor.white, for: .normal)
@@ -53,6 +57,14 @@ class ViewController: UIViewController {
         // view
         self.view.backgroundColor = UIColor.orange
         
+        
+        // Google AdMob
+        // Instantiate the banner with desired ad size.
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-5562078941559997/8772933204"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        addBannerViewToView(bannerView)
         
     }
 
@@ -114,5 +126,30 @@ class ViewController: UIViewController {
     
     
 
+}
+
+extension ViewController {
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+    
 }
 
