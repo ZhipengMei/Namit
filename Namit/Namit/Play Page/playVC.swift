@@ -175,6 +175,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // tap gesture action method
     @objc func flip_card(sender: UITapGestureRecognizer) {
         
+        // Display Ads every 5 tap
         if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
             if count % 6 == 0 {
                 count = 1
