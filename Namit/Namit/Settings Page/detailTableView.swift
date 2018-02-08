@@ -46,7 +46,7 @@ class detailTableView: UIViewController {
         detailTableView.delegate = self
         self.view.addSubview(detailTableView)
         
-        self.detailTableView.separatorStyle = .none
+        //self.detailTableView.separatorStyle = .none
         
         // fetching coreData
         do {

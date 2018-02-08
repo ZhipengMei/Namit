@@ -69,18 +69,22 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var dataToPass: String?
-        // parse the string to obtain valid CoreData Entity name
-        if (data[indexPath.row]).range(of:"Cards") != nil {
-            dataToPass = "Cards"
-        }
-        if (data[indexPath.row]).range(of:"Punishments") != nil {
-            dataToPass = "Punishments"
+        if indexPath.row == 0 || indexPath.row == 1{
+            
+            var dataToPass: String?
+            // parse the string to obtain valid CoreData Entity name
+            if (data[indexPath.row]).range(of:"Cards") != nil {
+                dataToPass = "Cards"
+            }
+            if (data[indexPath.row]).range(of:"Punishments") != nil {
+                dataToPass = "Punishments"
+            }
+            
+            let detail_TableView = detailTableView()
+            detail_TableView.passedData = dataToPass!
+            self.navigationController?.pushViewController(detail_TableView, animated: true)
         }
         
-        let detail_TableView = detailTableView()
-        detail_TableView.passedData = dataToPass!
-        self.navigationController?.pushViewController(detail_TableView, animated: true)
     }
 
     @objc func sound_switch_action() {
