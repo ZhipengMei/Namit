@@ -8,9 +8,14 @@
 
 import UIKit
 
-class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {    
+class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
+    
+    // initialize time interval label
+    let interval_label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
+    
+    // values to fill table view
     private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Remove Ads", "Privacy Policy", "Share with Friends"]
     
     override func viewDidLoad() {
@@ -26,6 +31,8 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
 
+    
+    // ===================== tableView ============================================================
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -46,8 +53,7 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
 
         if indexPath.row == 2 {
-            // UISwitch setup
-            let interval_label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
+            // Time Interval setup
             interval_label.backgroundColor = UIColor.blue
             interval_label.text = "5 seconds"
             interval_label.textAlignment = .center
@@ -85,8 +91,23 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(detail_TableView, animated: true)
         }
         
+        if indexPath.row == 2 {
+            
+            // DPPickerView usage
+            let values = ["3 seconds","4 seconds","5 seconds","6 seconds","7 seconds","8 seconds","9 seconds","10 seconds"]
+            DPPickerManager.shared.showPicker(title: "Time Interval", selected: "", strings: values) { (value, index, cancel) in
+                if !cancel {
+                    debugPrint(value as Any)
+                    // update the time interval label
+                    self.interval_label.text = value!
+                }
+            }
+        }
+        
+        
     }
-
+    // ===================== /tableView ============================================================
+    
     @objc func sound_switch_action() {
         print("clicked")
     }
@@ -97,6 +118,10 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
-    
+
 }
+
+
+
+
 

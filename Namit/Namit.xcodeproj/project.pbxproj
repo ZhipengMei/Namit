@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A3103C52026833700253DE8 /* playVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3103C42026833700253DE8 /* playVC.swift */; };
-		3A31D69B202BB55300013C4E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A31D69A202BB55300013C4E /* GoogleMobileAds.framework */; };
 		3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B90D9202AB56500C80C5F /* detailTableView.swift */; };
 		3A3FF21C20267FBC00707BEF /* ruleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FF21B20267FBC00707BEF /* ruleVC.swift */; };
 		3A5A475B20259D5E004FE06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A475A20259D5E004FE06D /* AppDelegate.swift */; };
@@ -20,6 +19,8 @@
 		3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477220259D5E004FE06D /* NamitTests.swift */; };
 		3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477D20259D5E004FE06D /* NamitUITests.swift */; };
 		3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A478B2025A47A004FE06D /* settingVC.swift */; };
+		3A8E8E41202C2F8300081597 /* DPPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E8E40202C2F8300081597 /* DPPickerManager.swift */; };
+		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		3A3103C42026833700253DE8 /* playVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playVC.swift; sourceTree = "<group>"; };
-		3A31D69A202BB55300013C4E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3A3B90D9202AB56500C80C5F /* detailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableView.swift; sourceTree = "<group>"; };
 		3A3FF21B20267FBC00707BEF /* ruleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ruleVC.swift; sourceTree = "<group>"; };
 		3A5A475720259D5E004FE06D /* Namit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Namit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +60,8 @@
 		3A5A477D20259D5E004FE06D /* NamitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitUITests.swift; sourceTree = "<group>"; };
 		3A5A477F20259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A478B2025A47A004FE06D /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
+		3A8E8E40202C2F8300081597 /* DPPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPPickerManager.swift; sourceTree = "<group>"; };
+		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A31D69B202BB55300013C4E /* GoogleMobileAds.framework in Frameworks */,
+				3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +113,7 @@
 			children = (
 				3A5A478B2025A47A004FE06D /* settingVC.swift */,
 				3A3B90D9202AB56500C80C5F /* detailTableView.swift */,
+				3A8E8E40202C2F8300081597 /* DPPickerManager.swift */,
 			);
 			path = "Settings Page";
 			sourceTree = "<group>";
@@ -146,7 +149,6 @@
 		3A5A475920259D5E004FE06D /* Namit */ = {
 			isa = PBXGroup;
 			children = (
-				3A31D69A202BB55300013C4E /* GoogleMobileAds.framework */,
 				3A3103C32026831E00253DE8 /* Play Page */,
 				3A3FF21820267F3B00707BEF /* Home Page */,
 				3A3FF21920267F4400707BEF /* Settings Page */,
@@ -155,8 +157,9 @@
 				3A5A475E20259D5E004FE06D /* Main.storyboard */,
 				3A5A476420259D5E004FE06D /* Assets.xcassets */,
 				3A5A476620259D5E004FE06D /* LaunchScreen.storyboard */,
-				3A5A476920259D5E004FE06D /* Info.plist */,
 				3A5A476120259D5E004FE06D /* Namit.xcdatamodeld */,
+				3A5A476920259D5E004FE06D /* Info.plist */,
+				3AA3411D202C3062005A270F /* GoogleMobileAds.framework */,
 			);
 			path = Namit;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */,
 				3A5A475B20259D5E004FE06D /* AppDelegate.swift in Sources */,
 				3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */,
+				3A8E8E41202C2F8300081597 /* DPPickerManager.swift in Sources */,
 				3A5A476320259D5E004FE06D /* Namit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

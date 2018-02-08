@@ -47,15 +47,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        // Native Express request
-//        nativeExpressAdView.adUnitID = "ca-app-pub-5562078941559997/3268066879"
-//        nativeExpressAdView.rootViewController = self
-//        let request = GADRequest()
-//        request.testDevices = [kGADSimulatorID]
-//        nativeExpressAdView.load(request)
-//        card_view.isHidden = true
-        
+                
         // fetching coreData
         do {
             try fetchedResultsController.performFetch()
@@ -181,6 +173,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 count = 1
                 
                 if interstitial.isReady {
+                    // pause the game timer
+                    time.pause()
+                    // show the ads
                     interstitial.present(fromRootViewController: self)
                 } else {
                     print("Ad wasn't ready")
@@ -203,15 +198,51 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 extension playVC: GADInterstitialDelegate {
     
     func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-5562078941559997/4706460997")
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial
     }
     
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadInterstitial()
+    // ============ GADBannerViewDelegate Methods ===================================================================
+    
+    /// Tells the delegate an ad request succeeded.
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("interstitialDidReceiveAd")
     }
     
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that an interstitial will be presented.
+    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+        print("interstitialWillPresentScreen")
+    }
+    
+    /// Tells the delegate the interstitial is to be animated off the screen.
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+        print("interstitialWillDismissScreen")
+    }
+    
+    /// Tells the delegate the interstitial had been animated off the screen.
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        print("interstitialDidDismissScreen")
+        
+        interstitial = createAndLoadInterstitial()
+        
+        // resume timer after ads finished
+        time.pause()
+    }
+    
+    /// Tells the delegate that a user click will open another app
+    /// (such as the App Store), backgrounding the current app.
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+        print("interstitialWillLeaveApplication")
+    }
+
+    // ============ /GADBannerViewDelegate Methods ===================================================================
+
 }
 
