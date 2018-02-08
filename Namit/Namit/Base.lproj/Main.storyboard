@@ -73,6 +73,11 @@
                                     <constraint firstItem="pzZ-YJ-s7k" firstAttribute="centerX" secondItem="MX0-84-Bvn" secondAttribute="centerX" id="y3E-jA-dX2"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOe-hK-0kF" customClass="GADNativeExpressAdView">
+                                <rect key="frame" x="44" y="133" width="287" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.82550191110000004" green="1" blue="0.83066873939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQI-Re-ntW">
                                 <rect key="frame" x="44" y="562" width="287" height="63"/>
                                 <color key="backgroundColor" red="1" green="0.11588262446956521" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,6 +125,7 @@
                         <outlet property="card_view" destination="MX0-84-Bvn" id="p53-7I-2yO"/>
                         <outlet property="exit_button" destination="OPE-iO-gzX" id="Xxm-Qv-Lqn"/>
                         <outlet property="exit_label" destination="oH4-uh-Ves" id="gU5-sv-icf"/>
+                        <outlet property="nativeExpressAdView" destination="eOe-hK-0kF" id="jNK-5l-qCA"/>
                         <outlet property="pause_button" destination="Dk2-J3-diy" id="U4F-dF-IgD"/>
                         <outlet property="pause_label" destination="FoK-Ra-wgU" id="I2j-lk-fM0"/>
                         <outlet property="punishment_button" destination="OQI-Re-ntW" id="62Y-P5-qWN"/>

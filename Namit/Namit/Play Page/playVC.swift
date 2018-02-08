@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 
@@ -38,12 +39,25 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         return frc
     }()
     
+    // Native Express Ad View
+    @IBOutlet weak var nativeExpressAdView: GADNativeExpressAdView!
+    
+    // Interstitial_STEP 1: Create an interstitial ad object
+    var interstitial: GADInterstitial!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        // Native Express request
+//        nativeExpressAdView.adUnitID = "ca-app-pub-5562078941559997/3268066879"
+//        nativeExpressAdView.rootViewController = self
+//        let request = GADRequest()
+//        request.testDevices = [kGADSimulatorID]
+//        nativeExpressAdView.load(request)
+//        card_view.isHidden = true
+        
+        // fetching coreData
         do {
-            // fetching coreData
             try fetchedResultsController.performFetch()
         } catch {
             let fetchError = error as NSError
@@ -118,6 +132,23 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         // =================================================================================
         
 
+        // ================= Interstitial Ads ==================================================
+        // Interstitial_STEP 2:
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let interstitial_request = GADRequest()
+        interstitial_request.testDevices = [ kGADSimulatorID ]
+        interstitial.load(interstitial_request)
+        
+        // Interstitial_STEP 3: Show the ad
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+        
+        // Interstitial_STEP 4: Reload
+        interstitial = createAndLoadInterstitial()
+        // =================================================================================
         
     }
     
@@ -131,11 +162,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         time.pause()
     }
     
-}
-
-
-// Helper func
-extension playVC {
     // randomize the order of the fetchedObjects
     func randomTask() -> Cards {
         let count = UInt32(fetchedResultsController.fetchedObjects!.count)
@@ -144,8 +170,24 @@ extension playVC {
         return results
     }
     
+    // initialize count variable
+    var count = 1
     // tap gesture action method
     @objc func flip_card(sender: UITapGestureRecognizer) {
+        
+        if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
+            if count % 6 == 0 {
+                count = 1
+                
+                if interstitial.isReady {
+                    interstitial.present(fromRootViewController: self)
+                } else {
+                    print("Ad wasn't ready")
+                }
+                
+            }
+            count += 1
+        }
         
         // display a new card
         card_label.text = randomTask().name!
@@ -153,5 +195,22 @@ extension playVC {
         //flip UIView animation
         UIView.transition(with: card_view, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
     }
+    
+}
+
+// Interstitial Ads
+extension playVC: GADInterstitialDelegate {
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+    }
+    
 }
 
