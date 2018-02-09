@@ -16,6 +16,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var exit_button: UIButton!
     @IBOutlet weak var pause_button: UIButton!
     @IBOutlet weak var punishment_button: UIButton!
+    let resumeBtn = UIButton()
     
     // labels
     @IBOutlet weak var exit_label: UILabel!
@@ -25,6 +26,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     // view
     @IBOutlet weak var card_view: UIView!
+    let dim_view = UIView()
     
     // timer class
     let time = Time()
@@ -142,6 +144,25 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         interstitial = createAndLoadInterstitial()
         // =================================================================================
         
+        // When user tapped on pause button
+        // dim view layer
+        let defaultDimColor = UIColor.black.withAlphaComponent(0.7)
+        dim_view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.view.addSubview(dim_view)
+        dim_view.backgroundColor = defaultDimColor
+        self.dim_view.isHidden = true
+        
+        // resume button
+        // viewDidLoad render a false position due to status bar is hidden and sotryboard design conflict
+        resumeBtn.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        resumeBtn.setTitle("R", for: .normal)
+        resumeBtn.backgroundColor = .red
+        let resumeBtn_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss_dimView(sender:)))
+        resumeBtn_tapGestureRecognizer.numberOfTapsRequired = 1
+        resumeBtn.isUserInteractionEnabled = true
+        resumeBtn.addGestureRecognizer(resumeBtn_tapGestureRecognizer)
+        self.view.addSubview(resumeBtn)
+        self.resumeBtn.isHidden = true
     }
     
     // dismiss view
@@ -149,8 +170,23 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // pause timer
     @IBAction func pause_action(_ sender: Any) {
+        // pause timer
+        time.pause()
+        
+        // get the pause_button's run time accurate position,
+        resumeBtn.frame = CGRect(x: pause_button.frame.origin.x,y: pause_button.frame.origin.y - UIApplication.shared.statusBarFrame.height, width: pause_button.frame.size.width, height:pause_button.frame.size.height)
+        resumeBtn.layer.cornerRadius = resumeBtn.bounds.width * 0.5
+        self.view.bringSubview(toFront: resumeBtn)
+        self.dim_view.isHidden = false
+        self.resumeBtn.isHidden = false
+    }
+    
+
+    // hide resumeBtn and dim_view, then resume timer
+    @objc func dismiss_dimView(sender: UITapGestureRecognizer) {
+        self.dim_view.isHidden = true
+        self.resumeBtn.isHidden = true
         time.pause()
     }
     
