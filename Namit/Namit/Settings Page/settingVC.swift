@@ -27,8 +27,11 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.title = "Settings"
         
         // optional colors
-        self.tableview.backgroundColor = UIColor.purple
+        self.tableview.backgroundColor = UIColor.black
         
+        // Eliminate extra separators below UITableView
+        tableview.tableFooterView = UIView()
+
     }
 
     
@@ -42,10 +45,12 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_reuse_identifier")
         let text = data[indexPath.row]
         cell?.textLabel?.text = text
+        cell?.textLabel?.textColor = .white
         
         // optional color
-        cell?.backgroundColor = UIColor.yellow
+        cell?.backgroundColor = UIColor.black
         cell?.selectionStyle = .none
+
 
         if indexPath.row == 0 || indexPath.row == 1{
             // cell right arrow
@@ -54,7 +59,7 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         if indexPath.row == 2 {
             // Time Interval setup
-            interval_label.backgroundColor = UIColor.blue
+            interval_label.backgroundColor = UIColor.black
             interval_label.text = "5 seconds"
             interval_label.textAlignment = .center
             interval_label.textColor = .white
@@ -64,7 +69,8 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 3 {
             // UISwitch setup
             let sound_switch = UISwitch(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
-            sound_switch.backgroundColor = .green
+            sound_switch.backgroundColor = .black
+            sound_switch.onTintColor = .red
             sound_switch.setOn(true, animated: true)
             sound_switch.addTarget(self, action: #selector(sound_switch_action), for: .touchUpInside)
             cell?.accessoryView = sound_switch as UIView
@@ -102,6 +108,18 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.interval_label.text = value!
                 }
             }
+        }
+        
+        if indexPath.row == 4 {
+            print("clicked on Remove Ads")
+        }
+        
+        if indexPath.row == 5 {
+            print("clicked on Privacy policy")
+        }
+        
+        if indexPath.row == 6 {
+            print("clicked on Share with friends")
         }
         
         

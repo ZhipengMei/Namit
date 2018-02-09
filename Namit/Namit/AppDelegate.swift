@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationAppearance = UINavigationBar.appearance()
         
         // change color of navigation bar background
-        navigationAppearance.barTintColor = UIColor.red
+        navigationAppearance.barTintColor = UIColor.black
         
         // change color of navigation bar items (buttons)
-        navigationAppearance.tintColor = UIColor.white
+        navigationAppearance.tintColor = UIColor.red
         
         // change color of navigation bar title
         navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];

@@ -17,16 +17,20 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var pause_button: UIButton!
     @IBOutlet weak var punishment_button: UIButton!
     let resumeBtn = UIButton()
+    let back_to_play = UIButton()
     
     // labels
     @IBOutlet weak var exit_label: UILabel!
     @IBOutlet weak var pause_label: UILabel!
     @IBOutlet weak var timer_label: UILabel!
     @IBOutlet weak var card_label: UILabel!
+    let punishment_label = UILabel()
+    
     
     // view
     @IBOutlet weak var card_view: UIView!
     let dim_view = UIView()
+    let punishment_view = UIView()
     
     // timer class
     let time = Time()
@@ -61,10 +65,12 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 
         // exit button
         exit_button.backgroundColor = UIColor.red
+        exit_button.setTitleColor(.white, for: .normal)
         exit_button.layer.cornerRadius = self.exit_button.bounds.width * 0.5
         
         // pause button
         pause_button.backgroundColor = UIColor.red
+        pause_button.setTitleColor(.white, for: .normal)
         pause_button.layer.cornerRadius = self.pause_button.bounds.width * 0.5
         pause_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 10)
         
@@ -72,12 +78,17 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         punishment_button.backgroundColor = UIColor.red
         punishment_button.layer.cornerRadius = self.punishment_button.bounds.height / 2
         punishment_button.setTitleColor(UIColor.white, for: .normal)
-        // font & size
+            // font & size
         punishment_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
-        // string kerning
+            // string kerning
         let attributedString = NSMutableAttributedString(string: "PUNISHMENT")
         attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
         punishment_button.titleLabel?.attributedText = attributedString
+            // tap gesture for action
+        let pusnish_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(punishment_action(sender:)))
+        pusnish_tapGestureRecognizer.numberOfTapsRequired = 1
+        punishment_button.isUserInteractionEnabled = true
+        punishment_button.addGestureRecognizer(pusnish_tapGestureRecognizer)
         
         // exit label
         exit_label.textColor = UIColor.white
@@ -104,7 +115,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         card_view.backgroundColor = UIColor.white
         card_view.layer.cornerRadius = 10
         
-        // view
+        // native view
         self.view.backgroundColor = UIColor.black
         
         // setup timer
@@ -145,7 +156,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         // =================================================================================
         
         // When user tapped on pause button
-        // dim view layer
+        // creating dim view layer
         let defaultDimColor = UIColor.black.withAlphaComponent(0.7)
         dim_view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(dim_view)
@@ -154,7 +165,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         
         // resume button
         // viewDidLoad render a false position due to status bar is hidden and sotryboard design conflict
-        resumeBtn.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         resumeBtn.setTitle("R", for: .normal)
         resumeBtn.backgroundColor = .red
         let resumeBtn_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss_dimView(sender:)))
@@ -163,6 +173,50 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         resumeBtn.addGestureRecognizer(resumeBtn_tapGestureRecognizer)
         self.view.addSubview(resumeBtn)
         self.resumeBtn.isHidden = true
+        
+        // ======================= Punishment View ==========================================================
+        // punishment view
+        self.punishment_view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.punishment_view.backgroundColor = .red
+        self.view.addSubview(punishment_view)
+        self.punishment_view.alpha = 0
+        
+        // back_to_play button
+            // creating button within punishment view
+        back_to_play.setTitle("Back To Play", for: .normal)
+        back_to_play.setTitleColor(.white, for: .normal)
+        back_to_play.backgroundColor = .clear
+            // action when tapped
+        let tbp_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(back2play_action(sender:)))
+        tbp_tapGestureRecognizer.numberOfTapsRequired = 1
+        back_to_play.isUserInteractionEnabled = true
+        back_to_play.addGestureRecognizer(tbp_tapGestureRecognizer)
+            // add buttont to subview
+        self.punishment_view.addSubview(back_to_play)
+        back_to_play.alpha = 0
+            // font & size
+        back_to_play.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
+            // string kerning
+        let btp_attributedString = NSMutableAttributedString(string: "Back To Play")
+        btp_attributedString.addAttribute(NSAttributedStringKey.kern, value: 4, range: NSRange(location: 0, length: btp_attributedString.length - 1))
+        back_to_play.titleLabel?.attributedText = btp_attributedString
+        
+        // punishment label
+//        self.punishment_label.frame = CGRect(x: self.view.frame.origin.x , y: self.card_label.frame.origin.y , width: self.card_label.frame.size.width, height: self.card_label.frame.size.height)
+        self.punishment_label.frame = CGRect(x: 0 , y: 0 , width: self.card_label.frame.size.width, height: self.card_label.frame.size.height)
+        self.punishment_label.center.x = self.punishment_view.center.x
+        self.punishment_label.center.y = self.punishment_view.center.y - (self.back_to_play.frame.size.height)
+        self.punishment_label.text = "Give piggy ride to everybody."
+        self.punishment_label.font =  UIFont(name: "HelveticaNeue-Bold", size: 25)
+        self.punishment_label.numberOfLines = 0
+        self.punishment_label.textColor = .white
+        self.punishment_label.textAlignment = .center
+        self.punishment_view.addSubview(self.punishment_label)
+        
+        // ==================== /Punishment View =============================================================
+        
+        // bring card_view to front so user can tap for a new card
+        self.view.bringSubview(toFront: card_view)
     }
     
     // dismiss view
@@ -185,9 +239,43 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 
     // hide resumeBtn and dim_view, then resume timer
     @objc func dismiss_dimView(sender: UITapGestureRecognizer) {
+        
         self.dim_view.isHidden = true
         self.resumeBtn.isHidden = true
         time.pause()
+        
+    }
+    
+    // display punishment view
+    @objc func punishment_action(sender: UITapGestureRecognizer) {
+
+        // bring punishment_view to the front
+        self.view.bringSubview(toFront: punishment_view)
+        
+        // create back_to_play button's frame at run time for accurate position
+        self.back_to_play.frame = CGRect(x: self.punishment_button.frame.origin.x, y: self.punishment_button.frame.origin.y, width: 287, height: 63)
+        // border
+        back_to_play.layer.borderWidth = 3.0
+        back_to_play.layer.borderColor = (UIColor.white).cgColor
+        // cornerRadius
+        back_to_play.layer.cornerRadius = back_to_play.bounds.height / 2
+        
+        // fade in animation
+        UIView.animate(withDuration: 0.2, animations: {
+            self.punishment_view.alpha = 1
+            self.back_to_play.alpha = 1
+        })
+        
+    }
+    
+    // dismiss punishment view
+    @objc func back2play_action(sender: UITapGestureRecognizer) {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.punishment_view.alpha = 0
+            self.back_to_play.alpha = 0
+        })
+        
     }
     
     // randomize the order of the fetchedObjects
@@ -207,7 +295,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
             if count % 6 == 0 {
                 count = 1
-                
                 if interstitial.isReady {
                     // pause the game timer
                     time.pause()
@@ -216,7 +303,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 } else {
                     print("Ad wasn't ready")
                 }
-                
             }
             count += 1
         }

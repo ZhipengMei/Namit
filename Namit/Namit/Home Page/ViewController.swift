@@ -49,13 +49,15 @@ class ViewController: UIViewController {
         self.rule_button.setTitleColor(UIColor.white, for: .normal)
         
         // setting label
-        setting_label.textColor = UIColor.blue
+        setting_label.textColor = UIColor.white
+        setting_label.backgroundColor = .black
         
         //rule label
-        rule_label.textColor = UIColor.blue
+        rule_label.textColor = UIColor.white
+        rule_label.backgroundColor = .black
         
         // view
-        self.view.backgroundColor = UIColor.orange
+        self.view.backgroundColor = UIColor.black
         
         
         // Google AdMob
