@@ -63,6 +63,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
+        // initializing TImer's interval
+        let gameTimer_entity = NSEntityDescription.entity(forEntityName: "GameTimer", in: context)
+        let newTimeInterval = NSManagedObject(entity: gameTimer_entity!, insertInto: context)
+        newTimeInterval.setValue(5, forKey: "interval")
+        do {
+            try context.save()
+            print("GameTimer entity saved")
+        } catch {
+            print("GameTimer: Failed saving")
+        }
+        
         // initializing Punishments Entity
         let punishments_entity = NSEntityDescription.entity(forEntityName: "Punishments", in: context)
         

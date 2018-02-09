@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
     
@@ -18,11 +19,21 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // values to fill table view
     private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Remove Ads", "Privacy Policy", "Share with Friends"]
     
+    // initialize UIPickerView
+    var time_interval_picker = UIPickerView()
+    // values to fill picker view
+    let time_interval: NSArray = ["3 seconds","4 seconds","5 seconds","6 seconds","7 seconds","8 seconds","9 seconds","10 seconds"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableview.dataSource = self
         tableview.delegate = self
+        // set delegate
+        time_interval_picker.delegate = self
+        
+        // set DataSource
+        time_interval_picker.dataSource = self
         
         self.title = "Settings"
         
@@ -31,9 +42,44 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // Eliminate extra separators below UITableView
         tableview.tableFooterView = UIView()
+        
+//        // update GameTimer entity's interval time
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        // UIPickerView setup
+            // set delegate
+        time_interval_picker.delegate = self
+            // set DataSource
+        time_interval_picker.dataSource = self
+        // set size
+        time_interval_picker.frame = CGRect(x: 0, y: self.view.frame.size.height - self.time_interval_picker.frame.size.height, width: self.view.bounds.width, height:  self.view.frame.size.height * 0.4)
+            // add it to view
+        self.view.addSubview(time_interval_picker)
+            // hide the pickerview
+        time_interval_picker.alpha = 0
+            // set background
+        time_interval_picker.backgroundColor = .gray
+        
 
     }
 
+    // turn in game sound on/off
+    @objc func sound_switch_action() {
+        print("clicked")
+    }
+    
+    // convert RGB to hex color
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+
+}
+
+
+extension settingVC: UITableViewDelegate, UITableViewDataSource {
     
     // ===================== tableView ============================================================
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,16 +96,17 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // optional color
         cell?.backgroundColor = UIColor.black
         cell?.selectionStyle = .none
-
-
+        
+        
         if indexPath.row == 0 || indexPath.row == 1{
             // cell right arrow
             cell?.accessoryType = .disclosureIndicator
         }
-
+        
         if indexPath.row == 2 {
             // Time Interval setup
             interval_label.backgroundColor = UIColor.black
+            // TODO: display coredata's time interval
             interval_label.text = "5 seconds"
             interval_label.textAlignment = .center
             interval_label.textColor = .white
@@ -75,7 +122,7 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sound_switch.addTarget(self, action: #selector(sound_switch_action), for: .touchUpInside)
             cell?.accessoryView = sound_switch as UIView
         }
-
+        
         return cell!
     }
     
@@ -98,16 +145,10 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 2 {
-            
-            // DPPickerView usage
-            let values = ["3 seconds","4 seconds","5 seconds","6 seconds","7 seconds","8 seconds","9 seconds","10 seconds"]
-            DPPickerManager.shared.showPicker(title: "Time Interval", selected: "", strings: values) { (value, index, cancel) in
-                if !cancel {
-                    debugPrint(value as Any)
-                    // update the time interval label
-                    self.interval_label.text = value!
-                }
-            }
+            // display UIPickerView
+            UIView.animate(withDuration: 0.3, animations: {
+                self.time_interval_picker.alpha = 1
+            })
         }
         
         if indexPath.row == 4 {
@@ -126,18 +167,51 @@ class settingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     // ===================== /tableView ============================================================
     
-    @objc func sound_switch_action() {
-        print("clicked")
+}
+
+
+extension settingVC: UIPickerViewDelegate, UIPickerViewDataSource {
+
+    // data method to return the number of column shown in the picker.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue = CGFloat(rgbValue & 0xFF)/256.0
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    // data method to return the number of row shown in the picker.
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return time_interval.count
     }
+    
+    // delegate method to return the value shown in the picker
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return time_interval[row] as? String
+    }
+    
+    // delegate method called when the row was selected.
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
+        self.interval_label.text = time_interval[row] as? String
+        
+        // hide UIPickerView
+        UIView.animate(withDuration: 0.3, animations: {
+            self.time_interval_picker.alpha = 0
+        })
+    }
+    
+    // optional: modify text color
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        let titleData = time_interval[row] as! String
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedStringKey.foregroundColor:UIColor.white])
+        return myTitle
+
+    }
+    
+    
+    
 }
+
+
 
 
 

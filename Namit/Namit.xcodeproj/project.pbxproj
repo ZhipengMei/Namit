@@ -19,7 +19,6 @@
 		3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477220259D5E004FE06D /* NamitTests.swift */; };
 		3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477D20259D5E004FE06D /* NamitUITests.swift */; };
 		3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A478B2025A47A004FE06D /* settingVC.swift */; };
-		3A8E8E41202C2F8300081597 /* DPPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E8E40202C2F8300081597 /* DPPickerManager.swift */; };
 		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,6 @@
 		3A5A477D20259D5E004FE06D /* NamitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitUITests.swift; sourceTree = "<group>"; };
 		3A5A477F20259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A478B2025A47A004FE06D /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
-		3A8E8E40202C2F8300081597 /* DPPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPPickerManager.swift; sourceTree = "<group>"; };
 		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +111,6 @@
 			children = (
 				3A5A478B2025A47A004FE06D /* settingVC.swift */,
 				3A3B90D9202AB56500C80C5F /* detailTableView.swift */,
-				3A8E8E40202C2F8300081597 /* DPPickerManager.swift */,
 			);
 			path = "Settings Page";
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */,
 				3A5A475B20259D5E004FE06D /* AppDelegate.swift in Sources */,
 				3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */,
-				3A8E8E41202C2F8300081597 /* DPPickerManager.swift in Sources */,
 				3A5A476320259D5E004FE06D /* Namit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

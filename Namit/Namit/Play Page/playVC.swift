@@ -52,8 +52,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     var interstitial: GADInterstitial!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-                
+        super.viewDidLoad()            
+        
         // fetching coreData
         do {
             try fetchedResultsController.performFetch()
