@@ -45,6 +45,20 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         return frc
     }()
     
+    //Punishments NSFetchedResultsController
+    lazy var punishment_fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Punishments")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        return frc
+    }()
+    
+    var punishments_data: [NSFetchRequestResult] = []
+    var cards_data: [NSFetchRequestResult] = []
+
+    
     // Native Express Ad View
     @IBOutlet weak var nativeExpressAdView: GADNativeExpressAdView!
     
@@ -57,6 +71,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         // fetching coreData
         do {
             try fetchedResultsController.performFetch()
+            try punishment_fetchedResultsController.performFetch()
         } catch {
             let fetchError = error as NSError
             print("Unable to Save Note")
@@ -103,13 +118,15 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         timer_label.layer.borderColor = (UIColor.white).cgColor
         timer_label.backgroundColor = UIColor.clear
         timer_label.font =  UIFont(name: "helvetica neue", size: 40)
+        timer_label.text = String(time.seconds)
+        
         
         // card label
         card_label.textAlignment = .center
         card_label.textColor = .black
         card_label.numberOfLines = 0
         // display the first card
-        card_label.text = randomTask().name!
+        card_label.text = randomCardTask()
         
         // card_view
         card_view.backgroundColor = UIColor.white
@@ -123,10 +140,15 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         time.pauseButton = pause_button
         time.runTimer()
         
-        // ================= Tap Gesture ==================================================
+        // ================= Gesture ==================================================
         // Add tap gesture to card_view
         // The flip_card: method will be fliping the card_view
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip_card(sender:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(updateScore(sender:)))
+        // swipe gesture for action
+        let swipe_left = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipe_left.direction = .left
+        let swipe_right = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipe_right.direction = .right
         
         // Optionally set the number of required taps, e.g., 2 for a double click
         tapGestureRecognizer.numberOfTapsRequired = 1
@@ -134,6 +156,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
         card_view.isUserInteractionEnabled = true
         card_view.addGestureRecognizer(tapGestureRecognizer)
+        card_view.addGestureRecognizer(swipe_left)
+        card_view.addGestureRecognizer(swipe_right)
         // =================================================================================
         
 
@@ -202,11 +226,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         back_to_play.titleLabel?.attributedText = btp_attributedString
         
         // punishment label
-//        self.punishment_label.frame = CGRect(x: self.view.frame.origin.x , y: self.card_label.frame.origin.y , width: self.card_label.frame.size.width, height: self.card_label.frame.size.height)
         self.punishment_label.frame = CGRect(x: 0 , y: 0 , width: self.card_label.frame.size.width, height: self.card_label.frame.size.height)
         self.punishment_label.center.x = self.punishment_view.center.x
         self.punishment_label.center.y = self.punishment_view.center.y - (self.back_to_play.frame.size.height)
-        self.punishment_label.text = "Give piggy ride to everybody."
         self.punishment_label.font =  UIFont(name: "HelveticaNeue-Bold", size: 25)
         self.punishment_label.numberOfLines = 0
         self.punishment_label.textColor = .white
@@ -217,7 +239,13 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         
         // bring card_view to front so user can tap for a new card
         self.view.bringSubview(toFront: card_view)
-    }
+        
+        // load coreData to empty variable
+        // TODO2
+        punishments_data = punishment_fetchedResultsController.fetchedObjects!
+        cards_data = fetchedResultsController.fetchedObjects!
+        
+    }// \viewDidLoad
     
     // dismiss view
     @IBAction func exit_action(_ sender: Any) {
@@ -249,6 +277,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // display punishment view
     @objc func punishment_action(sender: UITapGestureRecognizer) {
 
+        // assign punishment text
+        self.punishment_label.text = randomPunishmentTask()
+        
         // bring punishment_view to the front
         self.view.bringSubview(toFront: punishment_view)
         
@@ -278,18 +309,53 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         
     }
     
-    // randomize the order of the fetchedObjects
-    func randomTask() -> Cards {
-        let count = UInt32(fetchedResultsController.fetchedObjects!.count)
-        let index = Int(arc4random_uniform(count))
-        let results = fetchedResultsController.fetchedObjects![index] as! Cards
-        return results
+    // randomize the order of the Card fetchedObjects
+    func randomCardTask() -> String {
+        if cards_data.count > 0 {
+            return createCardRandom()
+        } else {
+            cards_data = fetchedResultsController.fetchedObjects!
+            return createCardRandom()
+        }
     }
+    
+    func createCardRandom() -> String {
+        // random key from array
+        let arrayKey = Int(arc4random_uniform(UInt32(cards_data.count)))
+        // your random number
+        let randNum = (cards_data[arrayKey] as! Cards).name!
+        print(randNum)
+        // make sure the number isnt repeated
+        cards_data.remove(at: arrayKey)
+        return randNum
+    }
+    
+    // randomize the order of the fetchedObjects
+    func randomPunishmentTask() -> String {
+        if punishments_data.count > 0 {
+            return createPunishmentRandom()
+        } else {
+            punishments_data = punishment_fetchedResultsController.fetchedObjects!
+            return createPunishmentRandom()
+        }
+    }
+    
+    func createPunishmentRandom() -> String {
+        // random key from array
+        let arrayKey = Int(arc4random_uniform(UInt32(punishments_data.count)))
+        // your random number
+        let randNum = (punishments_data[arrayKey] as! Punishments).name!
+        print(randNum)
+        // make sure the number isnt repeated
+        punishments_data.remove(at: arrayKey)
+        return randNum
+    }
+    
     
     // initialize count variable
     var count = 1
     // tap gesture action method
-    @objc func flip_card(sender: UITapGestureRecognizer) {
+    @objc func flip_card(sender: Any) {
         
         // Display Ads every 5 tap
         if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
@@ -308,10 +374,28 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         }
         
         // display a new card
-        card_label.text = randomTask().name!
+        card_label.text = randomCardTask()
         
         //flip UIView animation
         UIView.transition(with: card_view, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    }
+    
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case UISwipeGestureRecognizerDirection.left:
+            print("swiped left")
+            break
+        case UISwipeGestureRecognizerDirection.right:
+            print("swiped right")
+            self.flip_card(sender: UISwipeGestureRecognizer())
+            break
+        default:
+            break
+        }
+    }
+    
+    @objc func updateScore(sender: Any) {
+        time.reset()
     }
     
 }
@@ -367,4 +451,12 @@ extension playVC: GADInterstitialDelegate {
     // ============ /GADBannerViewDelegate Methods ===================================================================
 
 }
+
+
+
+
+
+
+
+
 

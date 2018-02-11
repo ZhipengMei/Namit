@@ -22,7 +22,11 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
     // initialize UIPickerView
     var time_interval_picker = UIPickerView()
     // values to fill picker view
-    let time_interval: NSArray = ["3 seconds","4 seconds","5 seconds","6 seconds","7 seconds","8 seconds","9 seconds","10 seconds"]
+    let time_interval: NSArray = ["3","4","5","6","7","8","9","10"]
+    
+    // core data request
+    let time_fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GameTimer")
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +47,6 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
         // Eliminate extra separators below UITableView
         tableview.tableFooterView = UIView()
         
-//        // update GameTimer entity's interval time
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         // UIPickerView setup
             // set delegate
@@ -74,6 +76,42 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
+    func saveTimerInterval(interval: Int16) {
+        // retrieve the current coredata value then change it to new value.
+        self.time_fetchRequest.returnsObjectsAsFaults = false
+        self.time_fetchRequest.fetchLimit = 1
+        do {
+            let result = try context.fetch(time_fetchRequest) as! [GameTimer]
+            if result.count == 1 {
+                // retrieved data and update it
+                result[0].interval = interval
+                do{
+                    try result[0].managedObjectContext?.save()
+                } catch {
+                    print("Error: saveTimerInterval")
+                }
+            }
+        } catch {
+            print("GameTimer: Retrieve data failed.")
+        }
+    }
+    
+    func getTimerInterval() -> Int {
+        self.time_fetchRequest.returnsObjectsAsFaults = false
+        self.time_fetchRequest.fetchLimit = 1
+        do {
+            let result = try context.fetch(time_fetchRequest) as! [GameTimer]
+            if result.count == 1 {
+                // return retrieved data
+                return Int(result[0].interval)
+            }
+        } catch {
+            print("GameTimer: Retrieve data failed.")
+        }
+        // default timer
+        return 5
     }
 
 }
@@ -106,8 +144,8 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 2 {
             // Time Interval setup
             interval_label.backgroundColor = UIColor.black
-            // TODO: display coredata's time interval
-            interval_label.text = "5 seconds"
+            // display coredata's time interval
+            interval_label.text = "\(self.getTimerInterval()) seconds"
             interval_label.textAlignment = .center
             interval_label.textColor = .white
             cell?.accessoryView = interval_label as UIView
@@ -189,8 +227,11 @@ extension settingVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // delegate method called when the row was selected.
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        self.interval_label.text = time_interval[row] as? String
+        
+        // display on the label
+        self.interval_label.text = "\(time_interval[row]) seconds"
+        // update coreData
+        self.saveTimerInterval(interval: Int16((time_interval[row] as AnyObject).integerValue))
         
         // hide UIPickerView
         UIView.animate(withDuration: 0.3, animations: {

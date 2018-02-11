@@ -494,6 +494,7 @@
 					"$(PROJECT_DIR)/Namit",
 				);
 				INFOPLIST_FILE = Namit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Mei.Namit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,6 +516,7 @@
 					"$(PROJECT_DIR)/Namit",
 				);
 				INFOPLIST_FILE = Namit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Mei.Namit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
