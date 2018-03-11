@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11C2030011F003EE131 /* time_beep.mp3 */; };
+		3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11D2030011F003EE131 /* punishment.mp3 */; };
+		3A1EF121203001B7003EE131 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF120203001B7003EE131 /* Audio.swift */; };
 		3A3103C52026833700253DE8 /* playVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3103C42026833700253DE8 /* playVC.swift */; };
 		3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B90D9202AB56500C80C5F /* detailTableView.swift */; };
 		3A3FF21C20267FBC00707BEF /* ruleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FF21B20267FBC00707BEF /* ruleVC.swift */; };
@@ -19,6 +22,7 @@
 		3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477220259D5E004FE06D /* NamitTests.swift */; };
 		3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477D20259D5E004FE06D /* NamitUITests.swift */; };
 		3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A478B2025A47A004FE06D /* settingVC.swift */; };
+		3A6BA98720527D7000E48B60 /* EditPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA98620527D7000E48B60 /* EditPlayers.swift */; };
 		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1EF11C2030011F003EE131 /* time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_beep.mp3; sourceTree = "<group>"; };
+		3A1EF11D2030011F003EE131 /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
+		3A1EF120203001B7003EE131 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		3A3103C42026833700253DE8 /* playVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playVC.swift; sourceTree = "<group>"; };
 		3A3B90D9202AB56500C80C5F /* detailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableView.swift; sourceTree = "<group>"; };
 		3A3FF21B20267FBC00707BEF /* ruleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ruleVC.swift; sourceTree = "<group>"; };
@@ -59,6 +66,7 @@
 		3A5A477D20259D5E004FE06D /* NamitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitUITests.swift; sourceTree = "<group>"; };
 		3A5A477F20259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A478B2025A47A004FE06D /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
+		3A6BA98620527D7000E48B60 /* EditPlayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlayers.swift; sourceTree = "<group>"; };
 		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,11 +97,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A1EF11B20300111003EE131 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3A1EF11D2030011F003EE131 /* punishment.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		3A3103C32026831E00253DE8 /* Play Page */ = {
 			isa = PBXGroup;
 			children = (
 				3A3103C42026833700253DE8 /* playVC.swift */,
 				3AA43C992026DBBB00D98218 /* Time.swift */,
+				3A1EF120203001B7003EE131 /* Audio.swift */,
 			);
 			path = "Play Page";
 			sourceTree = "<group>";
@@ -146,6 +163,9 @@
 		3A5A475920259D5E004FE06D /* Namit */ = {
 			isa = PBXGroup;
 			children = (
+				3A6BA98520527D1100E48B60 /* EditPlayers */,
+				3A1EF11C2030011F003EE131 /* time_beep.mp3 */,
+				3A1EF11B20300111003EE131 /* Audio */,
 				3A3103C32026831E00253DE8 /* Play Page */,
 				3A3FF21820267F3B00707BEF /* Home Page */,
 				3A3FF21920267F4400707BEF /* Settings Page */,
@@ -177,6 +197,14 @@
 				3A5A477F20259D5E004FE06D /* Info.plist */,
 			);
 			path = NamitUITests;
+			sourceTree = "<group>";
+		};
+		3A6BA98520527D1100E48B60 /* EditPlayers */ = {
+			isa = PBXGroup;
+			children = (
+				3A6BA98620527D7000E48B60 /* EditPlayers.swift */,
+			);
+			path = EditPlayers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +315,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */,
+				3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */,
 				3A5A476520259D5E004FE06D /* Assets.xcassets in Resources */,
 				3A5A476020259D5E004FE06D /* Main.storyboard in Resources */,
+				3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6BA98720527D7000E48B60 /* EditPlayers.swift in Sources */,
+				3A1EF121203001B7003EE131 /* Audio.swift in Sources */,
 				3A5A475D20259D5E004FE06D /* ViewController.swift in Sources */,
 				3A3FF21C20267FBC00707BEF /* ruleVC.swift in Sources */,
 				3A3103C52026833700253DE8 /* playVC.swift in Sources */,

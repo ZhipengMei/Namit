@@ -36,19 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];
         
         // programmatically adding Navigation Controller to "Home Page"
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let home_vc = storyboard.instantiateViewController(withIdentifier: "home") as UIViewController
         let navigationController = UINavigationController(rootViewController: home_vc)
-        window = UIWindow(frame: UIScreen.main.bounds)
-        if let window = window {
-            window.rootViewController = navigationController
-            window.makeKeyAndVisible()
-        }
+        window?.rootViewController = navigationController
         
         // Load coredata at the application very first launch
         if(!UserDefaults.standard.bool(forKey: "firstlaunch1.0")){
             //Put any code here and it will be executed only once.
             reset_default_coreData()
+            setup_players()
             UserDefaults.standard.set(true, forKey: "firstlaunch1.0")
             UserDefaults.standard.synchronize();
         }
@@ -155,6 +154,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Cards entity saved")
         } catch {
             print("Cards: Failed saving")
+        }
+    }
+    
+    // game's default player data
+    func setup_players() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        // list of players
+        //let lists = [ ["Red", "Orange", "Banana", "Pineapple"], ["Yellow", "Green", "Blue", "Magenta" ] ]
+        let data = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🕷","🕸","🐢","🐍","🦎","🦂","🦀","🦑","🐙","🦐","🐠","🐟","🐡","🐬","🦈","🐳","🐋","🐊","🐆","🐅","🐃","🐂","🐄","🦌","🐪","🐫","🐘","🦏","🦍","🐎","🐖","🐐","🐏","🐑","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🐾","🐉","🐲","🌵","🎄","🌲","🌳","🌴","🌱","🌿","☘️","🍀","🎍","🎋","🍃","🍂","🍁","🍄","🌾","💐","🌷","🌹","🥀","🌻","🌼","🌸","🌺","🌎","🌞","🌛","⭐️","🔥","☄️","🌈","☁️","☃️","❄️","🌊","💦","☔️"]
+        
+        // initializing Players Entity
+        let Players_entity = NSEntityDescription.entity(forEntityName: "Players", in: context)
+        
+        for (i, item) in data.enumerated() {
+            let character = NSManagedObject(entity: Players_entity!, insertInto: context)
+            character.setValue(item, forKey: "name")
+            character.setValue(i, forKey: "row")
+            character.setValue(1, forKey: "section")
+        }
+        do {
+            try context.save()
+            print("Success: Players entity saved.")
+        } catch {
+            print("Error: Players entity cannot save.")
         }
     }
     //=======================================================================================================================

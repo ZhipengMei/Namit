@@ -15,6 +15,7 @@ class Time {
     // data
     var seconds = 10
     var timer = Timer()
+    var beep_sound = Audio()
     
     // UI
     var timerLabel = UILabel()
@@ -60,9 +61,18 @@ class Time {
             runTimer()
         } else {
             seconds -= 1
+            if seconds < self.getTime() {
+                //TODO, resume sounds 
+                //beep_sound.play_action()
+            }
             timerLabel.text = String(seconds)
         }
     }
+
+    @objc func someMethod() { // name this properly!
+        print("called someMethod")
+    }
+
     
     func pause() {
         if self.resumeTapped == false {
@@ -83,6 +93,11 @@ class Time {
         seconds = self.getTime()
         timerLabel.text = String(seconds)
         runTimer()
+    }
+    
+    func stop() {
+        beep_sound.pause_action()
+        timer.invalidate()
     }
     
 }

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var play_button: UIButton!
     @IBOutlet weak var setting_button: UIButton!
     @IBOutlet weak var rule_button: UIButton!
+    @IBOutlet weak var setPlayer_button: UIButton!
     
     // labels
     @IBOutlet weak var setting_label: UILabel!
@@ -37,6 +38,9 @@ class ViewController: UIViewController {
         self.play_button.titleLabel?.attributedText = attributedString
         //font and size
         self.play_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 20)
+        
+        // edit players
+        self.setPlayer_button.layer.cornerRadius = self.setPlayer_button.bounds.height / 2
         
         // setting btn
         self.setting_button.backgroundColor = UIColor.red
@@ -126,6 +130,11 @@ class ViewController: UIViewController {
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    @IBAction func toEditPlayers(_ sender: Any) {
+        self.navigationController?.pushViewController(EditPlayers(), animated: true)
+    }
+    
     
     
 
