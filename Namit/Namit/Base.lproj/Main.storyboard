@@ -89,22 +89,6 @@
                                     <action selector="pause_action:" destination="Ie6-Fz-Xft" eventType="touchUpInside" id="aIy-fw-Scg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-pK-BWG">
-                                <rect key="frame" x="65" y="13" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Animate"/>
-                                <connections>
-                                    <action selector="animate_Action:" destination="Ie6-Fz-Xft" eventType="touchUpInside" id="tgF-XC-Xde"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvb-Hy-obZ">
-                                <rect key="frame" x="172" y="13" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Exit"/>
-                                <connections>
-                                    <action selector="quitzzzzzz:" destination="Ie6-Fz-Xft" eventType="touchUpInside" id="QyD-d9-JxQ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSJ-Jy-YZr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,7 +151,6 @@
                         <viewLayoutGuide key="safeArea" id="RaA-BQ-gK3"/>
                     </view>
                     <connections>
-                        <outlet property="animate_button" destination="fgY-pK-BWG" id="5fn-NX-Qpa"/>
                         <outlet property="card_label" destination="pzZ-YJ-s7k" id="GRD-iw-2ks"/>
                         <outlet property="card_view" destination="MX0-84-Bvn" id="p53-7I-2yO"/>
                         <outlet property="dare_button" destination="Ejc-U1-8pT" id="bmp-r2-mVg"/>

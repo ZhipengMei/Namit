@@ -20,6 +20,7 @@ class Time {
     // UI
     var timerLabel = UILabel()
     var pauseButton = UIButton()
+    var punishmentOption = UIView()
     
     init() {
         seconds = self.getTime()
@@ -55,36 +56,30 @@ class Time {
     
     @objc func updateTimer() {
         if seconds < 1 {
-            timer.invalidate()
-            seconds = self.getTime()
-            timerLabel.text = String(seconds)
-            runTimer()
+            self.stop()
+            // show player two options: Dare or Punishment
+            punishmentOption.isHidden = false
         } else {
             seconds -= 1
             if seconds < self.getTime() {
                 //TODO, resume sounds 
-                //beep_sound.play_action()
+                beep_sound.play_action()
             }
             timerLabel.text = String(seconds)
         }
     }
-
-    @objc func someMethod() { // name this properly!
-        print("called someMethod")
-    }
-
     
     func pause() {
         if self.resumeTapped == false {
             timer.invalidate()
             isTimerRunning = false
             self.resumeTapped = true
-            self.pauseButton.setTitle("RESUME",for: .normal)
+            self.pauseButton.setTitle("R",for: .normal)
         } else {
             runTimer()
             self.resumeTapped = false
             isTimerRunning = true
-            self.pauseButton.setTitle("PAUSE",for: .normal)
+            self.pauseButton.setTitle("||",for: .normal)
         }
     }
     

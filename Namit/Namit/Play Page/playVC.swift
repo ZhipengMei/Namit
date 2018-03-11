@@ -13,7 +13,6 @@ import GoogleMobileAds
 
 class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 
-    @IBOutlet weak var animate_button: UIButton!
     // buttons
     @IBOutlet weak var pause_button: UIButton!
     @IBOutlet weak var namedit_button: UIButton!
@@ -22,8 +21,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var takeLife_button: UIButton!
     @IBOutlet weak var dare_button: UIButton!
-    
-    
     
     
     // labels
@@ -59,8 +56,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     // timer class
     let time = Time()
-    //bad programming
-    var gameTimer: Timer!
     
     //default for NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -217,6 +212,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         // setup timer
         time.timerLabel = timer_label
         time.pauseButton = pause_button
+        time.punishmentOption = punishment_option
         time.runTimer()
 
         
@@ -321,9 +317,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         // bring card_view to front so user can tap for a new card
         //self.view.bringSubview(toFront: card_view)
         
-        //TODO
-        gameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(time.getTime()), target: self, selector: (#selector(display_punishment_Action)), userInfo: nil, repeats: false)
-        
     }// \viewDidLoad
     
     // dismiss view
@@ -352,21 +345,18 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         
     }
     
-    //TODO
-    @objc func display_punishment_Action() {
-        time.stop()
-        punishment_option.isHidden = false
-    }
-    
+    //player decided to do a punishment
     @IBAction func dare_action(_ sender: Any) {
         show_punishment()
     }
     
+    //remove a health point from player
     @IBAction func takeLife_action(_ sender: Any) {
         print("Take life clicked")
     }
     
     
+    // show the randmoized punishment
     func show_punishment() {
         // assign punishment text
         self.punishment_label.text = randomPunishmentTask()
@@ -389,7 +379,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         })
     }
     
-    // dismiss punishment view
+    // dismiss punishment view when back_to_play button pressed
     @objc func back2play_action(sender: UITapGestureRecognizer) {
         //TODO
         UIView.animate(withDuration: 0.3, animations: {
@@ -397,8 +387,16 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             self.back_to_play.alpha = 0
             self.punishment_option.isHidden = true
         }, completion: { (finished: Bool) in
-            self.time.reset()
-            self.gameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.time.getTime()), target: self, selector: (#selector(self.display_punishment_Action)), userInfo: nil, repeats: false)
+            self.rotate_players()
+            //delay technique
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // change 2 to desired number of seconds
+                self.time.seconds = self.time.getTime()
+                self.time.timerLabel.text = String(self.time.seconds)
+                self.time.runTimer()
+
+                // Your code with delay
+                self.time.reset()
+            }
         })
     }
     
@@ -492,18 +490,11 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         time.reset()
     }
     
-    
-    //
-    @IBAction func quitzzzzzz(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     // ========================== Calling the animation funtions
-    @IBAction func animate_Action(_ sender: Any) {
-        self.animate_button.isEnabled = false
+    func rotate_players() {
         self.player1_label.alpha = 0
         self.player2_label.alpha = 0
-
+        
         //update counter
         for i in 0..<counters.count {
             if counters[i] < players_count {
@@ -513,9 +504,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 counters[i] = 0
             }
         }
-        
         create_players(p1_name: selected_players[counters[0]].name!, p2_name: selected_players[counters[1]].name!, p3_name: selected_players[counters[2]].name!)
-
         self.animate_players(p1: self.p1_label, p2: self.p2_label, p3: p3_label)
     }
     //==========================
@@ -548,7 +537,6 @@ extension playVC {
             self.p2_label = nil
             self.p3_label.removeFromSuperview()
             self.p3_label = nil
-            self.animate_button.isEnabled = true
         })
     }
     

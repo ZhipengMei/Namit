@@ -32,7 +32,7 @@ class Audio {
     
     func play_action() {
         audioPlayer.play()
-        print("playedd")
+        //print("playedd")
     }
     
     func pause_action() {
