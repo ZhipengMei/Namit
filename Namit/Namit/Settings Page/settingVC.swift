@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSource {
+class settingVC: UIViewController{
 
     @IBOutlet weak var tableview: UITableView!
     
@@ -27,6 +27,9 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
     // core data request
     let time_fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GameTimer")
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //swithc
+    var sound_switch = UISwitch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +70,8 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
 
     // turn in game sound on/off
     @objc func sound_switch_action() {
-        print("clicked")
+        print("sound switch clicked")
+        self.saveSoundBool(isSoundOn: sound_switch.isOn)
     }
     
     // convert RGB to hex color
@@ -76,6 +80,26 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
+    func saveSoundBool(isSoundOn: Bool) {
+        // retrieve the current coredata value then change it to new value.
+        self.time_fetchRequest.returnsObjectsAsFaults = false
+        self.time_fetchRequest.fetchLimit = 1
+        do {
+            let result = try context.fetch(time_fetchRequest) as! [GameTimer]
+            if result.count == 1 {
+                // retrieved data and update it
+                result[0].soundOn = isSoundOn
+                do{
+                    try result[0].managedObjectContext?.save()
+                } catch {
+                    print("Error: saveTimerInterval")
+                }
+            }
+        } catch {
+            print("GameTimer: Retrieve data failed.")
+        }
     }
     
     func saveTimerInterval(interval: Int16) {
@@ -112,6 +136,22 @@ class settingVC: UIViewController{//}, UITableViewDelegate, UITableViewDataSourc
         }
         // default timer
         return 5
+    }
+    
+    func getSound() -> Bool {
+        self.time_fetchRequest.returnsObjectsAsFaults = false
+        self.time_fetchRequest.fetchLimit = 1
+        do {
+            let result = try context.fetch(time_fetchRequest) as! [GameTimer]
+            if result.count == 1 {
+                // return retrieved data
+                return result[0].soundOn
+            }
+        } catch {
+            print("GameTimer: Retrieve data failed.")
+        }
+        // default soundOn
+        return true
     }
 
 }
@@ -153,10 +193,10 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 3 {
             // UISwitch setup
-            let sound_switch = UISwitch(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
+            sound_switch = UISwitch(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
             sound_switch.backgroundColor = .black
             sound_switch.onTintColor = .red
-            sound_switch.setOn(true, animated: true)
+            sound_switch.setOn(getSound(), animated: true)
             sound_switch.addTarget(self, action: #selector(sound_switch_action), for: .touchUpInside)
             cell?.accessoryView = sound_switch as UIView
         }

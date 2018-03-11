@@ -22,6 +22,9 @@ class Time {
     var pauseButton = UIButton()
     var punishmentOption = UIView()
     
+    //condition
+    var isPlaySound: Bool = true
+    
     init() {
         seconds = self.getTime()
     }
@@ -35,6 +38,7 @@ class Time {
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             let result = try context.fetch(time_fetchRequest) as! [GameTimer]
             if result.count == 1 {
+                isPlaySound = result[0].soundOn
                 // retrieved data
                 return Int(result[0].interval)
             }
@@ -62,8 +66,11 @@ class Time {
         } else {
             seconds -= 1
             if seconds < self.getTime() {
-                //TODO, resume sounds 
-                beep_sound.play_action()
+                print(isPlaySound)
+                if isPlaySound == true {
+                    //TODO, resume sounds
+                    beep_sound.play_action()
+                }
             }
             timerLabel.text = String(seconds)
         }
