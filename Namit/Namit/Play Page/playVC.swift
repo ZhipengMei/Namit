@@ -29,6 +29,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     let punishment_label = UILabel()
     @IBOutlet weak var player_label: UILabel!
     @IBOutlet weak var pickone_label: UILabel!
+    @IBOutlet weak var hp_label: UILabel!
+    
+    
 
     // view
     @IBOutlet weak var card_view: UIView!
@@ -48,11 +51,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     var p2_label: UILabel!
     var p3_label: UILabel!
     // an array of counter for each placeholder labels
-    var counters = [-1, 0 ,1]
-    
-    // total # of players
-    var players_count: Int!
-
+    var mul_counters = [-1, 0 ,1]
+    var two_counters = [-1, 0]
     
     // timer class
     let time = Time()
@@ -90,6 +90,19 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // Interstitial_STEP 1: Create an interstitial ad object
     var interstitial: GADInterstitial!
 
+    // TO DO experimental
+    var players_data = [Person]()
+    var current_player: Person!
+    
+    // initialize count variable for "flip_card" function
+    var count = 1
+    
+    //dimColor
+    let defaultDimColor = UIColor.black.withAlphaComponent(0.7)
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()            
         
@@ -108,8 +121,27 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             fetchRequest.sortDescriptors = [sortDescriptor]
             selected_players = try! context.fetch(fetchRequest) as! [Players]
             
-            //get total # of players
-            players_count = selected_players.count-1
+            // assign fetched player data into players_data[Person] array
+            for i in 0..<selected_players.count {
+                let p = selected_players[i]
+//                let person = Person(charName: p.name!, hp: 3, playerOrder: i, playerName: "Player \(i + 1)")
+                //TODO use hp:1 for testing only, real game is hp: 3
+                let person = Person(charName: p.name!, hp: 1, playerOrder: i, playerName: "Player \(i + 1)")
+                players_data.append(person)
+            }
+            
+            //initialize current player
+            self.current_player = players_data[0]
+            
+            // player label
+            player_label.textColor = UIColor.white
+            player_label.text = players_data[0].playerName
+            
+            // initalize player1 & player2
+            player2_label.font = UIFont(name: "helvetica neue", size: 15)
+            player2_label.text = players_data[1].charName
+            player1_label.text = self.current_player.charName
+            display_heart(hp: self.current_player.hp)
             
         } catch {
             let fetchError = error as NSError
@@ -152,14 +184,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         
         
         // ======================== Label =================
-        // player label
-        player_label.textColor = UIColor.white
-        player1_label.text = "PLAYER 1"
-        
-        // player1 & player2
-        player2_label.font =  UIFont(name: "helvetica neue", size: 15)
-        player2_label.text = selected_players[1].name
-        player1_label.text = selected_players[0].name
         
         
         // timer label
@@ -183,10 +207,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         pickone_label.font = UIFont(name: "helvetica neue", size: 15)
         
         
-        
         // ======================== View =================
         // dimView
-        let defaultDimColor = UIColor.black.withAlphaComponent(0.7)
         dimView.backgroundColor = defaultDimColor
         dimView.isHidden = true
         
@@ -312,7 +334,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         self.punishment_label.textAlignment = .center
         self.punishment_view.addSubview(self.punishment_label)
         
-        // ==================== /Punishment View end =============================================================
+        // ==================== /Punishment View end ==============
         
         // bring card_view to front so user can tap for a new card
         //self.view.bringSubview(toFront: card_view)
@@ -340,9 +362,19 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     
-    // display punishment view
+    // rotate to next player
     @objc func namedit_action(sender: UITapGestureRecognizer) {
+
+        //self.namedit_button.isHidden = true
+        self.namedit_button.isUserInteractionEnabled = false
+        self.namedit_button.isEnabled = false
         
+        //TODO, kinda of done double check
+        self.time.stop()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.rotate_players()
+        }
+        self.resumeTImer()
     }
     
     //player decided to do a punishment
@@ -352,9 +384,117 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     //remove a health point from player
     @IBAction func takeLife_action(_ sender: Any) {
+        
         print("Take life clicked")
+        //dismiss punishment view
+        self.hidePunishmentView()
+        
+        //pause 0.5 second then refresh the health point label
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // change 2 to desired number of seconds
+            //current lose one health point
+            self.current_player.hp -= 1
+            self.display_heart(hp: self.current_player.hp)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            
+            //the player lost the game
+            if self.current_player.hp == 0 {
+                print("hp is == 0")
+                self.time.pause()
+                
+                print(self.current_player.charName, " is out of the game.")
+                // remove player from the game (players_data)
+                self.players_data.remove(at: self.current_player.playerOrder)
+
+                // re-order the players_data
+                // should not change the .playerOrder <-- used for display player name
+                for i in 0..<self.players_data.count {
+                    self.players_data[i].playerOrder = i
+                }
+                
+                //Pop up dialog view to indicate who is out of the game
+                //dialog view
+                let dialogView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+                dialogView.center = self.view.center
+                dialogView.backgroundColor = self.defaultDimColor
+                dialogView.alpha = 0
+                self.view.addSubview(dialogView)
+                
+                //dialog label
+                let dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: self.view.frame.height/2))
+                dialoglabel.center = CGPoint(x: 160, y: 285)
+                dialoglabel.textAlignment = .center
+                dialoglabel.text = "\(self.current_player.charName) is out of the game."
+                dialoglabel.textColor = UIColor.white
+                //dialoglabel.alpha = 0
+                dialoglabel.alpha = 1
+                dialogView.addSubview(dialoglabel)
+                
+                //TODO, fade in and out of the dialog view
+                self.fadeViewInThenOut(view: dialogView, delay: 1)
+            } // end if
+
+            
+            if self.players_data.count > 1 {
+                // pause 1 section then rotate player icon
+                self.rotate_players()
+                
+                //pause 1 section then begin timer
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // change 1 to desired number of seconds
+                    self.resumeTImer()
+                }
+            } else if self.players_data.count == 1 {
+                self.time.stop()
+                print("GAME OVER")
+            }
+        }
+        
     }
     
+    func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
+        
+        let animationDuration = 0.25
+        
+        // Fade in the view
+        UIView.animate(withDuration: animationDuration, animations: { () -> Void in
+            view.alpha = 1
+        }) { (Bool) -> Void in
+            // After the animation completes, fade out the view after a delay
+            UIView.animate(withDuration: animationDuration, delay: delay, options: .curveEaseInOut, animations: { () -> Void in
+                view.alpha = 0
+            },completion: { (Bool) -> Void in
+                view.removeFromSuperview()
+            })
+        }
+    }
+    
+    // refresh timer
+    @objc func updateScore(sender: Any) {
+        time.reset()
+    }
+    
+    // health point (hp) label
+    func display_heart(hp: Int) {
+        switch hp {
+        case 0: hp_label.text = "💔💔💔"
+            break
+        case 1: hp_label.text = "❤️"
+            break
+        case 2: hp_label.text = "❤️❤️"
+            break
+        case 3: hp_label.text = "❤️❤️❤️"
+            break
+        default: hp_label.text = "💔💔💔"
+            break
+        }
+    }
+    
+}
+
+
+// =============== punishment view ==========================
+extension playVC {
     
     // show the randmoized punishment
     func show_punishment() {
@@ -381,23 +521,61 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     // dismiss punishment view when back_to_play button pressed
     @objc func back2play_action(sender: UITapGestureRecognizer) {
-        //TODO
+        support_back2play()
+    }
+    
+    func support_back2play(){
         UIView.animate(withDuration: 0.3, animations: {
-            self.punishment_view.alpha = 0
-            self.back_to_play.alpha = 0
-            self.punishment_option.isHidden = true
+            self.hidePunishmentView()
         }, completion: { (finished: Bool) in
             self.rotate_players()
-            //delay technique
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // change 2 to desired number of seconds
-                self.time.seconds = self.time.getTime()
-                self.time.timerLabel.text = String(self.time.seconds)
-                self.time.runTimer()
-
-                // Your code with delay
-                self.time.reset()
-            }
+            self.resumeTImer()
         })
+    }
+    
+    func hidePunishmentView() {
+        self.punishment_view.alpha = 0
+        self.back_to_play.alpha = 0
+        self.punishment_option.isHidden = true
+    }
+    func resumeTImer() {
+        //delay technique
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // change 2 to desired number of seconds
+            self.time.seconds = self.time.getTime()
+            self.time.timerLabel.text = String(self.time.seconds)
+            //self.time.runTimer()
+            
+            // Your code with delay
+            self.time.reset()
+        }
+    }
+}
+
+
+// =============== swip & randomize Cards' order ==========================
+extension playVC {
+    
+    // tap gesture action method
+    @objc func flip_card(sender: Any) {
+        // Display Ads every 5 tap
+        if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
+            if count % 6 == 0 {
+                count = 1
+                if interstitial.isReady {
+                    // pause the timer
+                    time.pause()
+                    // show the ads
+                    interstitial.present(fromRootViewController: self)
+                } else {
+                    print("Ad wasn't ready")
+                }
+            }
+            count += 1
+        }
+        // display a new card
+        card_label.text = randomCardTask()
+        //flip UIView animation
+        UIView.transition(with: card_view, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
     }
     
     // randomize the order of the Card fetchedObjects
@@ -442,35 +620,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         return randNum
     }
     
-    
-    // initialize count variable
-    var count = 1
-    // tap gesture action method
-    @objc func flip_card(sender: Any) {
-        
-        // Display Ads every 5 tap
-        if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
-            if count % 6 == 0 {
-                count = 1
-                if interstitial.isReady {
-                    // pause the game timer
-                    time.pause()
-                    // show the ads
-                    interstitial.present(fromRootViewController: self)
-                } else {
-                    print("Ad wasn't ready")
-                }
-            }
-            count += 1
-        }
-        
-        // display a new card
-        card_label.text = randomCardTask()
-        
-        //flip UIView animation
-        UIView.transition(with: card_view, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-    }
-    
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         switch sender.direction {
         case UISwipeGestureRecognizerDirection.left:
@@ -485,38 +634,83 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
-    // refresh timer
-    @objc func updateScore(sender: Any) {
-        time.reset()
-    }
-    
-    // ========================== Calling the animation funtions
-    func rotate_players() {
-        self.player1_label.alpha = 0
-        self.player2_label.alpha = 0
-        
-        //update counter
-        for i in 0..<counters.count {
-            if counters[i] < players_count {
-                counters[i] += 1
-            } else {
-                // counter is out of rnage
-                counters[i] = 0
-            }
-        }
-        create_players(p1_name: selected_players[counters[0]].name!, p2_name: selected_players[counters[1]].name!, p3_name: selected_players[counters[2]].name!)
-        self.animate_players(p1: self.p1_label, p2: self.p2_label, p3: p3_label)
-    }
-    //==========================
-    
 }
+
+
 
 // =============== players rotation animation  ==========================
 extension playVC {
     
+    //Calling the animation funtions
+    func rotate_players() {
+        //TODO yee
+        self.player1_label.alpha = 0
+        self.player2_label.alpha = 0
+        
+        if self.players_data.count < 3 {
+            //update counter
+            print("self.players_data.count ", self.players_data.count)
+            for i in 0..<two_counters.count {
+                print("i is: ", i)
+                if two_counters[i] < self.players_data.count-1 {
+                    two_counters[i] += 1
+                } else {
+                    // counter is out of rnage
+                    two_counters[i] = 0
+                }
+            }
+            
+            print(two_counters[0])
+            print(two_counters[1])
+            print(two_counters[0], "-->" ,players_data[two_counters[0]].playerName)
+            print(two_counters[1], "-->", players_data[two_counters[1]].playerName)
+            // two players rotation, put player one back at the end
+            create_players(p1_name: players_data[two_counters[0]].charName, p2_name: players_data[two_counters[1]].charName, p3_name: players_data[two_counters[0]].charName)
+            // the next player is the new current player
+            self.current_player = players_data[two_counters[1]]
+        } else {
+            //update mul_counter
+            for i in 0..<mul_counters.count {
+                if mul_counters[i] < self.players_data.count-1 {
+                    mul_counters[i] += 1
+                } else {
+                    // counter is out of rnage
+                    mul_counters[i] = 0
+                }
+            }
+            //multiple players rotation
+            create_players(p1_name: players_data[mul_counters[0]].charName, p2_name: players_data[mul_counters[1]].charName, p3_name: players_data[mul_counters[2]].charName)
+            //reset the current player
+            self.current_player = players_data[mul_counters[1]]
+        }
+        
+        
+        //healthpoint comes after player icon rotation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            //fade in the next player's healthpoint
+            UIView.animate(withDuration: 0.3, animations: {
+                //reset the healthpoint for next player
+                self.display_heart(hp: self.current_player.hp)
+                self.player_label.text = self.current_player.playerName
+                self.hp_label.alpha = 1
+                self.player_label.alpha = 1
+            })
+            
+        }
+
+        self.animate_players(p1: self.p1_label, p2: self.p2_label, p3: p3_label)
+
+    }
+
+    
     func animate_players(p1: UILabel, p2: UILabel, p3: UILabel) {
         //p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: 40.2, y_pos: -0.8)
         p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: 33, y_pos: -0.6)
+        //fade out the current player's healthpoint at the beginning of the rotation
+        UIView.animate(withDuration: 0.3, animations: {
+            self.hp_label.alpha = 0
+            self.player_label.alpha = 0
+        })
         self.shrink(label: p1, x_pos: 15)
         p3.enlarge_move(fontSize: 15, duration: 0.7, x_pos: 0, y_pos: 0)
     }
@@ -531,12 +725,23 @@ extension playVC {
         }, completion: { (finished: Bool) in
             self.player1_label.alpha = 1
             self.player2_label.alpha = 1
+            self.profile_view.bringSubview(toFront: self.player1_label)
+            self.profile_view.bringSubview(toFront: self.player2_label)
+            
+            //yee
             self.p1_label.removeFromSuperview()
             self.p1_label = nil
             self.p2_label.removeFromSuperview()
             self.p2_label = nil
             self.p3_label.removeFromSuperview()
             self.p3_label = nil
+            
+            //enable the button after  rotation animation
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.namedit_button.isUserInteractionEnabled = true
+                self.namedit_button.isEnabled = true
+            }
+
         })
     }
     
@@ -561,10 +766,14 @@ extension playVC {
         // update the fixed labels
         self.player1_label.text = p2_name
         self.player2_label.text = p3_name
-        
     }
 }
 // ==============================================================================
+
+
+
+
+
 
 
 
@@ -602,6 +811,11 @@ extension UILabel {
     
 }
 
+
+
+
+
+
 // make a clone of the label
 extension UILabel {
     func copyLabel() -> UILabel {
@@ -612,6 +826,9 @@ extension UILabel {
         return label
     }
 }
+
+
+
 
 
 

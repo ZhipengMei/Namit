@@ -155,6 +155,7 @@
                         <outlet property="card_view" destination="MX0-84-Bvn" id="p53-7I-2yO"/>
                         <outlet property="dare_button" destination="Ejc-U1-8pT" id="bmp-r2-mVg"/>
                         <outlet property="dimView" destination="tSJ-Jy-YZr" id="RUD-l0-hUu"/>
+                        <outlet property="hp_label" destination="xDQ-Dx-Fvk" id="nr1-VD-2jG"/>
                         <outlet property="namedit_button" destination="OQI-Re-ntW" id="SP5-dJ-Xso"/>
                         <outlet property="pause_button" destination="Dk2-J3-diy" id="U4F-dF-IgD"/>
                         <outlet property="pickone_label" destination="QbE-Qf-fsr" id="54Q-jL-Uht"/>
