@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5562078941559997~7407880646")
 
         
+        
         // get appearance object
         let navigationAppearance = UINavigationBar.appearance()
         // change color of navigation bar background
@@ -55,8 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize();
         }
 
-        
-
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Viga", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
         
         return true

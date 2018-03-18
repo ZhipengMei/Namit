@@ -7,7 +7,6 @@ target 'Namit' do
 
   # Pods for Namit
 
-
   target 'NamitTests' do
     inherit! :search_paths
     # Pods for testing

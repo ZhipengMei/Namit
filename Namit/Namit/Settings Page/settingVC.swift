@@ -31,9 +31,11 @@ class settingVC: UIViewController{
     //swithc
     var sound_switch = UISwitch()
     
+    let darkColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableview.dataSource = self
         tableview.delegate = self
         // set delegate
@@ -42,10 +44,12 @@ class settingVC: UIViewController{
         // set DataSource
         time_interval_picker.dataSource = self
         
-        self.title = "Settings"
+        interval_label.font = UIFont(name: "Viga", size: 17)
+        
+        self.title = "Setting"
         
         // optional colors
-        self.tableview.backgroundColor = UIColor.black
+        self.tableview.backgroundColor = darkColor
         
         // Eliminate extra separators below UITableView
         tableview.tableFooterView = UIView()
@@ -64,7 +68,6 @@ class settingVC: UIViewController{
         time_interval_picker.alpha = 0
             // set background
         time_interval_picker.backgroundColor = .gray
-        
 
     }
 
@@ -170,9 +173,10 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         let text = data[indexPath.row]
         cell?.textLabel?.text = text
         cell?.textLabel?.textColor = .white
+        cell?.textLabel?.font = UIFont(name: "Viga", size: 17)
         
         // optional color
-        cell?.backgroundColor = UIColor.black
+        cell?.backgroundColor = darkColor
         cell?.selectionStyle = .none
         
         
@@ -183,7 +187,7 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 2 {
             // Time Interval setup
-            interval_label.backgroundColor = UIColor.black
+            interval_label.backgroundColor = darkColor
             // display coredata's time interval
             interval_label.text = "\(self.getTimerInterval()) seconds"
             interval_label.textAlignment = .center
@@ -194,7 +198,7 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 3 {
             // UISwitch setup
             sound_switch = UISwitch(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
-            sound_switch.backgroundColor = .black
+            sound_switch.backgroundColor = darkColor
             sound_switch.onTintColor = .red
             sound_switch.setOn(getSound(), animated: true)
             sound_switch.addTarget(self, action: #selector(sound_switch_action), for: .touchUpInside)
@@ -270,6 +274,7 @@ extension settingVC: UIPickerViewDelegate, UIPickerViewDataSource {
         
         // display on the label
         self.interval_label.text = "\(time_interval[row]) seconds"
+        self.interval_label.font = UIFont(name: "Viga", size: 17)
         // update coreData
         self.saveTimerInterval(interval: Int16((time_interval[row] as AnyObject).integerValue))
         
@@ -283,11 +288,10 @@ extension settingVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         let titleData = time_interval[row] as! String
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedStringKey.foregroundColor:UIColor.white])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont(name: "Viga", size: 27.0)!,NSAttributedStringKey.foregroundColor:UIColor.white])
         return myTitle
 
     }
-    
     
     
 }

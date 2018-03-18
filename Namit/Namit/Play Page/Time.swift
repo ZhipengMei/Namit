@@ -87,11 +87,11 @@ class Time {
             timer.invalidate()
             isTimerRunning = false
             self.resumeTapped = true
-            self.pauseButton.setTitle("R",for: .normal)
+            pauseButton.setImage(UIImage(named: "resume_button")?.withRenderingMode(.alwaysOriginal), for: .normal)
         } else if self.resumeTapped == true {
             self.resumeTapped = false
             isTimerRunning = true
-            self.pauseButton.setTitle("||",for: .normal)
+            pauseButton.setImage(UIImage(named: "pause_button")?.withRenderingMode(.alwaysOriginal), for: .normal)
             runTimer()
         }
     }

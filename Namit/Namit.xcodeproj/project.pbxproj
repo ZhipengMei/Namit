@@ -10,6 +10,7 @@
 		2613BA692893DF499D3B190F /* Pods_NamitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E68D382F3D7AC63262277F /* Pods_NamitUITests.framework */; };
 		3A1063B6205BC74C00C0A213 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */; };
 		3A1063B8205BC75B00C0A213 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */; };
+		3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */; };
 		3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11C2030011F003EE131 /* time_beep.mp3 */; };
 		3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11D2030011F003EE131 /* punishment.mp3 */; };
 		3A1EF121203001B7003EE131 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF120203001B7003EE131 /* Audio.swift */; };
@@ -21,12 +22,12 @@
 		3A5A475D20259D5E004FE06D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A475C20259D5E004FE06D /* ViewController.swift */; };
 		3A5A476020259D5E004FE06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A475E20259D5E004FE06D /* Main.storyboard */; };
 		3A5A476320259D5E004FE06D /* Namit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A476120259D5E004FE06D /* Namit.xcdatamodeld */; };
-		3A5A476520259D5E004FE06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A476420259D5E004FE06D /* Assets.xcassets */; };
 		3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A476620259D5E004FE06D /* LaunchScreen.storyboard */; };
 		3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477220259D5E004FE06D /* NamitTests.swift */; };
 		3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477D20259D5E004FE06D /* NamitUITests.swift */; };
 		3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A478B2025A47A004FE06D /* settingVC.swift */; };
 		3A6BA98720527D7000E48B60 /* PlayerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */; };
+		3A9CF75B205E61DE00E231CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9CF75A205E61DE00E231CF /* Assets.xcassets */; };
 		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 		3AB0F5262059D2BE00CFF704 /* WinnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */; };
@@ -56,6 +57,7 @@
 		39E68D382F3D7AC63262277F /* Pods_NamitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
+		3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
 		3A1EF11C2030011F003EE131 /* time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_beep.mp3; sourceTree = "<group>"; };
 		3A1EF11D2030011F003EE131 /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
 		3A1EF120203001B7003EE131 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
@@ -68,7 +70,6 @@
 		3A5A475C20259D5E004FE06D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A5A475F20259D5E004FE06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A5A476220259D5E004FE06D /* Namit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Namit.xcdatamodel; sourceTree = "<group>"; };
-		3A5A476420259D5E004FE06D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A5A476720259D5E004FE06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A5A476920259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A476E20259D5E004FE06D /* NamitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +80,7 @@
 		3A5A477F20259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A478B2025A47A004FE06D /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
 		3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectionView.swift; sourceTree = "<group>"; };
+		3A9CF75A205E61DE00E231CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerVC.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A10C52E205E58E2004711E8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		3A1EF11B20300111003EE131 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,8 @@
 		3A5A475920259D5E004FE06D /* Namit */ = {
 			isa = PBXGroup;
 			children = (
+				3A9CF75A205E61DE00E231CF /* Assets.xcassets */,
+				3A10C52E205E58E2004711E8 /* fonts */,
 				3A6BA98520527D1100E48B60 /* EditPlayers */,
 				3A1EF11C2030011F003EE131 /* time_beep.mp3 */,
 				3A1EF11B20300111003EE131 /* Audio */,
@@ -199,7 +211,6 @@
 				3A3FF21A20267F5200707BEF /* Rules Page */,
 				3A5A475A20259D5E004FE06D /* AppDelegate.swift */,
 				3A5A475E20259D5E004FE06D /* Main.storyboard */,
-				3A5A476420259D5E004FE06D /* Assets.xcassets */,
 				3A5A476620259D5E004FE06D /* LaunchScreen.storyboard */,
 				3A5A476120259D5E004FE06D /* Namit.xcdatamodeld */,
 				3A5A476920259D5E004FE06D /* Info.plist */,
@@ -377,9 +388,10 @@
 			files = (
 				3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */,
 				3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */,
-				3A5A476520259D5E004FE06D /* Assets.xcassets in Resources */,
+				3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */,
 				3A5A476020259D5E004FE06D /* Main.storyboard in Resources */,
 				3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */,
+				3A9CF75B205E61DE00E231CF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,11 +434,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework",
+				"${BUILT_PRODUCTS_DIR}/Macaw/Macaw.framework",
+				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSVG.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Macaw.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

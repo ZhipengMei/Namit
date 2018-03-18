@@ -20,7 +20,7 @@ class PlayerSelectionView: UIViewController {
     @IBOutlet weak var moreCharLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var testImage: UIView!
+    @IBOutlet weak var myview: UIView!
     
     
     let reuseIdentifier = "collectionViewCellId"
@@ -31,9 +31,12 @@ class PlayerSelectionView: UIViewController {
     var available_players = [Players]()
     var selected_players = [Players]()
     
+    let darkColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
         
         setupLayout()
         available_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "row", selected: 0, isPredicate: false) as! [Players]
@@ -76,7 +79,8 @@ extension PlayerSelectionView: UITableViewDataSource, UITableViewDelegate {
         let player = selected_players[indexPath.row]
         cell.textLabel?.text = "\(player.name!) Player \(player.selected_row + 1)"
         cell.textLabel?.textColor = UIColor.white
-        cell.backgroundColor = UIColor.black
+        cell.textLabel?.font = UIFont(name: "Viga", size: 17)
+        cell.backgroundColor = darkColor
         
         //collection cell animation
         let ip = IndexPath(row: Int(player.row), section: 0)
@@ -223,41 +227,45 @@ extension PlayerSelectionView {
     private func setupLayout() {
         
         //view
-        view.backgroundColor = .black
+        view.backgroundColor = darkColor
         
         //navigationController
         navigationItem.title = "Player Setting"
-        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.barTintColor = UIColor.black.withAlphaComponent(0.21)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationController?.navigationBar.isTranslucent = false
         
         //description label
         descriptionLabel.text = "You can add, remove, change orders of characters."
+        descriptionLabel.font = UIFont(name: "Viga", size: 17)
         descriptionLabel.textAlignment = .center
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = true
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = .white
-        descriptionLabel.backgroundColor = .black
+        descriptionLabel.backgroundColor = darkColor
         
         // playerLabel
         playerLabel.textAlignment = .center
-        playerLabel.backgroundColor = .black
+        playerLabel.text = "PLAYERS"
+        playerLabel.backgroundColor = darkColor
+        playerLabel.font = UIFont(name: "Viga", size: 12)
         
         // tableview
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = darkColor
         tableView.isEditing = true //enable editing
         
         //more characters
-        moreCharLabel.backgroundColor = .black
+        moreCharLabel.backgroundColor = UIColor.clear
         moreCharLabel.textAlignment = .center
+        moreCharLabel.font = UIFont(name: "Viga", size: 12)
         
         //collection view
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = UIColor.clear//(red: 0, green: 0, blue: 0, alpha: 0.25)
         collectionView.indicatorStyle = .white
     }
 }

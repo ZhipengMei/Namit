@@ -44,6 +44,7 @@ class detailTableView: UIViewController {
         detailTableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailCell")
         detailTableView.dataSource = self
         detailTableView.delegate = self
+        detailTableView.backgroundColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
         self.view.addSubview(detailTableView)
         
         //self.detailTableView.separatorStyle = .none
@@ -94,6 +95,9 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = (content as AnyObject).name
         // label displays multiple lines
         cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.textColor = UIColor.white
+        cell.backgroundColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
+        
     }
     
     // enable swipable on tableview

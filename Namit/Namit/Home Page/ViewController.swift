@@ -8,9 +8,10 @@
 
 import UIKit
 import GoogleMobileAds
+import WebKit
 
 class ViewController: UIViewController {
-
+    
     // buttons
     @IBOutlet weak var play_button: UIButton!
     @IBOutlet weak var setting_button: UIButton!
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
         
         // play btn
         self.play_button.clipsToBounds = true
-        self.play_button.backgroundColor = UIColor.red
+        //self.play_button.backgroundColor = UIColor.red
         self.play_button.layer.cornerRadius = self.play_button.bounds.size.width * 0.5
         self.play_button.setTitleColor(UIColor.white, for: .normal)
         //kerning
@@ -33,25 +34,25 @@ class ViewController: UIViewController {
         attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
         self.play_button.titleLabel?.attributedText = attributedString
         //font and size
-        self.play_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 20)
+        //self.play_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 20)
         
         // edit players
         self.setPlayer_button.layer.cornerRadius = self.setPlayer_button.bounds.height / 2
-        self.setPlayer_button.backgroundColor = UIColor.red
+        //self.setPlayer_button.backgroundColor = UIColor.red
         self.setPlayer_button.setTitleColor(UIColor.white, for: .normal)
         
         // setting btn
-        self.setting_button.backgroundColor = UIColor.red
+        //self.setting_button.backgroundColor = UIColor.red
         self.setting_button.layer.cornerRadius = self.setting_button.bounds.size.width * 0.5
         self.setting_button.setTitleColor(UIColor.white, for: .normal)
         
         // rule btn
-        self.rule_button.backgroundColor = UIColor.red
+        //self.rule_button.backgroundColor = UIColor.red
         self.rule_button.layer.cornerRadius = self.rule_button.bounds.size.width * 0.5
         self.rule_button.setTitleColor(UIColor.white, for: .normal)
         
         // view
-        self.view.backgroundColor = UIColor.black
+        //self.view.backgroundColor = UIColor.black
         
         
         // Google AdMob
@@ -135,7 +136,7 @@ class ViewController: UIViewController {
 
 extension ViewController: GADBannerViewDelegate {
     
-    // ============ GADBannerViewDelegate Methods ===================================================================
+    // ============ GADBannerViewDelegate Methods =====================
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Animating a banner ad
@@ -172,11 +173,11 @@ extension ViewController: GADBannerViewDelegate {
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         print("adViewWillLeaveApplication")
     }
-    // ==========/GADBannerViewDelegate Methods=========================================
+    // ==========/GADBannerViewDelegate Methods====================
  
     
     
-    // ========================= Smart Banners ========================================================
+    // ========================= Smart Banners ====================
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
@@ -227,6 +228,6 @@ extension ViewController: GADBannerViewDelegate {
                                               multiplier: 1,
                                               constant: 0))
     }
-    // ===================== /Smart Banners ============================================================
+    // ===================== /Smart Banners ==========================
 }
 

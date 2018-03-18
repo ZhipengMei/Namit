@@ -45,6 +45,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // timer class
     let time = Time()
     
+    // pause || resume
+    var resumeTapped = false
+    
     //punishment View
     @IBOutlet weak var punishmentView: UIView!
     @IBOutlet weak var punishmentLabel: UILabel!
@@ -92,9 +95,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // initialize count variable for "flip_card" function
     var count = 1
     
-    //dimColor
-    let defaultDimColor = UIColor.black.withAlphaComponent(0.9)
-    
     // dialog view
     var dialogView = UIView()
     var dialoglabel = UILabel()
@@ -127,7 +127,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             player_label.text = players_data[0].playerName
             
             // initalize player1 & player2
-            player2_label.font = UIFont(name: "helvetica neue", size: 15)
             player2_label.text = players_data[1].charName
             
             player1_label.text = self.current_player.charName
@@ -159,15 +158,16 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func pause_action(_ sender: Any) {
-        dimView.isHidden = false
-        time.pause() // pause timer
-    }
-    
-    
-    // hide resumeBtn and dim_view, then resume timer
-    @IBAction func resume_action(_ sender: Any) {
-        dimView.isHidden = true
-        time.pause()
+        
+        if self.resumeTapped == false {
+            resumeTapped = true
+            dimView.isHidden = false
+            time.pause() // pause timer
+        } else {
+            resumeTapped = false
+            dimView.isHidden = true
+            time.pause() // pause timer
+        }
     }
     
     @IBAction func mute_action(_ sender: Any) {
@@ -195,9 +195,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         
         //disable pause button to avoid creation of multiple timer conflict
         self.pause_button.isEnabled = false
-        //yee
-        
-        //yee
+
         self.time.stop()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.rotate_players()
@@ -235,25 +233,29 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             
             //the player lost the game
             if self.current_player.hp == 0 {
-                print("hp is == 0")
                 self.time.stop()
-                
-                print(self.current_player.charName, " is out of the game.")
                 // remove player from the game (players_data)
                 self.players_data.remove(at: self.current_player.playerOrder)
                 
-                // re-order the players_data
-                // should not change the .playerOrder <-- used for display player name
-                for i in 0..<self.players_data.count {
-                    self.players_data[i].playerOrder = i
+                //Game over condition
+                if self.players_data.count == 1 {
+                    self.time.stop()
+                    print("GAME OVER")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: "winner") as! WinnerVC
+                    controller.winner = self.players_data[0]
+                    self.present(controller, animated: true, completion: nil)
+                } else {
+                    // re-order the players_data
+                    // should not change the .playerOrder <-- used for display player name
+                    for i in 0..<self.players_data.count {
+                        self.players_data[i].playerOrder = i
+                    }
+                    self.createDialogView(message: "\(self.current_player.charName) IS OUT")
+                    //fade in and out of the dialog view
+                    self.fadeViewInThenOut(view: self.dialogView, delay: 2)
                 }
-                
-                self.createDialogView(message: "\(self.current_player.charName) IS OUT.")
-                
-                //TODO, fade in and out of the dialog view
-                self.fadeViewInThenOut(view: self.dialogView, delay: 1)
             } // end if
-            
             
             if self.players_data.count > 1 {
                 // pause 1 section then rotate player icon
@@ -263,7 +265,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // change 1 to desired number of seconds
                     self.resumeTImer()
                 }
-            } else if self.players_data.count == 1 {
+            }
+            else if self.players_data.count == 1 {
                 self.time.stop()
                 print("GAME OVER")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -284,14 +287,14 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         self.view.addSubview(dialogView)
         
         //dialog label
-        dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+        dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
         dialoglabel.center = dialogView.center
         dialoglabel.textAlignment = .center
         dialoglabel.text = message
         dialoglabel.textColor = UIColor.white
         dialoglabel.alpha = 1
-        dialoglabel.font = UIFont(name: "helvetica neue", size: 50)
         dialoglabel.numberOfLines = 0
+        dialoglabel.font = UIFont(name: "Viga", size: 80)
         dialogView.addSubview(dialoglabel)
     }
     
@@ -361,12 +364,11 @@ extension playVC {
         // Display Ads every 5 tap
         if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
             //yee
-            if count % 6 == 0 {
+            if count % 10 == 0 {
             //if count % 1 == 0 {
                 count = 1
                 if interstitial.isReady {
                     // pause the timer when ads show up
-                    //time.pause()
                     time.stop()
                     // show the ads
                     interstitial.present(fromRootViewController: self)
@@ -499,7 +501,6 @@ extension playVC {
     }
     
     func animate_players(p1: UILabel, p2: UILabel, p3: UILabel) {
-        //p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: 40.2, y_pos: -0.8)
         p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: 33, y_pos: -0.6)
         //fade out the current player's healthpoint at the beginning of the rotation
         UIView.animate(withDuration: 0.3, animations: {
@@ -546,7 +547,6 @@ extension playVC {
         self.p3_label.center = self.player2_label.center
         self.p3_label.textAlignment = .center
         self.p3_label.text = p3_name
-        self.p3_label.font = UIFont(name: "helvetica neue", size: 8.3)
         self.profile_view.addSubview(self.p3_label)
         
         self.p1_label = self.player1_label.copyLabel()
@@ -669,21 +669,18 @@ extension playVC {
     private func setupLayout() {
         // ======================== Button =================
         // pause button
-        pause_button.backgroundColor = UIColor.red
         pause_button.setTitleColor(.white, for: .normal)
         pause_button.layer.cornerRadius = self.pause_button.bounds.width * 0.5
-        pause_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 10)
         
         // punishment button
-        namedit_button.backgroundColor = UIColor.red
         namedit_button.layer.cornerRadius = self.namedit_button.bounds.height / 2
         namedit_button.setTitleColor(UIColor.white, for: .normal)
         // font & size
-        namedit_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
+        //namedit_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
         // string kerning
-        let attributedString = NSMutableAttributedString(string: "PUNISHMENT")
-        attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
-        namedit_button.titleLabel?.attributedText = attributedString
+        //let attributedString = NSMutableAttributedString(string: "PUNISHMENT")
+        //attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
+        //namedit_button.titleLabel?.attributedText = attributedString
         // tap gesture for action
         let namedid_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(namedit_action(sender:)))
         namedid_tapGestureRecognizer.numberOfTapsRequired = 1
@@ -692,7 +689,6 @@ extension playVC {
         
         /* ======================== View ================= */
         // dimView
-        dimView.backgroundColor = defaultDimColor
         dimView.isHidden = true
         
         //profile view
@@ -707,17 +703,13 @@ extension playVC {
         card_view.layer.borderWidth = 3
         card_view.layer.borderColor = (UIColor.white).cgColor
         
-        // native view
-        self.view.backgroundColor = UIColor.black
-        
         /* ======================== Label ================= */
         // timer label
         timer_label.textColor = UIColor.white
         timer_label.layer.cornerRadius = self.timer_label.bounds.width * 0.5
         timer_label.layer.borderWidth = 3.0
         timer_label.layer.borderColor = (UIColor.white).cgColor
-        timer_label.backgroundColor = UIColor.clear
-        timer_label.font =  UIFont(name: "helvetica neue", size: 40)
+        timer_label.backgroundColor = UIColor.clear        
         timer_label.text = String(time.seconds)
         view.bringSubview(toFront: timer_label)
         
@@ -725,7 +717,6 @@ extension playVC {
         card_label.textAlignment = .center
         card_label.textColor = .white
         card_label.numberOfLines = 0
-        card_label.font =  UIFont(name: "helvetica neue", size: 30)
         // display the first card
         card_label.text = randomCardTask()
         
@@ -777,16 +768,12 @@ extension playVC {
         
         /*===============  Punishment View ===============*/
         punishmentLabel.text = randomPunishmentTask()
-        //TODO customize UI component in punishment view
-        
-        
-        punishmentLabel.font =  UIFont(name: "HelveticaNeue-Bold", size: 25)
         punishmentLabel.numberOfLines = 0
         punishmentLabel.textColor = .white
         punishmentLabel.textAlignment = .center
         
         // doneBtn
-        doneBtn.layer.cornerRadius = doneBtn.bounds.height / 2
+        doneBtn.layer.cornerRadius = doneBtn.frame.height / 2
         
         //takelifeBtn
         takelifeBtn.layer.borderWidth = 3.0
@@ -801,17 +788,12 @@ extension playVC {
         } else {
             mute_btn.setTitle("MUTE", for: .normal)
         }
-        mute_btn.layer.cornerRadius = doneBtn.bounds.height / 2
-        mute_btn.backgroundColor = UIColor.red
+        mute_btn.layer.cornerRadius = mute_btn.frame.height / 2
         mute_btn.setTitleColor(UIColor.white, for: .normal)
         
-        quit_btn.layer.cornerRadius = doneBtn.bounds.height / 2
-        quit_btn.backgroundColor = UIColor.red
+        quit_btn.layer.cornerRadius = quit_btn.frame.height / 2
         quit_btn.setTitleColor(UIColor.white, for: .normal)
-        
-        resume_btn.layer.cornerRadius = doneBtn.bounds.height / 2
-        resume_btn.backgroundColor = UIColor.red
-        resume_btn.setTitleColor(UIColor.white, for: .normal)
+    
         /*=============== End Pause View ===============*/
     }
 }
