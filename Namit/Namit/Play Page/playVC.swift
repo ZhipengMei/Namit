@@ -204,11 +204,10 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func done_action(_ sender: Any) {
-        //TODO rotate next player, begin timer
+        //rotate next player, begin timer
         UIView.animate(withDuration: 0.3, animations: {
             self.punishmentView.alpha = 0
         }, completion: { (finished: Bool) in
-            //testing
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.rotate_players()
             }
@@ -363,9 +362,7 @@ extension playVC {
     @objc func flip_card(sender: Any) {
         // Display Ads every 5 tap
         if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
-            //yee
             if count % 10 == 0 {
-            //if count % 1 == 0 {
                 count = 1
                 if interstitial.isReady {
                     // pause the timer when ads show up
@@ -452,7 +449,7 @@ extension playVC {
         
         self.player1_label.alpha = 0
         self.player2_label.alpha = 0
-        
+ 
         if self.players_data.count < 3 {
             //update counter
             print("self.players_data.count ", self.players_data.count)
@@ -501,14 +498,14 @@ extension playVC {
     }
     
     func animate_players(p1: UILabel, p2: UILabel, p3: UILabel) {
-        p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: 33, y_pos: -0.6)
+        p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: (player1_label.center.x - player2_label.center.x) + 5, y_pos: 0)
         //fade out the current player's healthpoint at the beginning of the rotation
         UIView.animate(withDuration: 0.3, animations: {
             self.hp_label.alpha = 0
             self.player_label.alpha = 0
         })
         self.shrink(label: p1, x_pos: 15)
-        p3.enlarge_move(fontSize: 15, duration: 0.7, x_pos: 0, y_pos: 0)
+        p3.enlarge_move(fontSize: 15, duration: 0.7, x_pos: 0, y_pos: 0.5)
     }
     
     //shrink the emoji
@@ -519,17 +516,32 @@ extension playVC {
         UIView.animate(withDuration: 0.7, animations: {
             label.transform = scaledAndTranslatedTransform
         }, completion: { (finished: Bool) in
-            self.player2_label.alpha = 1
-            self.player1_label.alpha = 1
-            self.profile_view.bringSubview(toFront: self.player2_label)
-            self.profile_view.bringSubview(toFront: self.player1_label)
+
+            UIView.animate(withDuration: 1.0, animations: {
+                self.player2_label.alpha = 1
+                self.player1_label.alpha = 1
+                self.profile_view.bringSubview(toFront: self.player2_label)
+                self.profile_view.bringSubview(toFront: self.player1_label)
+            }, completion: { (finished: Bool) in
+                self.p1_label.removeFromSuperview()
+                self.p1_label = nil
+                self.p2_label.removeFromSuperview()
+                self.p2_label = nil
+                self.p3_label.removeFromSuperview()
+                self.p3_label = nil
+            })
             
-            self.p1_label.removeFromSuperview()
-            self.p1_label = nil
-            self.p2_label.removeFromSuperview()
-            self.p2_label = nil
-            self.p3_label.removeFromSuperview()
-            self.p3_label = nil
+//            self.player2_label.alpha = 1
+//            self.player1_label.alpha = 1
+//            self.profile_view.bringSubview(toFront: self.player2_label)
+//            self.profile_view.bringSubview(toFront: self.player1_label)
+//
+//            self.p1_label.removeFromSuperview()
+//            self.p1_label = nil
+//            self.p2_label.removeFromSuperview()
+//            self.p2_label = nil
+//            self.p3_label.removeFromSuperview()
+//            self.p3_label = nil
             
             //enable the button after  rotation animation
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -543,10 +555,11 @@ extension playVC {
     //enlarge the emoji and move to the right
     func create_players(p1_name: String, p2_name: String, p3_name: String) {
         // setup place holders labels
-        self.p3_label = UILabel(frame: CGRect(x: self.player2_label.frame.origin.x, y: self.player2_label.frame.origin.x, width: 48, height: 48))
+        self.p3_label = UILabel(frame: CGRect(x: self.player2_label.frame.origin.x, y: self.player2_label.frame.origin.y, width: 21, height: 18))
         self.p3_label.center = self.player2_label.center
         self.p3_label.textAlignment = .center
         self.p3_label.text = p3_name
+        self.p3_label.font = UIFont(name: "Viga", size: 1)
         self.profile_view.addSubview(self.p3_label)
         
         self.p1_label = self.player1_label.copyLabel()
@@ -579,12 +592,9 @@ extension UILabel {
         newFrame.origin.x = oldFrame.origin.x - (newFrame.size.width - oldFrame.size.width) * 0.5
         newFrame.origin.y = oldFrame.origin.y - (newFrame.size.height - oldFrame.size.height) * 0.5
         frame = newFrame
-        
         font = font.withSize(fontSize)
-        
         transform = CGAffineTransform.init(scaleX: 1 / scaleRatio, y: 1 / scaleRatio);
         layoutIfNeeded()
-        
         UIView.animate(withDuration: duration, animations: {
             self.transform = startTransform
             newFrame = self.frame
@@ -645,9 +655,8 @@ extension playVC: GADInterstitialDelegate {
         print("interstitialDidDismissScreen")
         
         interstitial = createAndLoadInterstitial()
-        //yee
+        
         // resume timer after ads finished
-        //self.time.pause()
         self.time.reset()
     }
     
@@ -727,8 +736,8 @@ extension playVC {
         time.pauseButton = pause_button
         time.punishmentView = punishmentView
         punishmentView.alpha = 0
-
-        ////TODO
+        
+        // start timer
         time.runTimer()
         
         

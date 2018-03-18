@@ -72,7 +72,7 @@ class Time {
         } else {
             seconds -= 1
             if seconds < self.getTime() {
-                print("Timer: ", seconds)
+                //print("Timer: ", seconds)
                 if seconds < 3 && isPlaySound == true {
                     print("Sound: ", isPlaySound)
                     beep_sound.play_action()
