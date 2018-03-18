@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		113EC9C3FDB21CF3E7D2F5C8CB14C3CC /* Pods-Namit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C94957BE16951A225D28F5D7BD9D2536 /* Pods-Namit-dummy.m */; };
+		1881C838A4D5953E521AD7663AE8ECC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		27992FA719B761ABF447FC31D08EEF31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		30A1DF387699DC1825EE99240AC261F9 /* Pods-NamitTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2751B4E0A039FE1C0F0E303FC05834F0 /* Pods-NamitTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B29BB1025519D7B4D029F36DBABCFB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		52C4EB5ACE99EBA8332D53E24E885E1D /* Pods-NamitTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BECC1C69E027B023E2F888FD641D6BCC /* Pods-NamitTests-dummy.m */; };
+		54EDB66BF0D370D2EC7D32504A87E550 /* Pods-Namit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22466DF564A805444CA899180D86F6F2 /* Pods-Namit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B50F3B886C009DF4514831BA284774F8 /* Pods-NamitUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 921E32A63EE45035F2961EBF5D19822F /* Pods-NamitUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2C18A44E5F41A427FD87ACC80D86AB4 /* Pods-NamitUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B91E41D1E350BB29979D0BC8E834CE /* Pods-NamitUITests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02947AF7018773F23D7CE4D1B57F86D5 /* Pods_NamitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NamitTests.framework; path = "Pods-NamitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF7B3E5C0AB6E0CDC92B6D03EC31874 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FC58B8F613A4ADE455F4C039E44ED74 /* Pods-Namit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Namit-acknowledgements.markdown"; sourceTree = "<group>"; };
+		22466DF564A805444CA899180D86F6F2 /* Pods-Namit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Namit-umbrella.h"; sourceTree = "<group>"; };
+		247484424113CF15D4D9683DE7EC26EC /* Pods-NamitUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitUITests-frameworks.sh"; sourceTree = "<group>"; };
+		2751B4E0A039FE1C0F0E303FC05834F0 /* Pods-NamitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NamitTests-umbrella.h"; sourceTree = "<group>"; };
+		28FE3085E6720716FCDBEF7BBC3FB6C4 /* Pods-NamitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NamitUITests.modulemap"; sourceTree = "<group>"; };
+		29B91E41D1E350BB29979D0BC8E834CE /* Pods-NamitUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NamitUITests-dummy.m"; sourceTree = "<group>"; };
+		3285E86AC4AADABADCA5A0FFFF628011 /* Pods-Namit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Namit.modulemap"; sourceTree = "<group>"; };
+		32C1EF360F23401A430F4641CB5F2D5A /* Pods-Namit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Namit.release.xcconfig"; sourceTree = "<group>"; };
+		3B7F8B93E9E9E3474820B8E3006006D5 /* Pods-NamitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NamitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5D847A487D97F16E447F6F7F7EEF60B8 /* Pods-NamitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NamitTests.modulemap"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7E9607CB7B2983DFB34B0E24E3F92487 /* Pods-NamitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NamitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		921E32A63EE45035F2961EBF5D19822F /* Pods-NamitUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NamitUITests-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		941BBE6F0D1008CC417BBCEC85F3B380 /* Pods-NamitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A3637BDFF788CDB1657D842F3866CA0D /* Pods_Namit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Namit.framework; path = "Pods-Namit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD7FACD753A1226043F82EAC91027820 /* Pods-NamitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B38B2A58B0A4B6CFDF44C334A644081F /* Pods-NamitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NamitTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B3BA00F4F82F2E683D355CDEB97F5776 /* Pods-NamitUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitUITests-resources.sh"; sourceTree = "<group>"; };
+		B4698542EC0D8482ACC6933341856B7D /* Pods-Namit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Namit-resources.sh"; sourceTree = "<group>"; };
+		B75D1142D9F07B1AD3D598064FF2B7DA /* Pods_NamitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NamitUITests.framework; path = "Pods-NamitUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8888FDC0B037A12552B7B7A7ED46338 /* Pods-NamitUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NamitUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BECC1C69E027B023E2F888FD641D6BCC /* Pods-NamitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NamitTests-dummy.m"; sourceTree = "<group>"; };
+		C07207891B5033BBE21595A7B8AAF0CE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C57E29D97E28640D7DC7C25EED3DE375 /* Pods-Namit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Namit-frameworks.sh"; sourceTree = "<group>"; };
+		C94957BE16951A225D28F5D7BD9D2536 /* Pods-Namit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Namit-dummy.m"; sourceTree = "<group>"; };
+		D0186C7E0E88DBBD73D6B6D771F330F0 /* Pods-NamitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitTests-frameworks.sh"; sourceTree = "<group>"; };
+		D0F9EBDE2F3586CB10F9808905E2C729 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA11F36BD6F0F597D95027584ACFDB30 /* Pods-Namit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Namit-acknowledgements.plist"; sourceTree = "<group>"; };
+		DE8DDE7196245C9FEF815838202EB38C /* Pods-NamitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitTests.release.xcconfig"; sourceTree = "<group>"; };
+		E97AEDD458B6E37D85E3059E04E6EACD /* Pods-Namit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Namit.debug.xcconfig"; sourceTree = "<group>"; };
+		F29EDE1CE691AB0FF818BCEF9C205671 /* Pods-NamitTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamitTests-resources.sh"; sourceTree = "<group>"; };
+		F2FACDF985A21247D5543547F029FB13 /* Pods-NamitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE5443C11B99BAC50668BAF25C6AE9C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27992FA719B761ABF447FC31D08EEF31 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D16D6BE3E5888F98239840411B612803 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1881C838A4D5953E521AD7663AE8ECC0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FACDE3303DDE0121B0BD5653614BDF51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B29BB1025519D7B4D029F36DBABCFB3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06DDD142518BFA5C799ED0A8FC14D9DC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A1A5526E7468E7FC703CBB3DC7D1C2E /* Pods-Namit */,
+				27F31ECFE6585BE9CD70E9A2E8C90B28 /* Pods-NamitTests */,
+				34F0D0B87814E0F4B8BF08F6392322CD /* Pods-NamitUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		27F31ECFE6585BE9CD70E9A2E8C90B28 /* Pods-NamitTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CF7B3E5C0AB6E0CDC92B6D03EC31874 /* Info.plist */,
+				5D847A487D97F16E447F6F7F7EEF60B8 /* Pods-NamitTests.modulemap */,
+				7E9607CB7B2983DFB34B0E24E3F92487 /* Pods-NamitTests-acknowledgements.markdown */,
+				B38B2A58B0A4B6CFDF44C334A644081F /* Pods-NamitTests-acknowledgements.plist */,
+				BECC1C69E027B023E2F888FD641D6BCC /* Pods-NamitTests-dummy.m */,
+				D0186C7E0E88DBBD73D6B6D771F330F0 /* Pods-NamitTests-frameworks.sh */,
+				F29EDE1CE691AB0FF818BCEF9C205671 /* Pods-NamitTests-resources.sh */,
+				2751B4E0A039FE1C0F0E303FC05834F0 /* Pods-NamitTests-umbrella.h */,
+				AD7FACD753A1226043F82EAC91027820 /* Pods-NamitTests.debug.xcconfig */,
+				DE8DDE7196245C9FEF815838202EB38C /* Pods-NamitTests.release.xcconfig */,
+			);
+			name = "Pods-NamitTests";
+			path = "Target Support Files/Pods-NamitTests";
+			sourceTree = "<group>";
+		};
+		34F0D0B87814E0F4B8BF08F6392322CD /* Pods-NamitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C07207891B5033BBE21595A7B8AAF0CE /* Info.plist */,
+				28FE3085E6720716FCDBEF7BBC3FB6C4 /* Pods-NamitUITests.modulemap */,
+				3B7F8B93E9E9E3474820B8E3006006D5 /* Pods-NamitUITests-acknowledgements.markdown */,
+				B8888FDC0B037A12552B7B7A7ED46338 /* Pods-NamitUITests-acknowledgements.plist */,
+				29B91E41D1E350BB29979D0BC8E834CE /* Pods-NamitUITests-dummy.m */,
+				247484424113CF15D4D9683DE7EC26EC /* Pods-NamitUITests-frameworks.sh */,
+				B3BA00F4F82F2E683D355CDEB97F5776 /* Pods-NamitUITests-resources.sh */,
+				921E32A63EE45035F2961EBF5D19822F /* Pods-NamitUITests-umbrella.h */,
+				F2FACDF985A21247D5543547F029FB13 /* Pods-NamitUITests.debug.xcconfig */,
+				941BBE6F0D1008CC417BBCEC85F3B380 /* Pods-NamitUITests.release.xcconfig */,
+			);
+			name = "Pods-NamitUITests";
+			path = "Target Support Files/Pods-NamitUITests";
+			sourceTree = "<group>";
+		};
+		3A1A5526E7468E7FC703CBB3DC7D1C2E /* Pods-Namit */ = {
+			isa = PBXGroup;
+			children = (
+				D0F9EBDE2F3586CB10F9808905E2C729 /* Info.plist */,
+				3285E86AC4AADABADCA5A0FFFF628011 /* Pods-Namit.modulemap */,
+				1FC58B8F613A4ADE455F4C039E44ED74 /* Pods-Namit-acknowledgements.markdown */,
+				DA11F36BD6F0F597D95027584ACFDB30 /* Pods-Namit-acknowledgements.plist */,
+				C94957BE16951A225D28F5D7BD9D2536 /* Pods-Namit-dummy.m */,
+				C57E29D97E28640D7DC7C25EED3DE375 /* Pods-Namit-frameworks.sh */,
+				B4698542EC0D8482ACC6933341856B7D /* Pods-Namit-resources.sh */,
+				22466DF564A805444CA899180D86F6F2 /* Pods-Namit-umbrella.h */,
+				E97AEDD458B6E37D85E3059E04E6EACD /* Pods-Namit.debug.xcconfig */,
+				32C1EF360F23401A430F4641CB5F2D5A /* Pods-Namit.release.xcconfig */,
+			);
+			name = "Pods-Namit";
+			path = "Target Support Files/Pods-Namit";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				8E99639421DF2EF0B3E28CD418A78CBF /* Products */,
+				06DDD142518BFA5C799ED0A8FC14D9DC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8E99639421DF2EF0B3E28CD418A78CBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3637BDFF788CDB1657D842F3866CA0D /* Pods_Namit.framework */,
+				02947AF7018773F23D7CE4D1B57F86D5 /* Pods_NamitTests.framework */,
+				B75D1142D9F07B1AD3D598064FF2B7DA /* Pods_NamitUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		17F78933367FD1E5C88824DC2D25EE54 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B50F3B886C009DF4514831BA284774F8 /* Pods-NamitUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2926E56B31C11EE4F18B063A41A0DDD4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30A1DF387699DC1825EE99240AC261F9 /* Pods-NamitTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC4572865DAC5E52D95E45962186E27 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54EDB66BF0D370D2EC7D32504A87E550 /* Pods-Namit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		036F49B14EDC525CBC1907D7B8628C7B /* Pods-NamitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37B246AEBB1594E71B3DB1C044D42821 /* Build configuration list for PBXNativeTarget "Pods-NamitUITests" */;
+			buildPhases = (
+				B32435E5F91038DE8BDE0D6D188085A2 /* Sources */,
+				FACDE3303DDE0121B0BD5653614BDF51 /* Frameworks */,
+				17F78933367FD1E5C88824DC2D25EE54 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NamitUITests";
+			productName = "Pods-NamitUITests";
+			productReference = B75D1142D9F07B1AD3D598064FF2B7DA /* Pods_NamitUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		514C0E1605C47AC79D3E104A02D39B2A /* Pods-Namit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0614FBE054C7F5D9384AE102DDD79512 /* Build configuration list for PBXNativeTarget "Pods-Namit" */;
+			buildPhases = (
+				9ADD615B9D43DF088A357BB10C327491 /* Sources */,
+				D16D6BE3E5888F98239840411B612803 /* Frameworks */,
+				4CC4572865DAC5E52D95E45962186E27 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Namit";
+			productName = "Pods-Namit";
+			productReference = A3637BDFF788CDB1657D842F3866CA0D /* Pods_Namit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B13F5E3DDCB782266C7C6D3EDC43BB2A /* Pods-NamitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4672D1296BD8DACE51E969C249FE7EA2 /* Build configuration list for PBXNativeTarget "Pods-NamitTests" */;
+			buildPhases = (
+				7311F4C5340A5E33CD40B3C4480ECAC4 /* Sources */,
+				AE5443C11B99BAC50668BAF25C6AE9C2 /* Frameworks */,
+				2926E56B31C11EE4F18B063A41A0DDD4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NamitTests";
+			productName = "Pods-NamitTests";
+			productReference = 02947AF7018773F23D7CE4D1B57F86D5 /* Pods_NamitTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 8E99639421DF2EF0B3E28CD418A78CBF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				514C0E1605C47AC79D3E104A02D39B2A /* Pods-Namit */,
+				B13F5E3DDCB782266C7C6D3EDC43BB2A /* Pods-NamitTests */,
+				036F49B14EDC525CBC1907D7B8628C7B /* Pods-NamitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7311F4C5340A5E33CD40B3C4480ECAC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52C4EB5ACE99EBA8332D53E24E885E1D /* Pods-NamitTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ADD615B9D43DF088A357BB10C327491 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				113EC9C3FDB21CF3E7D2F5C8CB14C3CC /* Pods-Namit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B32435E5F91038DE8BDE0D6D188085A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2C18A44E5F41A427FD87ACC80D86AB4 /* Pods-NamitUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		13A95306D85E4471AB6BE665B012E60A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4CE88B2C61351565EA4980741D4B2C9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8DDE7196245C9FEF815838202EB38C /* Pods-NamitTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NamitTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NamitTests/Pods-NamitTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NamitTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		58B2AF86555B73B053B72FAAD29B4EF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E97AEDD458B6E37D85E3059E04E6EACD /* Pods-Namit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Namit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Namit/Pods-Namit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Namit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5EBBD98DEA7098CFBE48AFE2AFDB8302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 941BBE6F0D1008CC417BBCEC85F3B380 /* Pods-NamitUITests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NamitUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NamitUITests/Pods-NamitUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NamitUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E8333274F4AB64785B04AB5B2A37231 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B2035D90B8F96D729F152288793D678D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32C1EF360F23401A430F4641CB5F2D5A /* Pods-Namit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Namit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Namit/Pods-Namit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Namit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C10164C743D25D5C2A43D4D9C612ACCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2FACDF985A21247D5543547F029FB13 /* Pods-NamitUITests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NamitUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NamitUITests/Pods-NamitUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NamitUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D8A8D19C6E64D75C91D327BC68A403EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD7FACD753A1226043F82EAC91027820 /* Pods-NamitTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NamitTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NamitTests/Pods-NamitTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NamitTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0614FBE054C7F5D9384AE102DDD79512 /* Build configuration list for PBXNativeTarget "Pods-Namit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B2AF86555B73B053B72FAAD29B4EF9 /* Debug */,
+				B2035D90B8F96D729F152288793D678D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A95306D85E4471AB6BE665B012E60A /* Debug */,
+				8E8333274F4AB64785B04AB5B2A37231 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37B246AEBB1594E71B3DB1C044D42821 /* Build configuration list for PBXNativeTarget "Pods-NamitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C10164C743D25D5C2A43D4D9C612ACCB /* Debug */,
+				5EBBD98DEA7098CFBE48AFE2AFDB8302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4672D1296BD8DACE51E969C249FE7EA2 /* Build configuration list for PBXNativeTarget "Pods-NamitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A8D19C6E64D75C91D327BC68A403EA /* Debug */,
+				4CE88B2C61351565EA4980741D4B2C9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

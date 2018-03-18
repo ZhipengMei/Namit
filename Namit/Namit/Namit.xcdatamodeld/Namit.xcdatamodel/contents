@@ -10,7 +10,8 @@
     <entity name="Players" representedClassName="Players" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="row" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="section" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="selected_row" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Punishments" representedClassName="Punishments" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +19,7 @@
     <elements>
         <element name="Cards" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="GameTimer" positionX="-54" positionY="0" width="128" height="75"/>
-        <element name="Players" positionX="-27" positionY="27" width="128" height="90"/>
+        <element name="Players" positionX="-27" positionY="27" width="128" height="105"/>
         <element name="Punishments" positionX="-54" positionY="0" width="128" height="60"/>
     </elements>
 </model>

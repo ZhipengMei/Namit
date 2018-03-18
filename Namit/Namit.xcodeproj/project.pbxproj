@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2613BA692893DF499D3B190F /* Pods_NamitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E68D382F3D7AC63262277F /* Pods_NamitUITests.framework */; };
+		3A1063B6205BC74C00C0A213 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */; };
+		3A1063B8205BC75B00C0A213 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */; };
 		3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11C2030011F003EE131 /* time_beep.mp3 */; };
 		3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11D2030011F003EE131 /* punishment.mp3 */; };
 		3A1EF121203001B7003EE131 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF120203001B7003EE131 /* Audio.swift */; };
@@ -23,9 +26,12 @@
 		3A5A477320259D5E004FE06D /* NamitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477220259D5E004FE06D /* NamitTests.swift */; };
 		3A5A477E20259D5E004FE06D /* NamitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A477D20259D5E004FE06D /* NamitUITests.swift */; };
 		3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A478B2025A47A004FE06D /* settingVC.swift */; };
-		3A6BA98720527D7000E48B60 /* EditPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA98620527D7000E48B60 /* EditPlayers.swift */; };
+		3A6BA98720527D7000E48B60 /* PlayerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */; };
 		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
+		3AB0F5262059D2BE00CFF704 /* WinnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */; };
+		4501D97066E488B03EA362B2 /* Pods_Namit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16FEC703CD359314FDFB77C /* Pods_Namit.framework */; };
+		D032F4929B9A3671F4C34EC3 /* Pods_NamitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F73F034B9410ABF352E13 /* Pods_NamitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15C0628D1C26A3B5DEC7FD4E /* Pods-Namit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Namit/Pods-Namit.debug.xcconfig"; sourceTree = "<group>"; };
+		39E68D382F3D7AC63262277F /* Pods_NamitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
 		3A1EF11C2030011F003EE131 /* time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_beep.mp3; sourceTree = "<group>"; };
 		3A1EF11D2030011F003EE131 /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
 		3A1EF120203001B7003EE131 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
@@ -68,9 +78,17 @@
 		3A5A477D20259D5E004FE06D /* NamitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamitUITests.swift; sourceTree = "<group>"; };
 		3A5A477F20259D5E004FE06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A478B2025A47A004FE06D /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
-		3A6BA98620527D7000E48B60 /* EditPlayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlayers.swift; sourceTree = "<group>"; };
+		3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectionView.swift; sourceTree = "<group>"; };
 		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerVC.swift; sourceTree = "<group>"; };
+		444F975ED60294D165AC8BD5 /* Pods-NamitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F22947EE58B5F9DA504F04D /* Pods-NamitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		89E816B5FFB1E51A8E774F52 /* Pods-Namit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Namit/Pods-Namit.release.xcconfig"; sourceTree = "<group>"; };
+		964434B3F5CB49DA50CD6CA0 /* Pods-NamitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B16FEC703CD359314FDFB77C /* Pods_Namit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Namit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0F73F034B9410ABF352E13 /* Pods_NamitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB45EB19197DF0A9D3A50ABB /* Pods-NamitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */,
+				4501D97066E488B03EA362B2 /* Pods_Namit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D032F4929B9A3671F4C34EC3 /* Pods_NamitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2613BA692893DF499D3B190F /* Pods_NamitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +135,7 @@
 				3A3103C42026833700253DE8 /* playVC.swift */,
 				3AA43C992026DBBB00D98218 /* Time.swift */,
 				3A1EF120203001B7003EE131 /* Audio.swift */,
+				3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */,
 			);
 			path = "Play Page";
 			sourceTree = "<group>";
@@ -150,6 +172,8 @@
 				3A5A477120259D5E004FE06D /* NamitTests */,
 				3A5A477C20259D5E004FE06D /* NamitUITests */,
 				3A5A475820259D5E004FE06D /* Products */,
+				5CA9F650FB8D49D92CA7E5A5 /* Pods */,
+				65D0DDE75EDFD123D7725EFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,9 +229,34 @@
 		3A6BA98520527D1100E48B60 /* EditPlayers */ = {
 			isa = PBXGroup;
 			children = (
-				3A6BA98620527D7000E48B60 /* EditPlayers.swift */,
+				3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */,
+				3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */,
+				3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */,
 			);
 			path = EditPlayers;
+			sourceTree = "<group>";
+		};
+		5CA9F650FB8D49D92CA7E5A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15C0628D1C26A3B5DEC7FD4E /* Pods-Namit.debug.xcconfig */,
+				89E816B5FFB1E51A8E774F52 /* Pods-Namit.release.xcconfig */,
+				FB45EB19197DF0A9D3A50ABB /* Pods-NamitTests.debug.xcconfig */,
+				444F975ED60294D165AC8BD5 /* Pods-NamitTests.release.xcconfig */,
+				964434B3F5CB49DA50CD6CA0 /* Pods-NamitUITests.debug.xcconfig */,
+				5F22947EE58B5F9DA504F04D /* Pods-NamitUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		65D0DDE75EDFD123D7725EFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B16FEC703CD359314FDFB77C /* Pods_Namit.framework */,
+				CE0F73F034B9410ABF352E13 /* Pods_NamitTests.framework */,
+				39E68D382F3D7AC63262277F /* Pods_NamitUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A5A478220259D5E004FE06D /* Build configuration list for PBXNativeTarget "Namit" */;
 			buildPhases = (
+				ECC8A514EF95EBB362A7908A /* [CP] Check Pods Manifest.lock */,
 				3A5A475320259D5E004FE06D /* Sources */,
 				3A5A475420259D5E004FE06D /* Frameworks */,
 				3A5A475520259D5E004FE06D /* Resources */,
+				317C15138580BDE0859E1EC1 /* [CP] Embed Pods Frameworks */,
+				62C07B07422DBC4C06DF70E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A5A478520259D5E004FE06D /* Build configuration list for PBXNativeTarget "NamitTests" */;
 			buildPhases = (
+				A9AFE63D0B090C05F849BFB5 /* [CP] Check Pods Manifest.lock */,
 				3A5A476A20259D5E004FE06D /* Sources */,
 				3A5A476B20259D5E004FE06D /* Frameworks */,
 				3A5A476C20259D5E004FE06D /* Resources */,
+				ED83EF0330903B4913C12DEC /* [CP] Embed Pods Frameworks */,
+				C9FF14E6D76009B527A495BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,9 +307,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A5A478820259D5E004FE06D /* Build configuration list for PBXNativeTarget "NamitUITests" */;
 			buildPhases = (
+				F8BDA12DB8540CED316F3E90 /* [CP] Check Pods Manifest.lock */,
 				3A5A477520259D5E004FE06D /* Sources */,
 				3A5A477620259D5E004FE06D /* Frameworks */,
 				3A5A477720259D5E004FE06D /* Resources */,
+				5FCBB0565C56349170F802F5 /* [CP] Embed Pods Frameworks */,
+				0E0E60E72F7993E1C44CE299 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,18 +399,171 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E0E60E72F7993E1C44CE299 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		317C15138580BDE0859E1EC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSVG.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FCBB0565C56349170F802F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62C07B07422DBC4C06DF70E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9AFE63D0B090C05F849BFB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NamitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9FF14E6D76009B527A495BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECC8A514EF95EBB362A7908A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Namit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED83EF0330903B4913C12DEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8BDA12DB8540CED316F3E90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NamitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A5A475320259D5E004FE06D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6BA98720527D7000E48B60 /* EditPlayers.swift in Sources */,
+				3A6BA98720527D7000E48B60 /* PlayerSelectionView.swift in Sources */,
+				3A1063B8205BC75B00C0A213 /* CenterViewFlowLayout.swift in Sources */,
 				3A1EF121203001B7003EE131 /* Audio.swift in Sources */,
 				3A5A475D20259D5E004FE06D /* ViewController.swift in Sources */,
 				3A3FF21C20267FBC00707BEF /* ruleVC.swift in Sources */,
 				3A411BCB2058DE02005ACA8B /* Person.swift in Sources */,
+				3AB0F5262059D2BE00CFF704 /* WinnerVC.swift in Sources */,
 				3A3103C52026833700253DE8 /* playVC.swift in Sources */,
 				3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */,
+				3A1063B6205BC74C00C0A213 /* CoreDataHelper.swift in Sources */,
 				3A5A478C2025A47A004FE06D /* settingVC.swift in Sources */,
 				3A5A475B20259D5E004FE06D /* AppDelegate.swift in Sources */,
 				3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */,
@@ -520,6 +731,7 @@
 		};
 		3A5A478320259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15C0628D1C26A3B5DEC7FD4E /* Pods-Namit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -542,6 +754,7 @@
 		};
 		3A5A478420259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E816B5FFB1E51A8E774F52 /* Pods-Namit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -564,6 +777,7 @@
 		};
 		3A5A478620259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB45EB19197DF0A9D3A50ABB /* Pods-NamitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -581,6 +795,7 @@
 		};
 		3A5A478720259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 444F975ED60294D165AC8BD5 /* Pods-NamitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -598,6 +813,7 @@
 		};
 		3A5A478920259D5E004FE06D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 964434B3F5CB49DA50CD6CA0 /* Pods-NamitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -614,6 +830,7 @@
 		};
 		3A5A478A20259D5E004FE06D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F22947EE58B5F9DA504F04D /* Pods-NamitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

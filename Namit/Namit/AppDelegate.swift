@@ -25,15 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // get appearance object
         let navigationAppearance = UINavigationBar.appearance()
-        
         // change color of navigation bar background
         navigationAppearance.barTintColor = UIColor.black
-        
         // change color of navigation bar items (buttons)
-        navigationAppearance.tintColor = UIColor.red
-        
+        navigationAppearance.tintColor = UIColor.clear
         // change color of navigation bar title
         navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];
+        
+        //customize back button in navigation bar
+        var backButtonImage = UIImage(named: "backbutton")
+        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 30)
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+        
         
         // programmatically adding Navigation Controller to "Home Page"
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -42,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let home_vc = storyboard.instantiateViewController(withIdentifier: "home") as UIViewController
         let navigationController = UINavigationController(rootViewController: home_vc)
         window?.rootViewController = navigationController
+        
         
         // Load coredata at the application very first launch
         if(!UserDefaults.standard.bool(forKey: "firstlaunch1.0")){
@@ -52,11 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize();
         }
 
+        
+
+        
+        
         return true
     }
 
-    //=======================================================================================================================
-    // game's default data
+    /*======= game's default data =======*/
     func reset_default_coreData() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -66,12 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let gameTimer_entity = NSEntityDescription.entity(forEntityName: "GameTimer", in: context)
         let newTimeInterval = NSManagedObject(entity: gameTimer_entity!, insertInto: context)
         newTimeInterval.setValue(5, forKey: "interval")
-        do {
-            try context.save()
-            print("GameTimer entity saved")
-        } catch {
-            print("GameTimer: Failed saving")
-        }
+        try! context.save() //save
         
         // initializing Punishments Entity
         let punishments_entity = NSEntityDescription.entity(forEntityName: "Punishments", in: context)
@@ -149,41 +151,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let newCard = NSManagedObject(entity: card_entity!, insertInto: context)
             newCard.setValue(item, forKey: "name")
         }
-        do {
-            try context.save()
-            print("Cards entity saved")
-        } catch {
-            print("Cards: Failed saving")
-        }
+        try! context.save() //save
     }
     
     // game's default player data
     func setup_players() {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
         // list of players
-        //let lists = [ ["Red", "Orange", "Banana", "Pineapple"], ["Yellow", "Green", "Blue", "Magenta" ] ]
-        let data = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🕷","🕸","🐢","🐍","🦎","🦂","🦀","🦑","🐙","🦐","🐠","🐟","🐡","🐬","🦈","🐳","🐋","🐊","🐆","🐅","🐃","🐂","🐄","🦌","🐪","🐫","🐘","🦏","🦍","🐎","🐖","🐐","🐏","🐑","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🐾","🐉","🐲","🌵","🎄","🌲","🌳","🌴","🌱","🌿","☘️","🍀","🎍","🎋","🍃","🍂","🍁","🍄","🌾","💐","🌷","🌹","🥀","🌻","🌼","🌸","🌺","🌎","🌞","🌛","⭐️","🔥","☄️","🌈","☁️","☃️","❄️","🌊","💦","☔️"]
+        let data = ["🦄","🦑","🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🕷","🕸","🐢","🐍","🦎","🦂","🦀","🐙","🦐","🐠","🐟","🐡","🐬","🦈","🐳","🐋","🐊","🐆","🐅","🐃","🐂","🐄","🦌","🐪","🐫","🐘","🦏","🦍","🐎","🐖","🐐","🐏","🐑","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🐾","🐉","🐲","🌵","🎄","🌲","🌳","🌴","🌱","🌿","☘️","🍀","🎍","🎋","🍃","🍂","🍁","🍄","🌾","💐","🌷","🌹","🥀","🌻","🌼","🌸","🌺","🌎","🌞","🌛","⭐️","🔥","☄️","🌈","☁️","☃️","❄️","🌊","💦","☔️"]
         
+        
+        let context = CoreDataHelper().managedObjectContext()
         // initializing Players Entity
         let Players_entity = NSEntityDescription.entity(forEntityName: "Players", in: context)
         
-        for (i, item) in data.enumerated() {
-            let character = NSManagedObject(entity: Players_entity!, insertInto: context)
-            character.setValue(item, forKey: "name")
-            character.setValue(i, forKey: "row")
-            character.setValue(1, forKey: "section")
+        for (i, name) in data.enumerated() {
+            /*
+             name: the emoji icon
+             row: keep track of ordering
+             selected: 0 means not selected, 1 means selected
+             */
+            //saving data into coreData
+            if i == 0 || i == 1 {
+                //initializing what to save
+                CoreDataHelper().set(entityName: Players_entity!, context: context, name: name, row: i, selected: 1, selected_row: i)
+            } else {
+                CoreDataHelper().set(entityName: Players_entity!, context: context, name: name, row: i, selected: 0, selected_row: i)
+            }
         }
-        do {
-            try context.save()
-            print("Success: Players entity saved.")
-        } catch {
-            print("Error: Players entity cannot save.")
-        }
+        
+        try! context.save() //save
     }
-    //=======================================================================================================================
+    //========================================================================================================
     
     
     

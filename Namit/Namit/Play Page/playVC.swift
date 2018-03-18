@@ -10,39 +10,27 @@ import UIKit
 import CoreData
 import GoogleMobileAds
 
-
 class playVC: UIViewController, NSFetchedResultsControllerDelegate {
-
+    
     // buttons
     @IBOutlet weak var pause_button: UIButton!
     @IBOutlet weak var namedit_button: UIButton!
     let resumeBtn = UIButton()
-    let back_to_play = UIButton()
-    
-    @IBOutlet weak var takeLife_button: UIButton!
-    @IBOutlet weak var dare_button: UIButton!
-    
+    @IBOutlet weak var mute_btn: UIButton!
+    @IBOutlet weak var quit_btn: UIButton!
+    @IBOutlet weak var resume_btn: UIButton!
     
     // labels
     @IBOutlet weak var timer_label: UILabel!
     @IBOutlet weak var card_label: UILabel!
-    let punishment_label = UILabel()
     @IBOutlet weak var player_label: UILabel!
-    @IBOutlet weak var pickone_label: UILabel!
     @IBOutlet weak var hp_label: UILabel!
     
-    
-
     // view
     @IBOutlet weak var card_view: UIView!
-    let punishment_view = UIView()
     @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var profile_view: UIView!
-    @IBOutlet weak var punishment_option: UIView!
     
-    
-    
-
     // current player and upcoming player
     @IBOutlet weak var player1_label: UILabel!
     @IBOutlet weak var player2_label: UILabel!
@@ -56,6 +44,13 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     // timer class
     let time = Time()
+    
+    //punishment View
+    @IBOutlet weak var punishmentView: UIView!
+    @IBOutlet weak var punishmentLabel: UILabel!
+    @IBOutlet weak var takelifeBtn: UIButton!
+    @IBOutlet weak var doneBtn: UIButton!
+    
     
     //default for NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -82,14 +77,14 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     var selected_players = [Players]()
     // Create Fetch Request
     var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Players")
-
-
+    
+    
     var punishments_data: [NSFetchRequestResult] = []
     var cards_data: [NSFetchRequestResult] = []
     
     // Interstitial_STEP 1: Create an interstitial ad object
     var interstitial: GADInterstitial!
-
+    
     // TO DO experimental
     var players_data = [Person]()
     var current_player: Person!
@@ -98,15 +93,14 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     var count = 1
     
     //dimColor
-    let defaultDimColor = UIColor.black.withAlphaComponent(0.7)
+    let defaultDimColor = UIColor.black.withAlphaComponent(0.9)
     
+    // dialog view
+    var dialogView = UIView()
+    var dialoglabel = UILabel()
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()            
-        
-        // fetching coreData
+    // fetching coreData
+    private func fetchCoreData() {
         do {
             try fetchedResultsController.performFetch()
             try punishment_fetchedResultsController.performFetch()
@@ -114,18 +108,13 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             // load coreData to empty variable
             punishments_data = punishment_fetchedResultsController.fetchedObjects!
             cards_data = fetchedResultsController.fetchedObjects!
-
-            fetchRequest.predicate = NSPredicate(format: "section == %d", 0)
-            // Add Sort Descriptor
-            let sortDescriptor = NSSortDescriptor(key: "row", ascending: true)
-            fetchRequest.sortDescriptors = [sortDescriptor]
-            selected_players = try! context.fetch(fetchRequest) as! [Players]
+            
+            selected_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "selected_row", selected: 1, isPredicate: true) as! [Players]
             
             // assign fetched player data into players_data[Person] array
             for i in 0..<selected_players.count {
                 let p = selected_players[i]
-//                let person = Person(charName: p.name!, hp: 3, playerOrder: i, playerName: "Player \(i + 1)")
-                //TODO use hp:1 for testing only, real game is hp: 3
+                //let person = Person(charName: p.name!, hp: 3, playerOrder: i, playerName: "Player \(i + 1)")
                 let person = Person(charName: p.name!, hp: 1, playerOrder: i, playerName: "Player \(i + 1)")
                 players_data.append(person)
             }
@@ -140,6 +129,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             // initalize player1 & player2
             player2_label.font = UIFont(name: "helvetica neue", size: 15)
             player2_label.text = players_data[1].charName
+            
             player1_label.text = self.current_player.charName
             display_heart(hp: self.current_player.hp)
             
@@ -148,198 +138,17 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             print("Unable to Save Note")
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
-        
-        // ======================== Button =================
-        // pause button
-        pause_button.backgroundColor = UIColor.red
-        pause_button.setTitleColor(.white, for: .normal)
-        pause_button.layer.cornerRadius = self.pause_button.bounds.width * 0.5
-        pause_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 10)
-        
-        // punishment button
-        namedit_button.backgroundColor = UIColor.red
-        namedit_button.layer.cornerRadius = self.namedit_button.bounds.height / 2
-        namedit_button.setTitleColor(UIColor.white, for: .normal)
-            // font & size
-        namedit_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
-            // string kerning
-        let attributedString = NSMutableAttributedString(string: "PUNISHMENT")
-        attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
-        namedit_button.titleLabel?.attributedText = attributedString
-            // tap gesture for action
-        let namedid_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(namedit_action(sender:)))
-        namedid_tapGestureRecognizer.numberOfTapsRequired = 1
-        namedit_button.isUserInteractionEnabled = true
-        namedit_button.addGestureRecognizer(namedid_tapGestureRecognizer)
-        
-        //take life button
-        takeLife_button.layer.cornerRadius = takeLife_button.frame.height / 2
-        takeLife_button.backgroundColor = UIColor.red
-        takeLife_button.setTitleColor(.white, for: .normal)
-        
-        // dare button
-        dare_button.layer.cornerRadius = dare_button.frame.height / 2
-        dare_button.backgroundColor = UIColor.red
-        dare_button.setTitleColor(.white, for: .normal)
-        
-        
-        // ======================== Label =================
-        
-        
-        // timer label
-        timer_label.textColor = UIColor.white
-        timer_label.layer.cornerRadius = self.timer_label.bounds.width * 0.5
-        timer_label.layer.borderWidth = 3.0
-        timer_label.layer.borderColor = (UIColor.white).cgColor
-        timer_label.backgroundColor = UIColor.clear
-        timer_label.font =  UIFont(name: "helvetica neue", size: 40)
-        timer_label.text = String(time.seconds)
-        
-        // card label
-        card_label.textAlignment = .center
-        card_label.textColor = .black
-        card_label.numberOfLines = 0
-        // display the first card
-        card_label.text = randomCardTask()
-        
-        //pick one label
-        pickone_label.textColor = .white
-        pickone_label.font = UIFont(name: "helvetica neue", size: 15)
-        
-        
-        // ======================== View =================
-        // dimView
-        dimView.backgroundColor = defaultDimColor
-        dimView.isHidden = true
-        
-        // punishment option view
-        punishment_option.isHidden = true
-        punishment_option.backgroundColor = UIColor.black.withAlphaComponent(0.95)
-        
-        //profile view
-        profile_view.backgroundColor = UIColor.clear
-        profile_view.layer.cornerRadius = self.profile_view.frame.height / 2
-        profile_view.layer.borderWidth = 3.0
-        profile_view.layer.borderColor = (UIColor.white).cgColor
-        
-        // card_view
-        card_view.backgroundColor = UIColor.white
-        card_view.layer.cornerRadius = 10
-        
-        // native view
-        self.view.backgroundColor = UIColor.black
-        
-        
-        
-        // setup timer
-        time.timerLabel = timer_label
-        time.pauseButton = pause_button
-        time.punishmentOption = punishment_option
-        time.runTimer()
-
-        
-        // ================= Gesture ==================================================
-        // Add tap gesture to card_view
-        // The flip_card: method will be fliping the card_view
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(updateScore(sender:)))
-        // swipe gesture for action
-        let swipe_left = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swipe_left.direction = .left
-        let swipe_right = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swipe_right.direction = .right
-        
-        // Optionally set the number of required taps, e.g., 2 for a double click
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        
-        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
-        card_view.isUserInteractionEnabled = true
-        card_view.addGestureRecognizer(tapGestureRecognizer)
-        card_view.addGestureRecognizer(swipe_left)
-        card_view.addGestureRecognizer(swipe_right)
-        // =================================================================================
-        
-
-        // ================= Interstitial Ads ==================================================
-        // Interstitial_STEP 2:
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        let interstitial_request = GADRequest()
-        interstitial_request.testDevices = [ kGADSimulatorID ]
-        interstitial.load(interstitial_request)
-        
-        // Interstitial_STEP 3: Show the ad
-        if interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
-        } else {
-            print("Advertisement wasn't ready")
-        }
-        
-        // Interstitial_STEP 4: Reload
-        interstitial = createAndLoadInterstitial()
-        // =================================================================================
-        
-        // When user tapped on pause button
-        // creating dim view layer
-//        let defaultDimColor = UIColor.black.withAlphaComponent(0.7)
-//        dim_view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-//        self.view.addSubview(dim_view)
-//        dim_view.backgroundColor = defaultDimColor
-//        self.dim_view.isHidden = true
-        
-        // resume button
-        // viewDidLoad render a false position due to status bar is hidden and sotryboard design conflict
-//        resumeBtn.setTitle("Resume", for: .normal)
-//        resumeBtn.backgroundColor = .red
-//        let resumeBtn_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss_dimView(sender:)))
-//        resumeBtn_tapGestureRecognizer.numberOfTapsRequired = 1
-//        resumeBtn.isUserInteractionEnabled = true
-//        resumeBtn.addGestureRecognizer(resumeBtn_tapGestureRecognizer)
-//        //self.view.addSubview(resumeBtn)
-//        self.dim_view.addSubview(resumeBtn)
-//        self.resumeBtn.isHidden = true
-        
-        // ======================= Punishment View ==========================================================
-        // punishment view
-        self.punishment_view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        self.punishment_view.backgroundColor = .red
-        self.view.addSubview(punishment_view)
-        self.punishment_view.alpha = 0
-        
-        // back_to_play button
-            // creating button within punishment view
-        back_to_play.setTitle("Back To Play", for: .normal)
-        back_to_play.setTitleColor(.white, for: .normal)
-        back_to_play.backgroundColor = .clear
-            // action when tapped
-        let tap_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(back2play_action(sender:)))
-        tap_tapGestureRecognizer.numberOfTapsRequired = 1
-        back_to_play.isUserInteractionEnabled = true
-        back_to_play.addGestureRecognizer(tap_tapGestureRecognizer)
-            // add buttont to subview
-        self.punishment_view.addSubview(back_to_play)
-        back_to_play.alpha = 0
-            // font & size
-        back_to_play.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
-            // string kerning
-        let btp_attributedString = NSMutableAttributedString(string: "Back To Play")
-        btp_attributedString.addAttribute(NSAttributedStringKey.kern, value: 4, range: NSRange(location: 0, length: btp_attributedString.length - 1))
-        back_to_play.titleLabel?.attributedText = btp_attributedString
-        
-        // punishment label
-        self.punishment_label.frame = CGRect(x: 0 , y: 0 , width: self.card_label.frame.size.width, height: self.card_label.frame.size.height)
-        self.punishment_label.center.x = self.punishment_view.center.x
-        self.punishment_label.center.y = self.punishment_view.center.y - (self.back_to_play.frame.size.height)
-        self.punishment_label.font =  UIFont(name: "HelveticaNeue-Bold", size: 25)
-        self.punishment_label.numberOfLines = 0
-        self.punishment_label.textColor = .white
-        self.punishment_label.textAlignment = .center
-        self.punishment_view.addSubview(self.punishment_label)
-        
-        // ==================== /Punishment View end ==============
-        
-        // bring card_view to front so user can tap for a new card
-        //self.view.bringSubview(toFront: card_view)
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // fetching coreData
+        fetchCoreData()
+        //initialize UI components
+        setupLayout()
     }// \viewDidLoad
+    
+    
     
     // dismiss view
     @IBAction func quit_action(_ sender: Any) {
@@ -354,22 +163,36 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         dimView.isHidden = false
     }
     
-
+    
     // hide resumeBtn and dim_view, then resume timer
     @IBAction func resume_action(_ sender: Any) {
         time.pause()
         dimView.isHidden = true
     }
     
+    @IBAction func mute_action(_ sender: Any) {
+        //fase means mute
+        if settingVC().getSound() == false {
+            settingVC().saveSoundBool(isSoundOn: true)
+            mute_btn.setTitle("MUTE", for: .normal)
+            print("clicked mute")
+        } else {
+            //play sound
+            settingVC().saveSoundBool(isSoundOn: false)
+            //title is the opposite of play sound to indicate an optional action
+            mute_btn.setTitle("PLAY SOUND", for: .normal)
+            print("clicked Play sound")
+        }
+    }
+    
     
     // rotate to next player
     @objc func namedit_action(sender: UITapGestureRecognizer) {
-
+        
         //self.namedit_button.isHidden = true
         self.namedit_button.isUserInteractionEnabled = false
         self.namedit_button.isEnabled = false
         
-        //TODO, kinda of done double check
         self.time.stop()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.rotate_players()
@@ -377,17 +200,21 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         self.resumeTImer()
     }
     
-    //player decided to do a punishment
-    @IBAction func dare_action(_ sender: Any) {
-        show_punishment()
+    @IBAction func done_action(_ sender: Any) {
+        //TODO rotate next player, begin timer
+        UIView.animate(withDuration: 0.3, animations: {
+            self.punishmentView.alpha = 0
+        }, completion: { (finished: Bool) in
+            self.rotate_players()
+            self.resumeTImer()
+        })
     }
     
     //remove a health point from player
     @IBAction func takeLife_action(_ sender: Any) {
         
-        print("Take life clicked")
         //dismiss punishment view
-        self.hidePunishmentView()
+        punishmentView.alpha = 0
         
         //pause 0.5 second then refresh the health point label
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // change 2 to desired number of seconds
@@ -406,35 +233,19 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 print(self.current_player.charName, " is out of the game.")
                 // remove player from the game (players_data)
                 self.players_data.remove(at: self.current_player.playerOrder)
-
+                
                 // re-order the players_data
                 // should not change the .playerOrder <-- used for display player name
                 for i in 0..<self.players_data.count {
                     self.players_data[i].playerOrder = i
                 }
                 
-                //Pop up dialog view to indicate who is out of the game
-                //dialog view
-                let dialogView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-                dialogView.center = self.view.center
-                dialogView.backgroundColor = self.defaultDimColor
-                dialogView.alpha = 0
-                self.view.addSubview(dialogView)
-                
-                //dialog label
-                let dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: self.view.frame.height/2))
-                dialoglabel.center = CGPoint(x: 160, y: 285)
-                dialoglabel.textAlignment = .center
-                dialoglabel.text = "\(self.current_player.charName) is out of the game."
-                dialoglabel.textColor = UIColor.white
-                //dialoglabel.alpha = 0
-                dialoglabel.alpha = 1
-                dialogView.addSubview(dialoglabel)
+                self.createDialogView(message: "\(self.current_player.charName) IS OUT.")
                 
                 //TODO, fade in and out of the dialog view
-                self.fadeViewInThenOut(view: dialogView, delay: 1)
+                self.fadeViewInThenOut(view: self.dialogView, delay: 1)
             } // end if
-
+            
             
             if self.players_data.count > 1 {
                 // pause 1 section then rotate player icon
@@ -447,15 +258,36 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             } else if self.players_data.count == 1 {
                 self.time.stop()
                 print("GAME OVER")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "winner") as! WinnerVC
+                controller.winner = self.players_data[0]
+                self.present(controller, animated: true, completion: nil)
             }
         }
         
     }
     
+    //Pop up dialog view to indicate who is out of the game
+    func createDialogView(message: String) {
+        //dialog view
+        dialogView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        dialogView.center = self.view.center
+        dialogView.backgroundColor = self.defaultDimColor
+        self.view.addSubview(dialogView)
+        
+        //dialog label
+        dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+        dialoglabel.center = dialogView.center
+        dialoglabel.textAlignment = .center
+        dialoglabel.text = message
+        dialoglabel.textColor = UIColor.white
+        dialoglabel.alpha = 1
+        dialoglabel.font = UIFont(name: "helvetica neue", size: 25)
+        dialogView.addSubview(dialoglabel)
+    }
+    
     func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
-        
         let animationDuration = 0.25
-        
         // Fade in the view
         UIView.animate(withDuration: animationDuration, animations: { () -> Void in
             view.alpha = 1
@@ -493,51 +325,16 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
 }
 
 
+
+
+
+
+
+
+
+
 // =============== punishment view ==========================
 extension playVC {
-    
-    // show the randmoized punishment
-    func show_punishment() {
-        // assign punishment text
-        self.punishment_label.text = randomPunishmentTask()
-        
-        // bring punishment_view to the front
-        self.view.bringSubview(toFront: punishment_view)
-        
-        // create back_to_play button's frame at run time for accurate position
-        self.back_to_play.frame = CGRect(x: self.namedit_button.frame.origin.x, y: self.namedit_button.frame.origin.y, width: 287, height: 63)
-        // border
-        back_to_play.layer.borderWidth = 3.0
-        back_to_play.layer.borderColor = (UIColor.white).cgColor
-        // cornerRadius
-        back_to_play.layer.cornerRadius = back_to_play.bounds.height / 2
-        
-        // fade in animation
-        UIView.animate(withDuration: 0.2, animations: {
-            self.punishment_view.alpha = 1
-            self.back_to_play.alpha = 1
-        })
-    }
-    
-    // dismiss punishment view when back_to_play button pressed
-    @objc func back2play_action(sender: UITapGestureRecognizer) {
-        support_back2play()
-    }
-    
-    func support_back2play(){
-        UIView.animate(withDuration: 0.3, animations: {
-            self.hidePunishmentView()
-        }, completion: { (finished: Bool) in
-            self.rotate_players()
-            self.resumeTImer()
-        })
-    }
-    
-    func hidePunishmentView() {
-        self.punishment_view.alpha = 0
-        self.back_to_play.alpha = 0
-        self.punishment_option.isHidden = true
-    }
     func resumeTImer() {
         //delay technique
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // change 2 to desired number of seconds
@@ -643,7 +440,7 @@ extension playVC {
     
     //Calling the animation funtions
     func rotate_players() {
-        //TODO yee
+        
         self.player1_label.alpha = 0
         self.player2_label.alpha = 0
         
@@ -659,11 +456,7 @@ extension playVC {
                     two_counters[i] = 0
                 }
             }
-            
-            print(two_counters[0])
-            print(two_counters[1])
-            print(two_counters[0], "-->" ,players_data[two_counters[0]].playerName)
-            print(two_counters[1], "-->", players_data[two_counters[1]].playerName)
+          
             // two players rotation, put player one back at the end
             create_players(p1_name: players_data[two_counters[0]].charName, p2_name: players_data[two_counters[1]].charName, p3_name: players_data[two_counters[0]].charName)
             // the next player is the new current player
@@ -684,7 +477,6 @@ extension playVC {
             self.current_player = players_data[mul_counters[1]]
         }
         
-        
         //healthpoint comes after player icon rotation
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             //fade in the next player's healthpoint
@@ -695,13 +487,9 @@ extension playVC {
                 self.hp_label.alpha = 1
                 self.player_label.alpha = 1
             })
-            
         }
-
         self.animate_players(p1: self.p1_label, p2: self.p2_label, p3: p3_label)
-
     }
-
     
     func animate_players(p1: UILabel, p2: UILabel, p3: UILabel) {
         //p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: 40.2, y_pos: -0.8)
@@ -728,7 +516,6 @@ extension playVC {
             self.profile_view.bringSubview(toFront: self.player1_label)
             self.profile_view.bringSubview(toFront: self.player2_label)
             
-            //yee
             self.p1_label.removeFromSuperview()
             self.p1_label = nil
             self.p2_label.removeFromSuperview()
@@ -741,7 +528,6 @@ extension playVC {
                 self.namedit_button.isUserInteractionEnabled = true
                 self.namedit_button.isEnabled = true
             }
-
         })
     }
     
@@ -772,14 +558,8 @@ extension playVC {
 
 
 
-
-
-
-
-
-
-// animation functions
 extension UILabel {
+    // animation functions
     func enlarge_move(fontSize: CGFloat, duration: TimeInterval, x_pos: CGFloat, y_pos: CGFloat) {
         let startTransform = transform
         let oldFrame = frame
@@ -809,15 +589,7 @@ extension UILabel {
         }
     }
     
-}
-
-
-
-
-
-
-// make a clone of the label
-extension UILabel {
+    // make a clone of the label
     func copyLabel() -> UILabel {
         let label = UILabel()
         label.font = self.font
@@ -825,14 +597,8 @@ extension UILabel {
         label.text = self.text
         return label
     }
+    
 }
-
-
-
-
-
-
-
 
 // Interstitial Ads
 extension playVC: GADInterstitialDelegate {
@@ -873,7 +639,7 @@ extension playVC: GADInterstitialDelegate {
         interstitial = createAndLoadInterstitial()
         
         // resume timer after ads finished
-        time.pause()
+        self.time.pause()
     }
     
     /// Tells the delegate that a user click will open another app
@@ -885,6 +651,170 @@ extension playVC: GADInterstitialDelegate {
     // ============ /GADBannerViewDelegate Methods ======================
     
 }
+
+
+
+//UI components
+extension playVC {
+    //initialize UI components
+    private func setupLayout() {
+        // ======================== Button =================
+        // pause button
+        pause_button.backgroundColor = UIColor.red
+        pause_button.setTitleColor(.white, for: .normal)
+        pause_button.layer.cornerRadius = self.pause_button.bounds.width * 0.5
+        pause_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 10)
+        
+        // punishment button
+        namedit_button.backgroundColor = UIColor.red
+        namedit_button.layer.cornerRadius = self.namedit_button.bounds.height / 2
+        namedit_button.setTitleColor(UIColor.white, for: .normal)
+        // font & size
+        namedit_button.titleLabel?.font =  UIFont(name: "helvetica neue", size: 15)
+        // string kerning
+        let attributedString = NSMutableAttributedString(string: "PUNISHMENT")
+        attributedString.addAttribute(NSAttributedStringKey.kern, value: 15, range: NSRange(location: 0, length: attributedString.length - 1))
+        namedit_button.titleLabel?.attributedText = attributedString
+        // tap gesture for action
+        let namedid_tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(namedit_action(sender:)))
+        namedid_tapGestureRecognizer.numberOfTapsRequired = 1
+        namedit_button.isUserInteractionEnabled = true
+        namedit_button.addGestureRecognizer(namedid_tapGestureRecognizer)
+        
+        
+        /* ======================== Label ================= */
+        // timer label
+        timer_label.textColor = UIColor.white
+        timer_label.layer.cornerRadius = self.timer_label.bounds.width * 0.5
+        timer_label.layer.borderWidth = 3.0
+        timer_label.layer.borderColor = (UIColor.white).cgColor
+        timer_label.backgroundColor = UIColor.clear
+        timer_label.font =  UIFont(name: "helvetica neue", size: 40)
+        timer_label.text = String(time.seconds)
+        
+        // card label
+        card_label.textAlignment = .center
+        card_label.textColor = .white
+        card_label.numberOfLines = 0
+        card_label.font =  UIFont(name: "helvetica neue", size: 30)
+        // display the first card
+        card_label.text = randomCardTask()
+        
+        
+        /* ======================== View ================= */
+        // dimView
+        dimView.backgroundColor = defaultDimColor
+        dimView.isHidden = true
+        
+        //profile view
+        profile_view.backgroundColor = UIColor.clear
+        profile_view.layer.cornerRadius = self.profile_view.frame.height / 2
+        profile_view.layer.borderWidth = 3.0
+        profile_view.layer.borderColor = (UIColor.white).cgColor
+        
+        // card_view
+        card_view.backgroundColor = UIColor.clear
+        card_view.layer.cornerRadius = 10
+        card_view.layer.borderWidth = 3
+        card_view.layer.borderColor = (UIColor.white).cgColor
+        
+        // native view
+        self.view.backgroundColor = UIColor.black
+        
+        // setup timer
+        time.timerLabel = timer_label
+        time.pauseButton = pause_button
+        time.punishmentView = punishmentView
+        punishmentView.alpha = 0
+
+        ////TODO
+        time.runTimer()
+        
+        
+        /* ================= Gesture ================================================== */
+        // Add tap gesture to card_view
+        // The flip_card: method will be fliping the card_view
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(updateScore(sender:)))
+        // swipe gesture for action
+        let swipe_left = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipe_left.direction = .left
+        let swipe_right = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipe_right.direction = .right
+        
+        // Optionally set the number of required taps, e.g., 2 for a double click
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        
+        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+        card_view.isUserInteractionEnabled = true
+        card_view.addGestureRecognizer(tapGestureRecognizer)
+        card_view.addGestureRecognizer(swipe_left)
+        card_view.addGestureRecognizer(swipe_right)
+        // =================================================================================
+        
+        
+        /* ================= Interstitial Ads ================================================== */
+        // Interstitial_STEP 2:
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let interstitial_request = GADRequest()
+        interstitial_request.testDevices = [ kGADSimulatorID ]
+        interstitial.load(interstitial_request)
+        
+        // Interstitial_STEP 3: Show the ad
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Advertisement wasn't ready")
+        }
+        
+        // Interstitial_STEP 4: Reload
+        interstitial = createAndLoadInterstitial()
+        // ========================= end Ads==================================================
+        
+        
+        /*===============  Punishment View ===============*/
+        punishmentLabel.text = randomPunishmentTask()
+        //TODO customize UI component in punishment view
+        
+        
+        punishmentLabel.font =  UIFont(name: "HelveticaNeue-Bold", size: 25)
+        punishmentLabel.numberOfLines = 0
+        punishmentLabel.textColor = .white
+        punishmentLabel.textAlignment = .center
+        
+        // doneBtn
+        doneBtn.layer.cornerRadius = doneBtn.bounds.height / 2
+        
+        //takelifeBtn
+        takelifeBtn.layer.borderWidth = 3.0
+        takelifeBtn.layer.borderColor = (UIColor.white).cgColor
+        takelifeBtn.layer.cornerRadius = takelifeBtn.bounds.height / 2
+        // ========================= end Punishment view ============
+        
+        
+        /*===============  Pause View ===============*/
+        if settingVC().getSound() == false {
+            mute_btn.setTitle("PLAY SOUND", for: .normal)
+        } else {
+            mute_btn.setTitle("MUTE", for: .normal)
+        }
+        mute_btn.layer.cornerRadius = doneBtn.bounds.height / 2
+        mute_btn.backgroundColor = UIColor.red
+        mute_btn.setTitleColor(UIColor.white, for: .normal)
+        
+        quit_btn.layer.cornerRadius = doneBtn.bounds.height / 2
+        quit_btn.backgroundColor = UIColor.red
+        quit_btn.setTitleColor(UIColor.white, for: .normal)
+        
+        resume_btn.layer.cornerRadius = doneBtn.bounds.height / 2
+        resume_btn.backgroundColor = UIColor.red
+        resume_btn.setTitleColor(UIColor.white, for: .normal)
+        /*=============== End Pause View ===============*/
+    }
+}
+
+
+
+
 
 
 

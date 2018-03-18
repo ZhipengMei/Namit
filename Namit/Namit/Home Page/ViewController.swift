@@ -17,10 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var rule_button: UIButton!
     @IBOutlet weak var setPlayer_button: UIButton!
     
-    // labels
-    @IBOutlet weak var setting_label: UILabel!
-    @IBOutlet weak var rule_label: UILabel!
-    
     // STEP 1: initialize ads banner view
     var bannerView: GADBannerView!
     
@@ -41,6 +37,8 @@ class ViewController: UIViewController {
         
         // edit players
         self.setPlayer_button.layer.cornerRadius = self.setPlayer_button.bounds.height / 2
+        self.setPlayer_button.backgroundColor = UIColor.red
+        self.setPlayer_button.setTitleColor(UIColor.white, for: .normal)
         
         // setting btn
         self.setting_button.backgroundColor = UIColor.red
@@ -51,14 +49,6 @@ class ViewController: UIViewController {
         self.rule_button.backgroundColor = UIColor.red
         self.rule_button.layer.cornerRadius = self.rule_button.bounds.size.width * 0.5
         self.rule_button.setTitleColor(UIColor.white, for: .normal)
-        
-        // setting label
-        setting_label.textColor = UIColor.white
-        setting_label.backgroundColor = .black
-        
-        //rule label
-        rule_label.textColor = UIColor.white
-        rule_label.backgroundColor = .black
         
         // view
         self.view.backgroundColor = UIColor.black
@@ -131,8 +121,10 @@ class ViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    @IBAction func toEditPlayers(_ sender: Any) {
-        self.navigationController?.pushViewController(EditPlayers(), animated: true)
+    @IBAction func toEditPlayers(_ sender: Any) {        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlayerSelectionView") as! PlayerSelectionView
+        self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
     

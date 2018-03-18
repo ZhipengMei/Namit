@@ -20,7 +20,7 @@ class Time {
     // UI
     var timerLabel = UILabel()
     var pauseButton = UIButton()
-    var punishmentOption = UIView()
+    var punishmentView = UIView()
     
     //condition
     var isPlaySound: Bool = true
@@ -61,14 +61,20 @@ class Time {
     @objc func updateTimer() {
         if seconds < 1 {
             self.stop()
-            // show player two options: Dare or Punishment
-            punishmentOption.isHidden = false
+            
+            //self.punishmentView.isHidden = false
+            //TODO
+            // fade in animation use only with alpha
+            UIView.animate(withDuration: 0.2, animations: {
+                self.punishmentView.alpha = 1
+            })
+
+            
         } else {
             seconds -= 1
             if seconds < self.getTime() {
                 print(isPlaySound)
                 if isPlaySound == true {
-                    //TODO, resume sounds
                     beep_sound.play_action()
                 }
             }

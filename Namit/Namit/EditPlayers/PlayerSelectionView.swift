@@ -1,0 +1,265 @@
+//
+//  ViewController.swift
+//  playerSelection_collectionView
+//
+//  Created by Adrian on 3/15/18.
+//  Copyright © 2018 Mei. All rights reserved.
+//
+
+import UIKit
+import CoreData
+
+class CollectionViewCell : UICollectionViewCell {
+    @IBOutlet weak var emoji_label: UILabel!
+}
+
+class PlayerSelectionView: UIViewController {
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var moreCharLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var testImage: UIView!
+    
+    
+    let reuseIdentifier = "collectionViewCellId"
+    let context = CoreDataHelper().managedObjectContext()
+    // Create Fetch Request
+    var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Players")
+    //placeholder for coredata
+    var available_players = [Players]()
+    var selected_players = [Players]()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupLayout()
+        available_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "row", selected: 0, isPredicate: false) as! [Players]
+        selected_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "selected_row", selected: 1, isPredicate: true) as! [Players]
+        
+    }
+    
+}
+
+
+
+/* ========= Talbe view ========= */
+extension PlayerSelectionView: UITableViewDataSource, UITableViewDelegate {
+    
+    // sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // rows
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if selected_players.count > 0 { return selected_players.count }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        
+        if selected_players.count > 0 {
+            configureCell(cell, at: indexPath)
+        }
+        
+        return cell
+    }
+    
+    
+    private func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        
+        //table cell
+        let player = selected_players[indexPath.row]
+        cell.textLabel?.text = "\(player.name!) Player \(player.selected_row + 1)"
+        cell.textLabel?.textColor = UIColor.white
+        cell.backgroundColor = UIColor.black
+        
+        //collection cell animation
+        let ip = IndexPath(row: Int(player.row), section: 0)
+        let cell : CollectionViewCell = collectionView.cellForItem(at: ip)! as! CollectionViewCell
+        cell.layer.cornerRadius = cell.frame.height / 2
+        cell.layer.borderWidth = 3.0
+        cell.layer.borderColor = (UIColor.white).cgColor
+        cell.emoji_label.alpha = 0.5
+    }
+    
+    //allow cell to rearrange
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        //position did not change
+        if sourceIndexPath == destinationIndexPath {
+            return
+        }
+        
+        //swap position, "row" maintains the order of selected players
+        let source_player = selected_players[sourceIndexPath.row]
+        
+        //for UI animation
+        selected_players.remove(at: sourceIndexPath.row)
+        selected_players.insert(source_player, at: destinationIndexPath.row)
+        assignOrder()
+        try! context.save() //save
+        tableView.reloadData() //refresh the tableview
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            print("Delete clicked")
+            
+            let player = selected_players[indexPath.row]
+            player.selected = 0
+            selected_players.remove(at: indexPath.row)
+            assignOrder()
+            
+            //collection cell animation
+            let ip = IndexPath(row: Int(player.row), section: 0)
+            let cell : CollectionViewCell = collectionView.cellForItem(at: ip)! as! CollectionViewCell
+            cell.layer.cornerRadius = 0
+            cell.layer.borderWidth = 0
+            cell.emoji_label.alpha = 1.0
+            
+            try! context.save()
+            tableView.reloadData()
+        }
+    }
+    
+    //re-order the selected players only
+    func assignOrder() {
+        for (i, player) in selected_players.enumerated() {
+            player.selected_row = Int16(i)            
+        }
+    }
+    
+    func tableViewScrollToBottom(animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+            let numberOfSections = self.tableView.numberOfSections
+            let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
+            
+            if numberOfRows > 0 {
+                let indexPath = IndexPath(row: numberOfRows-1, section: (numberOfSections-1))
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+            }
+        }
+    }
+}
+/* ========= End Table view ========= */
+
+
+
+
+
+
+
+/* ========= Collection view ========= */
+extension PlayerSelectionView: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return available_players.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+        
+        //cell.imageView.backgroundColor = UIColor.randomColor()
+        cell.emoji_label.text = available_players[indexPath.row].name
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        
+        let cell : CollectionViewCell = collectionView.cellForItem(at: indexPath)! as! CollectionViewCell
+        let player = available_players[indexPath.row]
+        
+        //customize UI when clicked
+        if player.selected == 0 {
+            //add player emoji into tableview
+            player.selected = 1
+            selected_players.insert(player, at: selected_players.count)
+        } else if player.selected == 1 {
+            cell.layer.cornerRadius = 0
+            cell.layer.borderWidth = 0
+            cell.emoji_label.alpha = 1.0
+            
+            //remove player emoji from tableview
+            player.selected = 0
+            selected_players.remove(at: Int(player.selected_row))
+        }
+        
+        assignOrder()
+        try! context.save()
+        tableView.reloadData()
+        
+        //auto scroll to the bottom of the tableview
+        tableViewScrollToBottom(animated: true)
+    }
+    
+}
+/* ========= End Collection view ========= */
+
+
+
+
+
+
+
+
+
+/* ========= Support ========= */
+extension PlayerSelectionView {
+    
+    //setup the UI components (cover partially on size, color, position, etc...)
+    private func setupLayout() {
+        
+        //view
+        view.backgroundColor = .black
+        
+        //navigationController
+        navigationItem.title = "Player Setting"
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.isTranslucent = false
+        
+        //description label
+        descriptionLabel.text = "You can add, remove, change orders of characters."
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = true
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.textColor = .white
+        descriptionLabel.backgroundColor = .black
+        
+        // playerLabel
+        playerLabel.textAlignment = .center
+        playerLabel.backgroundColor = .black
+        
+        // tableview
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .singleLine
+        tableView.backgroundColor = .black
+        tableView.isEditing = true //enable editing
+        
+        //more characters
+        moreCharLabel.backgroundColor = .black
+        moreCharLabel.textAlignment = .center
+        
+        //collection view
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = .black
+        collectionView.indicatorStyle = .white
+    }
+}
+/* ========= End Support ========= */
+
