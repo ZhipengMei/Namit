@@ -55,6 +55,7 @@ class Time {
     var resumeTapped = false
     
     func runTimer() {
+        timerLabel.textColor = UIColor.white.withAlphaComponent(1.0)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Time.updateTimer)), userInfo: nil, repeats: true)
     }
     
@@ -62,19 +63,18 @@ class Time {
         if seconds < 1 {
             self.stop()
             
-            //self.punishmentView.isHidden = false
             //TODO
             // fade in animation use only with alpha
             UIView.animate(withDuration: 0.2, animations: {
                 self.punishmentView.alpha = 1
             })
-
             
         } else {
             seconds -= 1
             if seconds < self.getTime() {
-                print(isPlaySound)
-                if isPlaySound == true {
+                print("Timer: ", seconds)
+                if seconds < 3 && isPlaySound == true {
+                    print("Sound: ", isPlaySound)
                     beep_sound.play_action()
                 }
             }
@@ -88,11 +88,11 @@ class Time {
             isTimerRunning = false
             self.resumeTapped = true
             self.pauseButton.setTitle("R",for: .normal)
-        } else {
-            runTimer()
+        } else if self.resumeTapped == true {
             self.resumeTapped = false
             isTimerRunning = true
             self.pauseButton.setTitle("||",for: .normal)
+            runTimer()
         }
     }
     
@@ -106,6 +106,9 @@ class Time {
     func stop() {
         beep_sound.pause_action()
         timer.invalidate()
+        timerLabel.textColor = UIColor.white.withAlphaComponent(0.5)
+        seconds = self.getTime()
+        timerLabel.text = String(seconds)
     }
     
 }

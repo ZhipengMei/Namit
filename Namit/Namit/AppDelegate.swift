@@ -36,8 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var backButtonImage = UIImage(named: "backbutton")
         backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 30)
         UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-        
-        
+                
         // programmatically adding Navigation Controller to "Home Page"
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

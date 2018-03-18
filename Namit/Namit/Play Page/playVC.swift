@@ -152,22 +152,22 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     // dismiss view
     @IBAction func quit_action(_ sender: Any) {
+        //TODO
         //self.timer_beep.pause_action()
         time.stop()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pause_action(_ sender: Any) {
-        // pause timer
-        time.pause()
         dimView.isHidden = false
+        time.pause() // pause timer
     }
     
     
     // hide resumeBtn and dim_view, then resume timer
     @IBAction func resume_action(_ sender: Any) {
-        time.pause()
         dimView.isHidden = true
+        time.pause()
     }
     
     @IBAction func mute_action(_ sender: Any) {
@@ -193,6 +193,11 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         self.namedit_button.isUserInteractionEnabled = false
         self.namedit_button.isEnabled = false
         
+        //disable pause button to avoid creation of multiple timer conflict
+        self.pause_button.isEnabled = false
+        //yee
+        
+        //yee
         self.time.stop()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.rotate_players()
@@ -205,7 +210,10 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             self.punishmentView.alpha = 0
         }, completion: { (finished: Bool) in
-            self.rotate_players()
+            //testing
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.rotate_players()
+            }
             self.resumeTImer()
         })
     }
@@ -228,7 +236,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             //the player lost the game
             if self.current_player.hp == 0 {
                 print("hp is == 0")
-                self.time.pause()
+                self.time.stop()
                 
                 print(self.current_player.charName, " is out of the game.")
                 // remove player from the game (players_data)
@@ -272,7 +280,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         //dialog view
         dialogView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         dialogView.center = self.view.center
-        dialogView.backgroundColor = self.defaultDimColor
+        dialogView.backgroundColor = UIColor.black
         self.view.addSubview(dialogView)
         
         //dialog label
@@ -282,7 +290,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         dialoglabel.text = message
         dialoglabel.textColor = UIColor.white
         dialoglabel.alpha = 1
-        dialoglabel.font = UIFont(name: "helvetica neue", size: 25)
+        dialoglabel.font = UIFont(name: "helvetica neue", size: 50)
+        dialoglabel.numberOfLines = 0
         dialogView.addSubview(dialoglabel)
     }
     
@@ -299,11 +308,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 view.removeFromSuperview()
             })
         }
-    }
-    
-    // refresh timer
-    @objc func updateScore(sender: Any) {
-        time.reset()
     }
     
     // health point (hp) label
@@ -340,10 +344,10 @@ extension playVC {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // change 2 to desired number of seconds
             self.time.seconds = self.time.getTime()
             self.time.timerLabel.text = String(self.time.seconds)
-            //self.time.runTimer()
-            
+
             // Your code with delay
-            self.time.reset()
+            self.time.stop()
+            self.time.runTimer()
         }
     }
 }
@@ -356,15 +360,18 @@ extension playVC {
     @objc func flip_card(sender: Any) {
         // Display Ads every 5 tap
         if count > 0 && count < (fetchedResultsController.fetchedObjects?.count)! {
+            //yee
             if count % 6 == 0 {
+            //if count % 1 == 0 {
                 count = 1
                 if interstitial.isReady {
-                    // pause the timer
-                    time.pause()
+                    // pause the timer when ads show up
+                    //time.pause()
+                    time.stop()
                     // show the ads
                     interstitial.present(fromRootViewController: self)
                 } else {
-                    print("Ad wasn't ready")
+                    print("Warning: Ad wasn't ready")
                 }
             }
             count += 1
@@ -511,10 +518,10 @@ extension playVC {
         UIView.animate(withDuration: 0.7, animations: {
             label.transform = scaledAndTranslatedTransform
         }, completion: { (finished: Bool) in
-            self.player1_label.alpha = 1
             self.player2_label.alpha = 1
-            self.profile_view.bringSubview(toFront: self.player1_label)
+            self.player1_label.alpha = 1
             self.profile_view.bringSubview(toFront: self.player2_label)
+            self.profile_view.bringSubview(toFront: self.player1_label)
             
             self.p1_label.removeFromSuperview()
             self.p1_label = nil
@@ -527,6 +534,7 @@ extension playVC {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.namedit_button.isUserInteractionEnabled = true
                 self.namedit_button.isEnabled = true
+                self.pause_button.isEnabled = true
             }
         })
     }
@@ -637,9 +645,10 @@ extension playVC: GADInterstitialDelegate {
         print("interstitialDidDismissScreen")
         
         interstitial = createAndLoadInterstitial()
-        
+        //yee
         // resume timer after ads finished
-        self.time.pause()
+        //self.time.pause()
+        self.time.reset()
     }
     
     /// Tells the delegate that a user click will open another app
@@ -681,26 +690,6 @@ extension playVC {
         namedit_button.isUserInteractionEnabled = true
         namedit_button.addGestureRecognizer(namedid_tapGestureRecognizer)
         
-        
-        /* ======================== Label ================= */
-        // timer label
-        timer_label.textColor = UIColor.white
-        timer_label.layer.cornerRadius = self.timer_label.bounds.width * 0.5
-        timer_label.layer.borderWidth = 3.0
-        timer_label.layer.borderColor = (UIColor.white).cgColor
-        timer_label.backgroundColor = UIColor.clear
-        timer_label.font =  UIFont(name: "helvetica neue", size: 40)
-        timer_label.text = String(time.seconds)
-        
-        // card label
-        card_label.textAlignment = .center
-        card_label.textColor = .white
-        card_label.numberOfLines = 0
-        card_label.font =  UIFont(name: "helvetica neue", size: 30)
-        // display the first card
-        card_label.text = randomCardTask()
-        
-        
         /* ======================== View ================= */
         // dimView
         dimView.backgroundColor = defaultDimColor
@@ -721,6 +710,27 @@ extension playVC {
         // native view
         self.view.backgroundColor = UIColor.black
         
+        /* ======================== Label ================= */
+        // timer label
+        timer_label.textColor = UIColor.white
+        timer_label.layer.cornerRadius = self.timer_label.bounds.width * 0.5
+        timer_label.layer.borderWidth = 3.0
+        timer_label.layer.borderColor = (UIColor.white).cgColor
+        timer_label.backgroundColor = UIColor.clear
+        timer_label.font =  UIFont(name: "helvetica neue", size: 40)
+        timer_label.text = String(time.seconds)
+        view.bringSubview(toFront: timer_label)
+        
+        // card label
+        card_label.textAlignment = .center
+        card_label.textColor = .white
+        card_label.numberOfLines = 0
+        card_label.font =  UIFont(name: "helvetica neue", size: 30)
+        // display the first card
+        card_label.text = randomCardTask()
+        
+        
+        
         // setup timer
         time.timerLabel = timer_label
         time.pauseButton = pause_button
@@ -733,20 +743,14 @@ extension playVC {
         
         /* ================= Gesture ================================================== */
         // Add tap gesture to card_view
-        // The flip_card: method will be fliping the card_view
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(updateScore(sender:)))
         // swipe gesture for action
         let swipe_left = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         swipe_left.direction = .left
         let swipe_right = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         swipe_right.direction = .right
         
-        // Optionally set the number of required taps, e.g., 2 for a double click
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        
         // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
         card_view.isUserInteractionEnabled = true
-        card_view.addGestureRecognizer(tapGestureRecognizer)
         card_view.addGestureRecognizer(swipe_left)
         card_view.addGestureRecognizer(swipe_right)
         // =================================================================================
