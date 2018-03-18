@@ -64,11 +64,9 @@ extension PlayerSelectionView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        
         if selected_players.count > 0 {
             configureCell(cell, at: indexPath)
         }
-        
         return cell
     }
     
@@ -199,6 +197,12 @@ extension PlayerSelectionView: UICollectionViewDataSource, UICollectionViewDeleg
             //remove player emoji from tableview
             player.selected = 0
             selected_players.remove(at: Int(player.selected_row))
+            
+            //check players count
+            if selected_players.count < 2 {
+                navigationController?.navigationBar.isUserInteractionEnabled = false
+                navigationController?.navigationBar.tintColor = UIColor.lightGray
+            }
         }
         
         assignOrder()
@@ -231,7 +235,7 @@ extension PlayerSelectionView {
         
         //navigationController
         navigationItem.title = "Player Setting"
-        navigationController?.navigationBar.barTintColor = UIColor.black.withAlphaComponent(0.21)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 24/255, green: 32/255, blue: 51/255, alpha: 1)//UIColor(red: 0, green: 0, blue: 0, alpha: 0.21)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationController?.navigationBar.isTranslucent = false
         
@@ -254,7 +258,7 @@ extension PlayerSelectionView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = darkColor
+        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.21)
         tableView.isEditing = true //enable editing
         
         //more characters

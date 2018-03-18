@@ -282,7 +282,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         //dialog view
         dialogView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         dialogView.center = self.view.center
-        dialogView.backgroundColor = UIColor.black
+        dialogView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         self.view.addSubview(dialogView)
         
         //dialog label

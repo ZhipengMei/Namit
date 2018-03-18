@@ -6,7 +6,8 @@ target 'Namit' do
   use_frameworks!
 
   # Pods for Namit
-
+  pod 'SnapKit', '~> 4.0.0'
+  
   target 'NamitTests' do
     inherit! :search_paths
     # Pods for testing

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SnapKit
 
 class detailTableView: UIViewController {
     
@@ -27,6 +28,9 @@ class detailTableView: UIViewController {
         return frc
     }()
     
+    var editbutton = UIButton()
+    var addbutton = UIButton()
+    var isEdit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +42,17 @@ class detailTableView: UIViewController {
         let barHeigh: CGFloat = UIApplication.shared.statusBarFrame.size.height
         let displayWidth: CGFloat = self.view.frame.width
         let displayHeight: CGFloat = self.view.frame.height
+        let tableHeight: CGFloat = displayHeight - barHeigh - 60
+        let btnViewHeight: CGFloat = displayHeight - barHeigh - tableHeight
         
         // setup tableview programmatically
-        detailTableView = UITableView(frame: CGRect(x: 0, y: barHeigh, width: displayWidth, height: displayHeight - barHeigh))
+        detailTableView = UITableView(frame: CGRect(x: 0, y: barHeigh, width: displayWidth, height: tableHeight))
         detailTableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailCell")
         detailTableView.dataSource = self
         detailTableView.delegate = self
         detailTableView.backgroundColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
+        detailTableView.allowsSelectionDuringEditing = true
         self.view.addSubview(detailTableView)
-        
-        //self.detailTableView.separatorStyle = .none
         
         // fetching coreData
         do {
@@ -58,16 +63,54 @@ class detailTableView: UIViewController {
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
         
+        let btnView = UIView(frame: CGRect(x: 0, y: barHeigh + tableHeight, width: displayWidth, height: btnViewHeight))
+        btnView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.view.addSubview(btnView)
+        
+        addbutton = UIButton(frame: CGRect(x: displayWidth / 4, y: barHeigh + tableHeight + 14, width: 80, height: 35))
+        addbutton.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 90/255, alpha: 1)
+        addbutton.setTitle("Add", for: .normal)
+        addbutton.setTitleColor(.white, for: .normal)
+        addbutton.layer.cornerRadius = addbutton.frame.height / 2
+        addbutton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        self.view.addSubview(addbutton)
+
+        editbutton = UIButton(frame: CGRect(x: addbutton.frame.origin.x + addbutton.frame.width + 30, y: barHeigh + tableHeight + 14, width: 80, height: 35))
+        editbutton.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 90/255, alpha: 1)
+        editbutton.setTitle("Edit", for: .normal)
+        editbutton.setTitleColor(.white, for: .normal)
+        editbutton.layer.cornerRadius = editbutton.frame.height / 2
+        editbutton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
+        self.view.addSubview(editbutton)
     }
+    
+    @objc func addAction(sender: UIButton!) {
+        add_alertView()
+    }
+    
+    @objc func editAction(sender: UIButton!) {
+        if isEdit == false {
+            isEdit = true
+            detailTableView.isEditing = true //enable editing
+            editbutton.setTitle("Done", for: .normal)
+        } else {
+            isEdit = false
+            detailTableView.isEditing = false
+            editbutton.setTitle("Edit", for: .normal)
+        }
+    }
+
     
 }
 
 
 // implementatio of tableview
-extension detailTableView: UITableViewDelegate, UITableViewDataSource {
+extension detailTableView: UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("haha  -- ")
+        if isEdit == true {
+            self.edit_alertView(indexPath: indexPath)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,6 +140,7 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textColor = UIColor.white
         cell.backgroundColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
+        cell.selectionStyle = .none
         
     }
     
@@ -143,14 +187,10 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource {
             //3. Present the alert.
             self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
-    //alert view for editing object
     func edit_alertView(indexPath: IndexPath) {
-        //1. Create the alert controller.
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        
+        //prepare data for display
         var fetchObject: Any
         if passedData! == "Cards" {
             fetchObject = fetchedResultsController.object(at: indexPath) as! Cards
@@ -158,23 +198,43 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource {
             fetchObject = fetchedResultsController.object(at: indexPath) as! Punishments
         }
         
-        //2. Add the text field. You can configure it however you need.
-        alertController.addTextField { (textField) in
-            textField.text = (fetchObject as AnyObject).name
+        let message = "Edit" + "\n\n\n\n\n\n\n"
+        // textView を表示するための高さの担保のため、dummy で改行を表示する
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        //prepare textview to display muti-lines text
+        let textView = UITextView()
+        textView.text = (fetchObject as AnyObject).name
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 0.5
+        textView.layer.cornerRadius = 6
+        //to dismiss keyboard
+        textView.delegate = self
+        textView.returnKeyType = UIReturnKeyType.done
+        
+        // textView を追加して Constraints を追加
+        alert.view.addSubview(textView)
+        textView.snp.makeConstraints { make in
+            make.top.equalTo(75)
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.bottom.equalTo(-60)
+        }
+        
+        // 画面が開いたあとでないと textView にフォーカスが当たらないため、遅らせて実行する
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            textView.becomeFirstResponder()
         }
         
         // Cancel action
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [] (_) in }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [] (_) in }))
         
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
-            let textField = alertController?.textFields![0] // Force unwrapping because we know it exists.
-            //print("Text field: \(String(describing: textField?.text!))")
-            
+        // 3. Grab the value from the text view, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
             if self.passedData! == "Cards" {
-                (fetchObject as! Cards).name = textField?.text!
+                (fetchObject as! Cards).name = textView.text
             } else {
-                (fetchObject as! Punishments).name = textField?.text!
+                (fetchObject as! Punishments).name = textView.text
             }
             
             do{
@@ -183,10 +243,70 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource {
                 print("error")
             }
         }))
-        
-        // 4. Present the alert.
-        present(alertController, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
+    
+    func add_alertView() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let message = "Add" + "\n\n\n\n\n\n\n"
+        // textView を表示するための高さの担保のため、dummy で改行を表示する
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        //prepare textview to display muti-lines text
+        let textView = UITextView()
+        textView.text = ""
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 0.5
+        textView.layer.cornerRadius = 6
+        textView.delegate = self
+        textView.returnKeyType = UIReturnKeyType.done
+        
+        // textView を追加して Constraints を追加
+        alert.view.addSubview(textView)
+        textView.snp.makeConstraints { make in
+            make.top.equalTo(75)
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.bottom.equalTo(-60)
+        }
+        
+        // 画面が開いたあとでないと textView にフォーカスが当たらないため、遅らせて実行する
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            textView.becomeFirstResponder()
+        }
+        
+        // Cancel action
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [] (_) in }))
+        
+        // 3. Grab the value from the text view, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
+            if self.passedData! == "Cards" {
+                // initializing Cards Entity
+                let card_entity = NSEntityDescription.entity(forEntityName: "Cards", in: context)
+                let newCard = NSManagedObject(entity: card_entity!, insertInto: context)
+                newCard.setValue(textView.text, forKey: "name")
+            } else {
+                // initializing Punishments Entity
+                let punishments_entity = NSEntityDescription.entity(forEntityName: "Punishments", in: context)
+                let newCard = NSManagedObject(entity: punishments_entity!, insertInto: context)
+                newCard.setValue(textView.text, forKey: "name")
+            }
+            try! context.save()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+
     
 }
 
