@@ -250,7 +250,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                     for i in 0..<self.players_data.count {
                         self.players_data[i].playerOrder = i
                     }
-                    self.createDialogView(message: "\(self.current_player.charName) IS OUT")
+                    self.createDialogView(message: "\(self.current_player.charName) \n IS OUT")
                     //fade in and out of the dialog view
                     self.fadeViewInThenOut(view: self.dialogView, delay: 2)
                 }
@@ -282,18 +282,18 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         //dialog view
         dialogView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         dialogView.center = self.view.center
-        dialogView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        dialogView.backgroundColor = UIColor.black.withAlphaComponent(1.0)
         self.view.addSubview(dialogView)
         
         //dialog label
-        dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
+        dialoglabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
         dialoglabel.center = dialogView.center
         dialoglabel.textAlignment = .center
         dialoglabel.text = message
         dialoglabel.textColor = UIColor.white
         dialoglabel.alpha = 1
         dialoglabel.numberOfLines = 0
-        dialoglabel.font = UIFont(name: "Viga", size: 80)
+        dialoglabel.font = dialoglabel.font.withSize(80)
         dialogView.addSubview(dialoglabel)
     }
     
