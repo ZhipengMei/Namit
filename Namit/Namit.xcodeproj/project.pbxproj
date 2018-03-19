@@ -11,8 +11,10 @@
 		3A1063B6205BC74C00C0A213 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */; };
 		3A1063B8205BC75B00C0A213 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */; };
 		3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */; };
-		3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11C2030011F003EE131 /* time_beep.mp3 */; };
-		3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EF11D2030011F003EE131 /* punishment.mp3 */; };
+		3A1AE8BB205F4BEB001A761E /* short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8B9205F4BEB001A761E /* short.mp3 */; };
+		3A1AE8C1205F5310001A761E /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C0205F5310001A761E /* punishment.mp3 */; };
+		3A1AE8C3205F561F001A761E /* long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C2205F561E001A761E /* long.mp3 */; };
+		3A1AE8C7205F57A6001A761E /* namit_tutorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C5205F57A6001A761E /* namit_tutorial.json */; };
 		3A1EF121203001B7003EE131 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF120203001B7003EE131 /* Audio.swift */; };
 		3A3103C52026833700253DE8 /* playVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3103C42026833700253DE8 /* playVC.swift */; };
 		3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B90D9202AB56500C80C5F /* detailTableView.swift */; };
@@ -31,6 +33,7 @@
 		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 		3AB0F5262059D2BE00CFF704 /* WinnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */; };
+		3AEB867D205F863E00192984 /* heart_destroy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB867C205F863E00192984 /* heart_destroy.json */; };
 		4501D97066E488B03EA362B2 /* Pods_Namit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16FEC703CD359314FDFB77C /* Pods_Namit.framework */; };
 		D032F4929B9A3671F4C34EC3 /* Pods_NamitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F73F034B9410ABF352E13 /* Pods_NamitTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,8 +61,10 @@
 		3A1063B5205BC74C00C0A213 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
 		3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
-		3A1EF11C2030011F003EE131 /* time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_beep.mp3; sourceTree = "<group>"; };
-		3A1EF11D2030011F003EE131 /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
+		3A1AE8B9205F4BEB001A761E /* short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = short.mp3; sourceTree = "<group>"; };
+		3A1AE8C0205F5310001A761E /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
+		3A1AE8C2205F561E001A761E /* long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = long.mp3; sourceTree = "<group>"; };
+		3A1AE8C5205F57A6001A761E /* namit_tutorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = namit_tutorial.json; sourceTree = "<group>"; };
 		3A1EF120203001B7003EE131 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		3A3103C42026833700253DE8 /* playVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playVC.swift; sourceTree = "<group>"; };
 		3A3B90D9202AB56500C80C5F /* detailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableView.swift; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerVC.swift; sourceTree = "<group>"; };
+		3AEB867C205F863E00192984 /* heart_destroy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart_destroy.json; sourceTree = "<group>"; };
 		444F975ED60294D165AC8BD5 /* Pods-NamitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F22947EE58B5F9DA504F04D /* Pods-NamitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		89E816B5FFB1E51A8E774F52 /* Pods-Namit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Namit/Pods-Namit.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,12 +136,24 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
-		3A1EF11B20300111003EE131 /* Audio */ = {
+		3A1AE8B7205F4BCD001A761E /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				3A1EF11D2030011F003EE131 /* punishment.mp3 */,
+				3A1AE8C0205F5310001A761E /* punishment.mp3 */,
+				3A1AE8B9205F4BEB001A761E /* short.mp3 */,
+				3A1AE8C2205F561E001A761E /* long.mp3 */,
 			);
-			path = Audio;
+			name = Audio;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		3A1AE8C4205F579A001A761E /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3AEB867C205F863E00192984 /* heart_destroy.json */,
+				3A1AE8C5205F57A6001A761E /* namit_tutorial.json */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		3A3103C32026831E00253DE8 /* Play Page */ = {
@@ -200,11 +218,11 @@
 		3A5A475920259D5E004FE06D /* Namit */ = {
 			isa = PBXGroup;
 			children = (
+				3A1AE8C4205F579A001A761E /* Animation */,
+				3A1AE8B7205F4BCD001A761E /* Audio */,
 				3A9CF75A205E61DE00E231CF /* Assets.xcassets */,
 				3A10C52E205E58E2004711E8 /* fonts */,
 				3A6BA98520527D1100E48B60 /* EditPlayers */,
-				3A1EF11C2030011F003EE131 /* time_beep.mp3 */,
-				3A1EF11B20300111003EE131 /* Audio */,
 				3A3103C32026831E00253DE8 /* Play Page */,
 				3A3FF21820267F3B00707BEF /* Home Page */,
 				3A3FF21920267F4400707BEF /* Settings Page */,
@@ -387,11 +405,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */,
-				3A1EF11E2030011F003EE131 /* time_beep.mp3 in Resources */,
+				3A1AE8C1205F5310001A761E /* punishment.mp3 in Resources */,
 				3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */,
+				3A1AE8C3205F561F001A761E /* long.mp3 in Resources */,
 				3A5A476020259D5E004FE06D /* Main.storyboard in Resources */,
-				3A1EF11F2030011F003EE131 /* punishment.mp3 in Resources */,
 				3A9CF75B205E61DE00E231CF /* Assets.xcassets in Resources */,
+				3A1AE8BB205F4BEB001A761E /* short.mp3 in Resources */,
+				3A1AE8C7205F57A6001A761E /* namit_tutorial.json in Resources */,
+				3AEB867D205F863E00192984 /* heart_destroy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,10 +456,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Namit/Pods-Namit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

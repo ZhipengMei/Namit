@@ -9,6 +9,28 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
+import Lottie
+
+
+//lottie animation
+extension playVC {
+    func setupLottieLayout() {
+        animateheart1 = LOTAnimationView(name: "heart_destroy")
+        animateheart1.frame.size = CGSize(width: 40, height: 42)
+        animateheart1.center = self.heart1.center
+        self.profile_view.addSubview(animateheart1)
+        
+        animateheart2 = LOTAnimationView(name: "heart_destroy")
+        animateheart2.frame.size = CGSize(width: 40, height: 42)
+        animateheart2.center = self.heart2.center
+        self.profile_view.addSubview(animateheart2)
+        
+        animateheart3 = LOTAnimationView(name: "heart_destroy")
+        animateheart3.frame.size = CGSize(width: 40, height: 42)
+        animateheart3.center = self.heart3.center
+        self.profile_view.addSubview(animateheart3)
+    }
+}
 
 class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
@@ -22,12 +44,20 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var timer_label: UILabel!
     @IBOutlet weak var card_label: UILabel!
     @IBOutlet weak var player_label: UILabel!
-    @IBOutlet weak var hp_label: UILabel!
     
     // view
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var profile_view: UIView!
+    
+    //lottie hearts view
+    @IBOutlet weak var heart1: UIView!
+    @IBOutlet weak var heart2: UIView!
+    @IBOutlet weak var heart3: UIView!
+    var animateheart1 = LOTAnimationView()
+    var animateheart2 = LOTAnimationView()
+    var animateheart3 = LOTAnimationView()
+    //yee
     
     // current player and upcoming player
     @IBOutlet weak var player1_label: UILabel!
@@ -42,6 +72,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     // timer class
     let time = Time()
+    
+    //audio
+    //var punish_sound = Audio()
     
     // pause || resume
     var resumeTapped = false
@@ -79,14 +112,13 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // Create Fetch Request
     var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Players")
     
-    
     var punishments_data: [NSFetchRequestResult] = []
     var cards_data: [NSFetchRequestResult] = []
     
     // Interstitial_STEP 1: Create an interstitial ad object
     var interstitial: GADInterstitial!
     
-    // TO DO experimental
+    // manage the players during the game
     var players_data = [Person]()
     var current_player: Person!
     
@@ -112,8 +144,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             // assign fetched player data into players_data[Person] array
             for i in 0..<selected_players.count {
                 let p = selected_players[i]
-                //let person = Person(charName: p.name!, hp: 3, playerOrder: i, playerName: "Player \(i + 1)")
-                let person = Person(charName: p.name!, hp: 1, playerOrder: i, playerName: "Player \(i + 1)")
+                //TODO
+                let person = Person(charName: p.name!, hp: 3, playerOrder: i, playerName: "Player \(i + 1)")
+//                let person = Person(charName: p.name!, hp: 1, playerOrder: i, playerName: "Player \(i + 1)")
                 players_data.append(person)
             }
             
@@ -128,7 +161,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
             player2_label.text = players_data[1].charName
             
             player1_label.text = self.current_player.charName
-            display_heart(hp: self.current_player.hp)
+            display_heart_noanimation(hp: self.current_player.hp)
+
             
         } catch {
             let fetchError = error as NSError
@@ -143,14 +177,16 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         fetchCoreData()
         //initialize UI components
         setupLayout()
+        setupLottieLayout()
+        
+        //punish_sound.loadsound(sound: "punishment")
+        
     }// \viewDidLoad
     
     
     
     // dismiss view
     @IBAction func quit_action(_ sender: Any) {
-        //TODO
-        //self.timer_beep.pause_action()
         time.stop()
         self.dismiss(animated: true, completion: nil)
     }
@@ -216,6 +252,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     //remove a health point from player
     @IBAction func takeLife_action(_ sender: Any) {
         
+        //punish_sound.loadsound(sound: "punishment")
+        //punish_sound.play_action()
+
         //dismiss punishment view
         punishmentView.alpha = 0
         
@@ -310,21 +349,60 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
-    // health point (hp) label
+
+    // health point (hp) label, animation losing a health point
     func display_heart(hp: Int) {
         switch hp {
-        case 0: hp_label.text = "💔💔💔"
+        case 0:
+            animateheart1.play()
             break
-        case 1: hp_label.text = "❤️"
+        case 1:
+            animateheart1.animationProgress = 0.0001
+            animateheart2.play()
             break
-        case 2: hp_label.text = "❤️❤️"
+        case 2:
+            animateheart1.animationProgress = 0.0001
+            animateheart2.animationProgress = 0.0001
+            animateheart3.play()
             break
-        case 3: hp_label.text = "❤️❤️❤️"
+        case 3:
+            animateheart1.animationProgress = 0.0001
+            animateheart2.animationProgress = 0.0001
+            animateheart3.animationProgress = 0.0001
             break
-        default: hp_label.text = "💔💔💔"
+        default:
             break
         }
     }
+    
+    //lottie stable heart, no animation
+    func display_heart_noanimation(hp: Int) {
+        switch hp {
+        case 0:
+            animateheart1.animationProgress = 1
+            animateheart2.animationProgress = 1
+            animateheart3.animationProgress = 1
+            break
+        case 1:
+            animateheart1.animationProgress = 0.0001
+            animateheart2.animationProgress = 1
+            animateheart3.animationProgress = 1
+            break
+        case 2:
+            animateheart1.animationProgress = 0.0001
+            animateheart2.animationProgress = 0.0001
+            animateheart3.animationProgress = 1
+            break
+        case 3:
+            animateheart1.animationProgress = 0.0001
+            animateheart2.animationProgress = 0.0001
+            animateheart3.animationProgress = 0.0001
+            break
+        default:
+            break
+        }
+    }
+
     
 }
 
@@ -486,9 +564,8 @@ extension playVC {
             //fade in the next player's healthpoint
             UIView.animate(withDuration: 0.3, animations: {
                 //reset the healthpoint for next player
-                self.display_heart(hp: self.current_player.hp)
+                self.display_heart_noanimation(hp: self.current_player.hp)
                 self.player_label.text = self.current_player.playerName
-                self.hp_label.alpha = 1
                 self.player_label.alpha = 1
             })
         }
@@ -499,7 +576,6 @@ extension playVC {
         p2.enlarge_move(fontSize: 40, duration: 0.7, x_pos: (player1_label.center.x - player2_label.center.x) + 5, y_pos: 0)
         //fade out the current player's healthpoint at the beginning of the rotation
         UIView.animate(withDuration: 0.3, animations: {
-            self.hp_label.alpha = 0
             self.player_label.alpha = 0
         })
         self.shrink(label: p1, x_pos: 15)
@@ -515,31 +591,17 @@ extension playVC {
             label.transform = scaledAndTranslatedTransform
         }, completion: { (finished: Bool) in
 
-            UIView.animate(withDuration: 1.0, animations: {
-                self.player2_label.alpha = 1
-                self.player1_label.alpha = 1
-                self.profile_view.bringSubview(toFront: self.player2_label)
-                self.profile_view.bringSubview(toFront: self.player1_label)
-            }, completion: { (finished: Bool) in
-                self.p1_label.removeFromSuperview()
-                self.p1_label = nil
-                self.p2_label.removeFromSuperview()
-                self.p2_label = nil
-                self.p3_label.removeFromSuperview()
-                self.p3_label = nil
-            })
+            self.player2_label.alpha = 1
+            self.player1_label.alpha = 1
+            self.profile_view.bringSubview(toFront: self.player2_label)
+            self.profile_view.bringSubview(toFront: self.player1_label)
             
-//            self.player2_label.alpha = 1
-//            self.player1_label.alpha = 1
-//            self.profile_view.bringSubview(toFront: self.player2_label)
-//            self.profile_view.bringSubview(toFront: self.player1_label)
-//
-//            self.p1_label.removeFromSuperview()
-//            self.p1_label = nil
-//            self.p2_label.removeFromSuperview()
-//            self.p2_label = nil
-//            self.p3_label.removeFromSuperview()
-//            self.p3_label = nil
+            self.p1_label.removeFromSuperview()
+            self.p1_label = nil
+            self.p2_label.removeFromSuperview()
+            self.p2_label = nil
+            self.p3_label.removeFromSuperview()
+            self.p3_label = nil
             
             //enable the button after  rotation animation
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

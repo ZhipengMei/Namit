@@ -13,9 +13,11 @@ class Audio {
     
     var audioPlayer = AVAudioPlayer()
 
-    init() {        
+    init() { }
+    
+    func loadsound(sound: String) {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "time_beep", ofType: "mp3")!))
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: sound, ofType: "mp3")!))
             audioPlayer.prepareToPlay()
             
             let audioSession = AVAudioSession.sharedInstance()
@@ -24,7 +26,6 @@ class Audio {
             } catch {
                 print(error)
             }
-            
         } catch {
             print(error)
         }
@@ -32,14 +33,11 @@ class Audio {
     
     func play_action() {
         audioPlayer.play()
-        //print("playedd")
     }
     
     func pause_action() {
         if audioPlayer.isPlaying {
             audioPlayer.pause()
-        } else {
-            
         }
     }
     

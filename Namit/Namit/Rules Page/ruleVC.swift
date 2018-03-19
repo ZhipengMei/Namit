@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class ruleVC: UIViewController {
 
@@ -27,6 +28,7 @@ class ruleVC: UIViewController {
     
     // button
     @IBOutlet weak var back_button: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,10 +81,12 @@ class ruleVC: UIViewController {
         
         // view
         self.view.backgroundColor = UIColor.black
+
     }
 
     @IBAction func back_action(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+
     
 }

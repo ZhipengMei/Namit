@@ -73,6 +73,7 @@ class detailTableView: UIViewController {
         addbutton.setTitleColor(.white, for: .normal)
         addbutton.layer.cornerRadius = addbutton.frame.height / 2
         addbutton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        addbutton.titleLabel?.font = UIFont(name: "Viga", size: 17)
         self.view.addSubview(addbutton)
 
         editbutton = UIButton(frame: CGRect(x: addbutton.frame.origin.x + addbutton.frame.width + 30, y: barHeigh + tableHeight + 14, width: 80, height: 35))
@@ -81,6 +82,7 @@ class detailTableView: UIViewController {
         editbutton.setTitleColor(.white, for: .normal)
         editbutton.layer.cornerRadius = editbutton.frame.height / 2
         editbutton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
+        editbutton.titleLabel?.font = UIFont(name: "Viga", size: 17)
         self.view.addSubview(editbutton)
     }
     
@@ -252,8 +254,10 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource, UITextVie
         let context = appDelegate.persistentContainer.viewContext
         
         let message = "Add" + "\n\n\n\n\n\n\n"
+
         // textView を表示するための高さの担保のため、dummy で改行を表示する
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
         
         //prepare textview to display muti-lines text
         let textView = UITextView()
@@ -263,6 +267,7 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource, UITextVie
         textView.layer.cornerRadius = 6
         textView.delegate = self
         textView.returnKeyType = UIReturnKeyType.done
+        textView.font = UIFont(name: "Viga", size: 17)
         
         // textView を追加して Constraints を追加
         alert.view.addSubview(textView)
