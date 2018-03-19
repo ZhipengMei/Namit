@@ -147,11 +147,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rT6-U7-zCm">
-                                        <rect key="frame" x="67" y="596" width="231" height="51"/>
+                                        <rect key="frame" x="63" y="590" width="249" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="20"/>
-                                        <state key="normal" title="Done">
+                                        <state key="normal" title="Done" backgroundImage="white_button">
                                             <color key="titleColor" red="1" green="0.16078431369999999" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -159,7 +159,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qv9-yx-FEP">
-                                        <rect key="frame" x="68" y="523" width="231" height="51"/>
+                                        <rect key="frame" x="72" y="531" width="231" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="20"/>
@@ -655,5 +655,6 @@
         <image name="reg_button_bg" width="246" height="91"/>
         <image name="rule_icon" width="68" height="68"/>
         <image name="setting_icon" width="68" height="68"/>
+        <image name="white_button" width="249" height="69"/>
     </resources>
 </document>

@@ -15,10 +15,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // buttons
     @IBOutlet weak var pause_button: UIButton!
     @IBOutlet weak var namedit_button: UIButton!
-    let resumeBtn = UIButton()
     @IBOutlet weak var mute_btn: UIButton!
     @IBOutlet weak var quit_btn: UIButton!
-    @IBOutlet weak var resume_btn: UIButton!
     
     // labels
     @IBOutlet weak var timer_label: UILabel!
@@ -293,7 +291,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         dialoglabel.textColor = UIColor.white
         dialoglabel.alpha = 1
         dialoglabel.numberOfLines = 0
-        dialoglabel.font = dialoglabel.font.withSize(80)
+        dialoglabel.font = dialoglabel.font.withSize(60)
         dialogView.addSubview(dialoglabel)
     }
     
