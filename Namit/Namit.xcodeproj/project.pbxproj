@@ -14,7 +14,6 @@
 		3A1AE8BB205F4BEB001A761E /* short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8B9205F4BEB001A761E /* short.mp3 */; };
 		3A1AE8C1205F5310001A761E /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C0205F5310001A761E /* punishment.mp3 */; };
 		3A1AE8C3205F561F001A761E /* long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C2205F561E001A761E /* long.mp3 */; };
-		3A1AE8C7205F57A6001A761E /* namit_tutorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C5205F57A6001A761E /* namit_tutorial.json */; };
 		3A1EF121203001B7003EE131 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF120203001B7003EE131 /* Audio.swift */; };
 		3A3103C52026833700253DE8 /* playVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3103C42026833700253DE8 /* playVC.swift */; };
 		3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B90D9202AB56500C80C5F /* detailTableView.swift */; };
@@ -34,6 +33,7 @@
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
 		3AB0F5262059D2BE00CFF704 /* WinnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */; };
 		3AEB867D205F863E00192984 /* heart_destroy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB867C205F863E00192984 /* heart_destroy.json */; };
+		3AEB8683205FB77400192984 /* namit_tutorial_02.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8682205FB77400192984 /* namit_tutorial_02.json */; };
 		4501D97066E488B03EA362B2 /* Pods_Namit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16FEC703CD359314FDFB77C /* Pods_Namit.framework */; };
 		D032F4929B9A3671F4C34EC3 /* Pods_NamitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F73F034B9410ABF352E13 /* Pods_NamitTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,6 @@
 		3A1AE8B9205F4BEB001A761E /* short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = short.mp3; sourceTree = "<group>"; };
 		3A1AE8C0205F5310001A761E /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
 		3A1AE8C2205F561E001A761E /* long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = long.mp3; sourceTree = "<group>"; };
-		3A1AE8C5205F57A6001A761E /* namit_tutorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = namit_tutorial.json; sourceTree = "<group>"; };
 		3A1EF120203001B7003EE131 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		3A3103C42026833700253DE8 /* playVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playVC.swift; sourceTree = "<group>"; };
 		3A3B90D9202AB56500C80C5F /* detailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableView.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		3AB0F5252059D2BE00CFF704 /* WinnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerVC.swift; sourceTree = "<group>"; };
 		3AEB867C205F863E00192984 /* heart_destroy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart_destroy.json; sourceTree = "<group>"; };
+		3AEB8682205FB77400192984 /* namit_tutorial_02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = namit_tutorial_02.json; sourceTree = "<group>"; };
 		444F975ED60294D165AC8BD5 /* Pods-NamitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitTests/Pods-NamitTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F22947EE58B5F9DA504F04D /* Pods-NamitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NamitUITests/Pods-NamitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		89E816B5FFB1E51A8E774F52 /* Pods-Namit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Namit/Pods-Namit.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3AEB867C205F863E00192984 /* heart_destroy.json */,
-				3A1AE8C5205F57A6001A761E /* namit_tutorial.json */,
+				3AEB8682205FB77400192984 /* namit_tutorial_02.json */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -405,13 +405,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */,
+				3AEB8683205FB77400192984 /* namit_tutorial_02.json in Resources */,
 				3A1AE8C1205F5310001A761E /* punishment.mp3 in Resources */,
 				3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */,
 				3A1AE8C3205F561F001A761E /* long.mp3 in Resources */,
 				3A5A476020259D5E004FE06D /* Main.storyboard in Resources */,
 				3A9CF75B205E61DE00E231CF /* Assets.xcassets in Resources */,
 				3A1AE8BB205F4BEB001A761E /* short.mp3 in Resources */,
-				3A1AE8C7205F57A6001A761E /* namit_tutorial.json in Resources */,
 				3AEB867D205F863E00192984 /* heart_destroy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

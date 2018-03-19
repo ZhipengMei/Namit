@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMobileAds
-import WebKit
 
 class ViewController: UIViewController {
     
@@ -39,8 +38,8 @@ class ViewController: UIViewController {
         // edit players
         self.setPlayer_button.layer.cornerRadius = self.setPlayer_button.bounds.height / 2
         //self.setPlayer_button.backgroundColor = UIColor.red
-        self.setPlayer_button.setTitleColor(UIColor.white, for: .normal)
-        
+        self.setPlayer_button.setTitleColor(UIColor.white, for: .normal)        
+
         // setting btn
         //self.setting_button.backgroundColor = UIColor.red
         self.setting_button.layer.cornerRadius = self.setting_button.bounds.size.width * 0.5
@@ -54,7 +53,6 @@ class ViewController: UIViewController {
         // view
         //self.view.backgroundColor = UIColor.black
         
-        
         // Google AdMob
         // Instantiate the banner with desired ad size.
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
@@ -63,9 +61,7 @@ class ViewController: UIViewController {
         bannerView.load(GADRequest())
         addBannerViewToView(bannerView)
         bannerView.delegate = self
-        
     }
-
     
     @IBAction func play_action(_ sender: Any) {
         // programatically push segue to another VC

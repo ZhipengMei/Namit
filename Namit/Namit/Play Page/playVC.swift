@@ -18,17 +18,17 @@ extension playVC {
         animateheart1 = LOTAnimationView(name: "heart_destroy")
         animateheart1.frame.size = CGSize(width: 40, height: 42)
         animateheart1.center = self.heart1.center
-        self.profile_view.addSubview(animateheart1)
+        self.bgheartview.addSubview(animateheart1)
         
         animateheart2 = LOTAnimationView(name: "heart_destroy")
         animateheart2.frame.size = CGSize(width: 40, height: 42)
         animateheart2.center = self.heart2.center
-        self.profile_view.addSubview(animateheart2)
+        self.bgheartview.addSubview(animateheart2)
         
         animateheart3 = LOTAnimationView(name: "heart_destroy")
         animateheart3.frame.size = CGSize(width: 40, height: 42)
         animateheart3.center = self.heart3.center
-        self.profile_view.addSubview(animateheart3)
+        self.bgheartview.addSubview(animateheart3)
     }
 }
 
@@ -51,13 +51,13 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var profile_view: UIView!
     
     //lottie hearts view
+    @IBOutlet weak var bgheartview: UIView!
     @IBOutlet weak var heart1: UIView!
     @IBOutlet weak var heart2: UIView!
     @IBOutlet weak var heart3: UIView!
     var animateheart1 = LOTAnimationView()
     var animateheart2 = LOTAnimationView()
     var animateheart3 = LOTAnimationView()
-    //yee
     
     // current player and upcoming player
     @IBOutlet weak var player1_label: UILabel!
@@ -223,7 +223,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     // rotate to next player
     @objc func namedit_action(sender: UITapGestureRecognizer) {
         
-        //self.namedit_button.isHidden = true
         self.namedit_button.isUserInteractionEnabled = false
         self.namedit_button.isEnabled = false
         
@@ -251,6 +250,9 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     //remove a health point from player
     @IBAction func takeLife_action(_ sender: Any) {
+        //TODO
+        self.namedit_button.isUserInteractionEnabled = false
+        self.namedit_button.isEnabled = false
         
         //punish_sound.loadsound(sound: "punishment")
         //punish_sound.play_action()
@@ -330,7 +332,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         dialoglabel.textColor = UIColor.white
         dialoglabel.alpha = 1
         dialoglabel.numberOfLines = 0
-        dialoglabel.font = dialoglabel.font.withSize(60)
+        dialoglabel.font = UIFont(name: "Viga", size: 50)
         dialogView.addSubview(dialoglabel)
     }
     
@@ -534,7 +536,6 @@ extension playVC {
                 if two_counters[i] < self.players_data.count-1 {
                     two_counters[i] += 1
                 } else {
-                    // counter is out of rnage
                     two_counters[i] = 0
                 }
             }
@@ -549,7 +550,6 @@ extension playVC {
                 if mul_counters[i] < self.players_data.count-1 {
                     mul_counters[i] += 1
                 } else {
-                    // counter is out of rnage
                     mul_counters[i] = 0
                 }
             }
@@ -567,6 +567,12 @@ extension playVC {
                 self.display_heart_noanimation(hp: self.current_player.hp)
                 self.player_label.text = self.current_player.playerName
                 self.player_label.alpha = 1
+                
+                self.bgheartview.alpha = 1
+                
+                //timer label
+                self.timer_label.textColor = UIColor.white.withAlphaComponent(1.0)
+                
             })
         }
         self.animate_players(p1: self.p1_label, p2: self.p2_label, p3: p3_label)
@@ -577,6 +583,10 @@ extension playVC {
         //fade out the current player's healthpoint at the beginning of the rotation
         UIView.animate(withDuration: 0.3, animations: {
             self.player_label.alpha = 0
+            self.timer_label.textColor = UIColor.white.withAlphaComponent(0.0)
+
+            self.bgheartview.alpha = 0
+            //yee
         })
         self.shrink(label: p1, x_pos: 15)
         p3.enlarge_move(fontSize: 15, duration: 0.7, x_pos: 0, y_pos: 0.5)

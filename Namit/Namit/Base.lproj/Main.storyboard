@@ -81,20 +81,27 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPD-li-u3d" customClass="LOTAnimationView">
-                                                <rect key="frame" x="103" y="40" width="24" height="22"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-EB-QKP">
+                                                <rect key="frame" x="97" y="34" width="90" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-Rt-3ph" customClass="LOTAnimationView">
-                                                <rect key="frame" x="128" y="40" width="24" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-QF-gqx" customClass="LOTAnimationView">
-                                                <rect key="frame" x="153" y="40" width="24" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPD-li-u3d" customClass="LOTAnimationView">
+                                                        <rect key="frame" x="3" y="4" width="24" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-Rt-3ph" customClass="LOTAnimationView">
+                                                        <rect key="frame" x="33" y="4" width="24" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-QF-gqx" customClass="LOTAnimationView">
+                                                        <rect key="frame" x="63" y="4" width="24" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.12156862745098039" green="0.16078431372549018" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.54201398450000005" green="1" blue="0.55200735759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -159,6 +166,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                                         <state key="normal" title="Done" backgroundImage="white_button">
                                             <color key="titleColor" red="1" green="0.16078431369999999" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -186,6 +194,7 @@
                         <viewLayoutGuide key="safeArea" id="RaA-BQ-gK3"/>
                     </view>
                     <connections>
+                        <outlet property="bgheartview" destination="TUj-EB-QKP" id="oOJ-Wi-NAQ"/>
                         <outlet property="card_label" destination="pzZ-YJ-s7k" id="GRD-iw-2ks"/>
                         <outlet property="card_view" destination="MX0-84-Bvn" id="p53-7I-2yO"/>
                         <outlet property="dimView" destination="tSJ-Jy-YZr" id="RUD-l0-hUu"/>
@@ -239,6 +248,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="17"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="FINISH" backgroundImage="reg_button_bg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -366,6 +376,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDM-gy-K5W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xqp-1Q-r6v"/>
@@ -375,6 +390,7 @@
                         <outlet property="card_label" destination="iI5-uw-yRd" id="Zj4-Ud-Rpr"/>
                         <outlet property="dot_label" destination="bTM-I3-HzA" id="yjs-oW-slC"/>
                         <outlet property="in_label" destination="26x-5h-I2t" id="A9a-qQ-rHT"/>
+                        <outlet property="little_tutorial" destination="sDM-gy-K5W" id="fuD-qK-94f"/>
                         <outlet property="namethings_label" destination="Jam-C5-EBT" id="SNl-BI-Dm7"/>
                         <outlet property="oryouwill_label" destination="SxW-jV-4U6" id="SGM-ob-0Hf"/>
                         <outlet property="play_label" destination="v3Q-eb-t6l" id="fgt-EM-DqW"/>
@@ -404,6 +420,7 @@
                                     <constraint firstAttribute="height" constant="246" id="jZk-FV-vFT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="30"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="PLAY" backgroundImage="play_button_bg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -429,6 +446,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="246" id="dkU-g4-j34"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="EDIT PLAYERS" backgroundImage="reg_button_bg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

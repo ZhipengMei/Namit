@@ -29,6 +29,9 @@ class ruleVC: UIViewController {
     // button
     @IBOutlet weak var back_button: UIButton!
     
+    //lottie view
+    @IBOutlet weak var little_tutorial: UIView!
+    var animateview = LOTAnimationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,17 +74,27 @@ class ruleVC: UIViewController {
         oryouwill_label.textColor = UIColor.white
         dot_label.textColor = UIColor.white
         
+        
+        // view
+        self.view.backgroundColor = UIColor.black
+        
+        //let displayWidth: CGFloat = self.view.frame.width
+        //let displayHeight: CGFloat = self.view.frame.height
+        //lottie view
+        animateview = LOTAnimationView(name: "namit_tutorial_02")
+        //animateview.frame.size = CGSize(width: displayWidth, height: displayHeight - back_button.frame.height - 10)
+        animateview.center = self.little_tutorial.center
+        self.view.addSubview(animateview)
+        animateview.play()
+        animateview.loopAnimation = true
+        
         // back button
         back_button.backgroundColor = UIColor.clear
         back_button.layer.cornerRadius = self.back_button.frame.height / 2
         back_button.setTitleColor(UIColor.white, for: .normal)
         back_button.layer.borderWidth = 3.0
         back_button.layer.borderColor = (UIColor.white).cgColor
-        
-        
-        // view
-        self.view.backgroundColor = UIColor.black
-
+        view.bringSubview(toFront: back_button)
     }
 
     @IBAction func back_action(_ sender: Any) {
