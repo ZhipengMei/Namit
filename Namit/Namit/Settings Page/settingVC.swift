@@ -12,12 +12,13 @@ import CoreData
 class settingVC: UIViewController{
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var back_imageview: UIImageView!
     
     // initialize time interval label
     let interval_label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
     
     // values to fill table view
-    private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Remove Ads", "Privacy Policy", "Share with Friends"]
+    private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Privacy Policy"]
     
     // initialize UIPickerView
     var time_interval_picker = UIPickerView()
@@ -68,7 +69,17 @@ class settingVC: UIViewController{
         time_interval_picker.alpha = 0
             // set background
         time_interval_picker.backgroundColor = .gray
+        
+        //UIImage tapped
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        back_imageview.isUserInteractionEnabled = true
+        back_imageview.addGestureRecognizer(tapGestureRecognizer)
 
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        self.dismiss(animated: true, completion: nil)
     }
 
     // turn in game sound on/off
@@ -224,7 +235,8 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
             
             let vc = storyboard?.instantiateViewController(withIdentifier: "detail") as! detailTableView
             vc.passedData = dataToPass!
-            navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: false, completion: nil)
+//            navigationController?.pushViewController(vc, animated: true)
             
 //            let detail_TableView = detailTableView()
 //            detail_TableView.passedData = dataToPass!

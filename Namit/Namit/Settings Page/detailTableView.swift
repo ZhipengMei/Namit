@@ -16,7 +16,8 @@ class detailTableView: UIViewController {
     @IBOutlet weak var btnVIew: UIView!
     @IBOutlet weak var addbutton: UIButton!
     @IBOutlet weak var editbutton: UIButton!
-
+    @IBOutlet weak var back_imageview: UIImageView!
+    
     // optional string to receive data from settingVC
     var passedData: String?
     
@@ -50,6 +51,16 @@ class detailTableView: UIViewController {
         
         // fetching coreData
         try! fetchedResultsController.performFetch()
+        
+        //UIImage tapped
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        back_imageview.isUserInteractionEnabled = true
+        back_imageview.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        self.dismiss(animated: false, completion: nil)
     }
     
     @objc func addAction(sender: UIButton!) {

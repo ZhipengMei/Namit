@@ -80,7 +80,8 @@ class ViewController: UIViewController {
                 print("View controller setting not found")
                 return
             }
-        navigationController?.pushViewController(vc, animated: true)
+        //navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func rule_action(_ sender: Any) {
@@ -121,7 +122,8 @@ class ViewController: UIViewController {
     @IBAction func toEditPlayers(_ sender: Any) {        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlayerSelectionView") as! PlayerSelectionView
-        self.navigationController?.pushViewController(newViewController, animated: true)
+//        self.navigationController?.pushViewController(newViewController, animated: true)
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     
