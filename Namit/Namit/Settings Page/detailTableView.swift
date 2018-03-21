@@ -12,8 +12,10 @@ import SnapKit
 
 class detailTableView: UIViewController {
     
-    private var detailTableView: UITableView!
-    //private var data: [String] = []
+    @IBOutlet weak var detailTableView: UITableView!
+    @IBOutlet weak var btnVIew: UIView!
+    @IBOutlet weak var addbutton: UIButton!
+    @IBOutlet weak var editbutton: UIButton!
 
     // optional string to receive data from settingVC
     var passedData: String?
@@ -28,8 +30,6 @@ class detailTableView: UIViewController {
         return frc
     }()
     
-    var editbutton = UIButton()
-    var addbutton = UIButton()
     var isEdit: Bool = false
     
     override func viewDidLoad() {
@@ -37,53 +37,19 @@ class detailTableView: UIViewController {
         
         // change the view title
         self.navigationItem.title = passedData!
-        
-        // preparing tableview's size and position
-        let barHeigh: CGFloat = UIApplication.shared.statusBarFrame.size.height
-        let displayWidth: CGFloat = self.view.frame.width
-        let displayHeight: CGFloat = self.view.frame.height
-        let tableHeight: CGFloat = displayHeight - barHeigh - 60
-        let btnViewHeight: CGFloat = displayHeight - barHeigh - tableHeight
-        
-        // setup tableview programmatically
-        detailTableView = UITableView(frame: CGRect(x: 0, y: barHeigh, width: displayWidth, height: tableHeight))
-        detailTableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailCell")
         detailTableView.dataSource = self
         detailTableView.delegate = self
-        detailTableView.backgroundColor = UIColor(red: 31/255, green: 41/255, blue: 64/255, alpha: 1)
-        detailTableView.allowsSelectionDuringEditing = true
-        self.view.addSubview(detailTableView)
-        
-        // fetching coreData
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            let fetchError = error as NSError
-            print("Unable to Save Note")
-            print("\(fetchError), \(fetchError.localizedDescription)")
-        }
-        
-        let btnView = UIView(frame: CGRect(x: 0, y: barHeigh + tableHeight, width: displayWidth, height: btnViewHeight))
-        btnView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        self.view.addSubview(btnView)
-        
-        addbutton = UIButton(frame: CGRect(x: displayWidth / 4, y: barHeigh + tableHeight + 14, width: 80, height: 35))
-        addbutton.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 90/255, alpha: 1)
-        addbutton.setTitle("Add", for: .normal)
-        addbutton.setTitleColor(.white, for: .normal)
+    
         addbutton.layer.cornerRadius = addbutton.frame.height / 2
         addbutton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
         addbutton.titleLabel?.font = UIFont(name: "Viga", size: 17)
-        self.view.addSubview(addbutton)
 
-        editbutton = UIButton(frame: CGRect(x: addbutton.frame.origin.x + addbutton.frame.width + 30, y: barHeigh + tableHeight + 14, width: 80, height: 35))
-        editbutton.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 90/255, alpha: 1)
-        editbutton.setTitle("Edit", for: .normal)
-        editbutton.setTitleColor(.white, for: .normal)
         editbutton.layer.cornerRadius = editbutton.frame.height / 2
         editbutton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
         editbutton.titleLabel?.font = UIFont(name: "Viga", size: 17)
-        self.view.addSubview(editbutton)
+        
+        // fetching coreData
+        try! fetchedResultsController.performFetch()
     }
     
     @objc func addAction(sender: UIButton!) {

@@ -42,6 +42,16 @@ class PlayerSelectionView: UIViewController {
         available_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "row", selected: 0, isPredicate: false) as! [Players]
         selected_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "selected_row", selected: 1, isPredicate: true) as! [Players]
         
+        print(self.view.frame.height)
+        print(UIApplication.shared.statusBarFrame.size.height)
+        print(tableView.frame.height)
+        print(collectionView.frame.height)
+        print(descriptionLabel.frame.height)
+        print(moreCharLabel.frame.height)
+        print(playerLabel.frame.height)
+        print(myview.frame.height)
+        print("total: ", tableView.frame.height +  descriptionLabel.frame.height +  playerLabel.frame.height + myview.frame.height)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

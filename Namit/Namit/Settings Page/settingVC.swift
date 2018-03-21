@@ -221,9 +221,14 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
                 dataToPass = "Punishments"
             }
             
-            let detail_TableView = detailTableView()
-            detail_TableView.passedData = dataToPass!
-            self.navigationController?.pushViewController(detail_TableView, animated: true)
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "detail") as! detailTableView
+            vc.passedData = dataToPass!
+            navigationController?.pushViewController(vc, animated: true)
+            
+//            let detail_TableView = detailTableView()
+//            detail_TableView.passedData = dataToPass!
+//            self.navigationController?.pushViewController(detail_TableView, animated: true)
         }
         
         if indexPath.row == 2 {
