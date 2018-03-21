@@ -9,30 +9,31 @@
 import UIKit
 import AVFoundation
 
-class Audio {
+class Audio: NSObject, AVAudioPlayerDelegate {
     
     var audioPlayer = AVAudioPlayer()
+    var isAudioEnd = false
 
-    init() { }
+    override init() { }
     
     func loadsound(sound: String) {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: sound, ofType: "mp3")!))
-            audioPlayer.prepareToPlay()
-            
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-            } catch {
-                print(error)
-            }
-        } catch {
-            print(error)
-        }
+        audioPlayer = try! AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: sound, ofType: "mp3")!))
+        audioPlayer.prepareToPlay()
+        audioPlayer.delegate = self
+        isAudioEnd = false
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryPlayback)
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        print("audio ends")
+        isAudioEnd = true
     }
     
     func play_action() {
         audioPlayer.play()
+        isAudioEnd = false
     }
     
     func pause_action() {
@@ -49,6 +50,5 @@ class Audio {
             audioPlayer.play()
         }
     }
-    
 
 }

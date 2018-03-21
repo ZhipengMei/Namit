@@ -237,8 +237,7 @@ extension detailTableView: UITableViewDelegate, UITableViewDataSource, UITextVie
                 (fetchObject as! Cards).name = textView.text
             } else {
                 (fetchObject as! Punishments).name = textView.text
-            }
-            
+            }            
             do{
                 try (fetchObject as AnyObject).managedObjectContext?.save()
             } catch {

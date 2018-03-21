@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the Google Mobile Ads SDK.
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5562078941559997~7407880646")
 
-        
-        
         // get appearance object
         let navigationAppearance = UINavigationBar.appearance()
         // change color of navigation bar background
@@ -33,12 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // change color of navigation bar title
         navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];
         
-        //customize back button in navigation bar
-        var backButtonImage = UIImage(named: "backbutton")
-        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 30)
-        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-                
-        // programmatically adding Navigation Controller to "Home Page"
+         //programmatically adding Navigation Controller to "Home Page"
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -58,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Viga", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
+        //customize back button in navigation bar
+        var backButtonImage = UIImage(named: "backbutton")
+        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 30)
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
         
         return true
     }

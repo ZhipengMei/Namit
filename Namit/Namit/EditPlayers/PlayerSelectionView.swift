@@ -35,13 +35,17 @@ class PlayerSelectionView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        checkplayercount()
         myview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
         
         setupLayout()
         available_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "row", selected: 0, isPredicate: false) as! [Players]
         selected_players = CoreDataHelper().fetch(context: context, entityName: "Players", sortDescriptorKey: "selected_row", selected: 1, isPredicate: true) as! [Players]
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("will disappear")
     }
     
 }
@@ -80,13 +84,6 @@ extension PlayerSelectionView: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.font = UIFont(name: "Viga", size: 17)
         cell.backgroundColor = darkColor
         
-        //collection cell animation
-        let ip = IndexPath(row: Int(player.row), section: 0)
-        let cell : CollectionViewCell = collectionView.cellForItem(at: ip)! as! CollectionViewCell
-        cell.layer.cornerRadius = cell.frame.height / 2
-        cell.layer.borderWidth = 3.0
-        cell.layer.borderColor = (UIColor.white).cgColor
-        cell.emoji_label.alpha = 0.5
     }
     
     //allow cell to rearrange
@@ -116,18 +113,14 @@ extension PlayerSelectionView: UITableViewDataSource, UITableViewDelegate {
             
             let player = selected_players[indexPath.row]
             player.selected = 0
+            //reassign collection view's player.selected value to 1
+            
             selected_players.remove(at: indexPath.row)
             assignOrder()
             
-            //collection cell animation
-            let ip = IndexPath(row: Int(player.row), section: 0)
-            let cell : CollectionViewCell = collectionView.cellForItem(at: ip)! as! CollectionViewCell
-            cell.layer.cornerRadius = 0
-            cell.layer.borderWidth = 0
-            cell.emoji_label.alpha = 1.0
-            
             try! context.save()
             tableView.reloadData()
+            collectionView.reloadData()
         }
     }
     
@@ -174,6 +167,18 @@ extension PlayerSelectionView: UICollectionViewDataSource, UICollectionViewDeleg
         
         //cell.imageView.backgroundColor = UIColor.randomColor()
         cell.emoji_label.text = available_players[indexPath.row].name
+        //yee
+        if available_players[indexPath.row].selected == 1 {
+            print(available_players[indexPath.row].name!)
+            print(available_players[indexPath.row].selected)
+            cell.layer.cornerRadius = cell.frame.height / 2
+            cell.layer.borderWidth = 3.0
+            cell.layer.borderColor = (UIColor.white).cgColor
+        } else {
+            cell.layer.cornerRadius = 0
+            cell.layer.borderWidth = 0
+        }
+        
         
         return cell
     }
@@ -181,7 +186,6 @@ extension PlayerSelectionView: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         
-        let cell : CollectionViewCell = collectionView.cellForItem(at: indexPath)! as! CollectionViewCell
         let player = available_players[indexPath.row]
         
         //customize UI when clicked
@@ -190,27 +194,30 @@ extension PlayerSelectionView: UICollectionViewDataSource, UICollectionViewDeleg
             player.selected = 1
             selected_players.insert(player, at: selected_players.count)
         } else if player.selected == 1 {
-            cell.layer.cornerRadius = 0
-            cell.layer.borderWidth = 0
-            cell.emoji_label.alpha = 1.0
-            
+            //yee
+
             //remove player emoji from tableview
             player.selected = 0
             selected_players.remove(at: Int(player.selected_row))
-            
-            //check players count
-            if selected_players.count < 2 {
-                navigationController?.navigationBar.isUserInteractionEnabled = false
-                navigationController?.navigationBar.tintColor = UIColor.lightGray
-            }
         }
-        
+        checkplayercount()
         assignOrder()
         try! context.save()
+        collectionView.reloadData()
         tableView.reloadData()
-        
         //auto scroll to the bottom of the tableview
         tableViewScrollToBottom(animated: true)
+    }
+    
+    private func checkplayercount() {
+        if selected_players.count < 2 {
+            navigationController?.navigationBar.isUserInteractionEnabled = false
+            descriptionLabel.text = "Add at least 2 players."
+            //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(GoToBack))
+        } else {
+            navigationController?.navigationBar.isUserInteractionEnabled = true
+            descriptionLabel.text = "You can add, remove, change orders of characters."
+        }
     }
     
 }

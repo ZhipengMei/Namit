@@ -237,6 +237,12 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func done_action(_ sender: Any) {
+        self.namedit_button.isUserInteractionEnabled = false
+        self.namedit_button.isEnabled = false
+        
+        //disable pause button to avoid creation of multiple timer conflict
+        self.pause_button.isEnabled = false
+        
         //rotate next player, begin timer
         UIView.animate(withDuration: 0.3, animations: {
             self.punishmentView.alpha = 0

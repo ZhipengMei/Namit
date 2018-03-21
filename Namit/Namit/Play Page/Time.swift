@@ -64,23 +64,23 @@ class Time {
     }
     
     @objc func updateTimer() {
-        if seconds < 1 {
-            if isPlaySound == true {
-                long_sound.play_action()
-            }
-            //TODO
-            self.interrupt()
-            
-            // fade in animation use only with alpha
-            UIView.animate(withDuration: 0.2, animations: {
-                self.punishmentView.alpha = 1
-            })
-        } else {
+        if seconds >= 1 {
             seconds -= 1
             if seconds < 4 && seconds > 0 && isPlaySound == true{
                 beep_sound.play_action()
             }
             timerLabel.text = String(seconds)
+        } else {
+            if isPlaySound == true && seconds == 0{
+                //long_sound.play_action()
+                if long_sound.isAudioEnd == true {
+                    print("fUIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {")
+                }
+            }
+            self.interrupt()
+            UIView.animate(withDuration: 0.2, animations: {
+                self.punishmentView.alpha = 1
+            })
         }
     }
     
