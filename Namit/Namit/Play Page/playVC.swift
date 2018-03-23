@@ -530,6 +530,7 @@ extension playVC {
     
     //Calling the animation funtions
     func rotate_players() {
+        punishmentLabel.text = randomPunishmentTask()
         
         self.player1_label.alpha = 0
         self.player2_label.alpha = 0
@@ -804,8 +805,6 @@ extension playVC {
         card_label.numberOfLines = 0
         // display the first card
         card_label.text = randomCardTask()
-        
-        
         
         // setup timer
         time.timerLabel = timer_label

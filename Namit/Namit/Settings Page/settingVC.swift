@@ -18,7 +18,7 @@ class settingVC: UIViewController{
     let interval_label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 20))
     
     // values to fill table view
-    private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Privacy Policy"]
+    private var data:[String] = ["Edit Cards", "Edit Punishments", "Interval time", "Sound", "Privacy Policy", "Terms of Use"]
     
     // initialize UIPickerView
     var time_interval_picker = UIPickerView()
@@ -215,6 +215,7 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
             sound_switch.addTarget(self, action: #selector(sound_switch_action), for: .touchUpInside)
             cell?.accessoryView = sound_switch as UIView
         }
+
         
         return cell!
     }
@@ -251,16 +252,19 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 4 {
-            print("clicked on Remove Ads")
+            print("clicked on Privacy policy")
+            let vc = storyboard?.instantiateViewController(withIdentifier: "webview") as! WebViewController
+            vc.myurl = "https://zhipengmei.github.io/WingMe/privacy/"
+            self.present(vc, animated: false, completion: nil)            
         }
         
         if indexPath.row == 5 {
-            print("clicked on Privacy policy")
+            print("clicked on Term of use")
+            let vc = storyboard?.instantiateViewController(withIdentifier: "webview") as! WebViewController
+            vc.myurl = "https://zhipengmei.github.io/WingMe/privacy/"
+            self.present(vc, animated: false, completion: nil)
         }
         
-        if indexPath.row == 6 {
-            print("clicked on Share with friends")
-        }
         
         
     }

@@ -24,8 +24,6 @@ class ruleVC: UIViewController {
         // view
         self.view.backgroundColor = UIColor.black
         
-        let displayWidth: CGFloat = self.view.frame.width
-        let displayHeight: CGFloat = self.view.frame.height
         //lottie view
         animateview = LOTAnimationView(name: "namit_tutorial_02")
         //animateview.frame.size = CGSize(width: displayWidth, height: displayHeight)

@@ -278,7 +278,7 @@ extension PlayerSelectionView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.21)
+        tableView.backgroundColor = darkColor//UIColor(red: 0, green: 0, blue: 0, alpha: 0.21)
         tableView.isEditing = true //enable editing
         
         //more characters

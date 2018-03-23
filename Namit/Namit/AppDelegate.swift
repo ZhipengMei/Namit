@@ -31,13 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // change color of navigation bar title
         navigationAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white];
         
-         //programmatically adding Navigation Controller to "Home Page"
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let home_vc = storyboard.instantiateViewController(withIdentifier: "home") as UIViewController
-        let navigationController = UINavigationController(rootViewController: home_vc)
-        window?.rootViewController = navigationController
+
         
         
         // Load coredata at the application very first launch
@@ -47,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             setup_players()
             UserDefaults.standard.set(true, forKey: "firstlaunch1.0")
             UserDefaults.standard.synchronize();
+    
+        } else {
+            initiateNav()
         }
 
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Viga", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -59,6 +56,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    private func initiateNav() {
+        //programmatically adding Navigation Controller to "Home Page"
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let home_vc = storyboard.instantiateViewController(withIdentifier: "home") as UIViewController
+        let navigationController = UINavigationController(rootViewController: home_vc)
+        window?.rootViewController = navigationController
+    }
+    
     /*======= game's default data =======*/
     func reset_default_coreData() {
         

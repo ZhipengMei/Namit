@@ -90,23 +90,11 @@ class ViewController: UIViewController {
                 print("View controller play not found")
                 return
         }
-        navigationController?.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //nav bar background color
-        //        self.navigationController?.navigationBar.barTintColor = UIColor.red
-        
-        // Hide the navigation bar on the this view controller
-        //        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        
-        // change color of navigation bar items (buttons)
-        //        self.navigationController?.navigationBar.tintColor = UIColor.blue
-        
-        // change color of navigation bar title
-        //        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.blue]
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -122,7 +110,6 @@ class ViewController: UIViewController {
     @IBAction func toEditPlayers(_ sender: Any) {        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlayerSelectionView") as! PlayerSelectionView
-//        self.navigationController?.pushViewController(newViewController, animated: true)
         self.present(newViewController, animated: true, completion: nil)
     }
     
