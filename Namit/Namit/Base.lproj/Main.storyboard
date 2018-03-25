@@ -281,7 +281,6 @@
         <!--RuleVC-->
         <scene sceneID="Juq-uZ-dc8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LkY-AK-sAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="rules" id="0SI-It-xkf" customClass="ruleVC" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mkh-5k-HNt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -321,6 +320,7 @@
                         <outlet property="little_tutorial" destination="sDM-gy-K5W" id="fuD-qK-94f"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LkY-AK-sAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="888.30584707646187"/>
         </scene>
@@ -716,7 +716,7 @@
         <!--Web View Controller-->
         <scene sceneID="tKm-OU-J2B">
             <objects>
-                <viewController storyboardIdentifier="webview" id="cc0-iC-u5H" customClass="WebViewController" customModule="Web_View_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webview" id="cc0-iC-u5H" customClass="WebViewController" customModule="Namit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAn-9k-nTX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
