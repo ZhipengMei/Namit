@@ -22,7 +22,9 @@ class WelcomeViewController: UIViewController {
         //lottie view
         animateview = LOTAnimationView(name: "namit_tutorial_02")
         //animateview.frame.size = CGSize(width: displayWidth, height: displayHeight)
-        animateview.center = self.view.center
+        //animateview.center = self.view.center
+        animateview.frame.origin.x = self.view.frame.origin.x
+        animateview.frame.origin.y = self.view.frame.origin.y - 60
         self.view.addSubview(animateview)
         animateview.play()
         animateview.loopAnimation = true

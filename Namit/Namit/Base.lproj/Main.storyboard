@@ -285,11 +285,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXc-MN-c05">
-                                <rect key="frame" x="60" y="575" width="265" height="63"/>
+                                <rect key="frame" x="55" y="575" width="265" height="63"/>
                                 <color key="backgroundColor" red="0.54201398446944427" green="1" blue="0.55200735763816278" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="265" id="B49-dG-x9F"/>
-                                    <constraint firstAttribute="height" constant="63" id="HX7-6c-FXN"/>
+                                    <constraint firstAttribute="width" constant="265" id="Jdl-fe-cMU"/>
+                                    <constraint firstAttribute="height" constant="63" id="QFA-hx-dWa"/>
                                 </constraints>
                                 <state key="normal" title="BACK"/>
                                 <connections>
@@ -297,18 +297,20 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDM-gy-K5W">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="-48" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.11939240247011185" green="0.15496745705604553" blue="0.24623164534568787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="667" id="O1l-nJ-fSb"/>
+                                    <constraint firstAttribute="width" constant="375" id="RKK-A7-Vx9"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.12156862745098039" green="0.16078431372549018" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.11965686827898026" green="0.15897852182388306" blue="0.2460024356842041" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sDM-gy-K5W" firstAttribute="leading" secondItem="mkh-5k-HNt" secondAttribute="leading" id="GZw-k2-D9q"/>
-                            <constraint firstItem="sDM-gy-K5W" firstAttribute="bottom" secondItem="xqp-1Q-r6v" secondAttribute="bottom" id="T95-zG-VZ0"/>
-                            <constraint firstItem="sDM-gy-K5W" firstAttribute="top" secondItem="mkh-5k-HNt" secondAttribute="top" id="gpE-Bc-yxs"/>
-                            <constraint firstItem="kXc-MN-c05" firstAttribute="top" secondItem="xqp-1Q-r6v" secondAttribute="top" constant="555" id="sfw-Ir-1Tq"/>
-                            <constraint firstItem="kXc-MN-c05" firstAttribute="leading" secondItem="xqp-1Q-r6v" secondAttribute="leading" constant="60" id="vLm-zc-PJA"/>
-                            <constraint firstAttribute="trailing" secondItem="sDM-gy-K5W" secondAttribute="trailing" id="yj1-Xn-LVa"/>
+                            <constraint firstItem="xqp-1Q-r6v" firstAttribute="bottom" secondItem="sDM-gy-K5W" secondAttribute="bottom" constant="48" id="3c4-Ak-JHU"/>
+                            <constraint firstItem="xqp-1Q-r6v" firstAttribute="bottom" secondItem="kXc-MN-c05" secondAttribute="bottom" constant="29" id="6XE-P5-oHj"/>
+                            <constraint firstItem="sDM-gy-K5W" firstAttribute="centerX" secondItem="mkh-5k-HNt" secondAttribute="centerX" id="flk-jm-SYz"/>
+                            <constraint firstItem="kXc-MN-c05" firstAttribute="centerX" secondItem="mkh-5k-HNt" secondAttribute="centerX" id="mhf-c1-TjJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xqp-1Q-r6v"/>
                     </view>

@@ -21,9 +21,6 @@ class ruleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // view
-        self.view.backgroundColor = UIColor.black
-        
         //lottie view
         animateview = LOTAnimationView(name: "namit_tutorial_02")
         //animateview.frame.size = CGSize(width: displayWidth, height: displayHeight)
