@@ -29,7 +29,7 @@ class Time {
     init() {
         seconds = self.getTime()
         beep_sound.loadsound(sound: "short")
-        long_sound.loadsound(sound: "long")
+        long_sound.loadsound(sound: "short_high")
     }
     
     // retrieve TImer's interval from CoreData
@@ -62,27 +62,50 @@ class Time {
         timerLabel.textColor = UIColor.white.withAlphaComponent(1.0)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Time.updateTimer)), userInfo: nil, repeats: true)
     }
-    
+
     @objc func updateTimer() {
-        if seconds >= 1 {
+        if seconds >= 0 {
             seconds -= 1
-            if seconds < 4 && seconds > 0 && isPlaySound == true{
-                beep_sound.play_action()
-            }
-            timerLabel.text = String(seconds)
-        } else {
-            if isPlaySound == true && seconds == 0{
-                //long_sound.play_action()
-                if long_sound.isAudioEnd == true {
-                    print("fUIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {UIView.animate(withDuration: 0.2, animations: {")
+            if isPlaySound == true {
+                if seconds < 4 && seconds > 0 {
+                    beep_sound.play_action()
+                } else if seconds == 0 {
+                    long_sound.play_action()
+                    self.interrupt()
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.punishmentView.alpha = 1
+                    })
+                }
+            } else {
+                if seconds == 0 {
+                    self.interrupt()
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.punishmentView.alpha = 1
+                    })
                 }
             }
-            self.interrupt()
-            UIView.animate(withDuration: 0.2, animations: {
-                self.punishmentView.alpha = 1
-            })
+            timerLabel.text = String(seconds)
         }
     }
+    
+//    @objc func updateTimer() {
+//        if seconds >= 1 {
+//            seconds -= 1
+//            if seconds < 4 && seconds > 0 && isPlaySound == true{
+//                beep_sound.play_action()
+//            }
+//            timerLabel.text = String(seconds)
+//        }
+//        else {
+//            if isPlaySound == true {
+//                long_sound.play_action()
+//            }
+////            self.interrupt()
+//            UIView.animate(withDuration: 0.2, animations: {
+//                self.punishmentView.alpha = 1
+//            })
+//        }
+//    }
     
     func interrupt(){
         timer.invalidate()

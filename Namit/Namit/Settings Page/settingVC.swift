@@ -254,14 +254,14 @@ extension settingVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 4 {
             print("clicked on Privacy policy")
             let vc = storyboard?.instantiateViewController(withIdentifier: "webview") as! WebViewController
-            vc.myurl = "https://zhipengmei.github.io/WingMe/privacy/"
+            vc.myurl = "https://smakerspace.github.io/namit/privacy/index.html"
             self.present(vc, animated: false, completion: nil)            
         }
         
         if indexPath.row == 5 {
             print("clicked on Term of use")
             let vc = storyboard?.instantiateViewController(withIdentifier: "webview") as! WebViewController
-            vc.myurl = "https://zhipengmei.github.io/WingMe/privacy/"
+            vc.myurl = "https://smakerspace.github.io/namit/terms/index.html"
             self.present(vc, animated: false, completion: nil)
         }
         

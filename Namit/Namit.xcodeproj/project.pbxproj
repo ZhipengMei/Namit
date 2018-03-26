@@ -12,8 +12,6 @@
 		3A1063B8205BC75B00C0A213 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */; };
 		3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */; };
 		3A1AE8BB205F4BEB001A761E /* short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8B9205F4BEB001A761E /* short.mp3 */; };
-		3A1AE8C1205F5310001A761E /* punishment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C0205F5310001A761E /* punishment.mp3 */; };
-		3A1AE8C3205F561F001A761E /* long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AE8C2205F561E001A761E /* long.mp3 */; };
 		3A1EF121203001B7003EE131 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF120203001B7003EE131 /* Audio.swift */; };
 		3A3103C52026833700253DE8 /* playVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3103C42026833700253DE8 /* playVC.swift */; };
 		3A3B90DA202AB56500C80C5F /* detailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B90D9202AB56500C80C5F /* detailTableView.swift */; };
@@ -30,6 +28,7 @@
 		3A6BA98720527D7000E48B60 /* PlayerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */; };
 		3A79BC68206491BF0035DDBF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC67206491BF0035DDBF /* WebViewController.swift */; };
 		3A79BC6B206495690035DDBF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79BC6A206495690035DDBF /* WelcomeViewController.swift */; };
+		3A85D7E32068842000EBF496 /* short_high.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A85D7E22068842000EBF496 /* short_high.mp3 */; };
 		3A9CF75B205E61DE00E231CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9CF75A205E61DE00E231CF /* Assets.xcassets */; };
 		3AA3411E202C3063005A270F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA3411D202C3062005A270F /* GoogleMobileAds.framework */; };
 		3AA43C9A2026DBBB00D98218 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA43C992026DBBB00D98218 /* Time.swift */; };
@@ -64,8 +63,6 @@
 		3A1063B7205BC75B00C0A213 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
 		3A10C52F205E58E2004711E8 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
 		3A1AE8B9205F4BEB001A761E /* short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = short.mp3; sourceTree = "<group>"; };
-		3A1AE8C0205F5310001A761E /* punishment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punishment.mp3; sourceTree = "<group>"; };
-		3A1AE8C2205F561E001A761E /* long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = long.mp3; sourceTree = "<group>"; };
 		3A1EF120203001B7003EE131 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		3A3103C42026833700253DE8 /* playVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playVC.swift; sourceTree = "<group>"; };
 		3A3B90D9202AB56500C80C5F /* detailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableView.swift; sourceTree = "<group>"; };
@@ -88,6 +85,7 @@
 		3A6BA98620527D7000E48B60 /* PlayerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectionView.swift; sourceTree = "<group>"; };
 		3A79BC67206491BF0035DDBF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3A79BC6A206495690035DDBF /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3A85D7E22068842000EBF496 /* short_high.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = short_high.mp3; sourceTree = "<group>"; };
 		3A9CF75A205E61DE00E231CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AA3411D202C3062005A270F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		3AA43C992026DBBB00D98218 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -143,9 +141,8 @@
 		3A1AE8B7205F4BCD001A761E /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				3A1AE8C0205F5310001A761E /* punishment.mp3 */,
 				3A1AE8B9205F4BEB001A761E /* short.mp3 */,
-				3A1AE8C2205F561E001A761E /* long.mp3 */,
+				3A85D7E22068842000EBF496 /* short_high.mp3 */,
 			);
 			name = Audio;
 			path = "New Group";
@@ -420,9 +417,8 @@
 			files = (
 				3A5A476820259D5E004FE06D /* LaunchScreen.storyboard in Resources */,
 				3AEB8683205FB77400192984 /* namit_tutorial_02.json in Resources */,
-				3A1AE8C1205F5310001A761E /* punishment.mp3 in Resources */,
 				3A10C530205E58E3004711E8 /* Viga-Regular.ttf in Resources */,
-				3A1AE8C3205F561F001A761E /* long.mp3 in Resources */,
+				3A85D7E32068842000EBF496 /* short_high.mp3 in Resources */,
 				3A5A476020259D5E004FE06D /* Main.storyboard in Resources */,
 				3A9CF75B205E61DE00E231CF /* Assets.xcassets in Resources */,
 				3A1AE8BB205F4BEB001A761E /* short.mp3 in Resources */,
