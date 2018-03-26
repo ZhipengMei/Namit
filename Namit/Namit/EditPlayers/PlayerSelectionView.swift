@@ -36,7 +36,7 @@ class PlayerSelectionView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkplayercount()
+
         myview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
         
         setupLayout()
@@ -224,10 +224,11 @@ extension PlayerSelectionView: UICollectionViewDataSource, UICollectionViewDeleg
     
     private func checkplayercount() {
         if selected_players.count < 2 {
+            back_imageview.isUserInteractionEnabled = false
             navigationController?.navigationBar.isUserInteractionEnabled = false
             descriptionLabel.text = "Add at least 2 players."
-            //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(GoToBack))
         } else {
+            back_imageview.isUserInteractionEnabled = true
             navigationController?.navigationBar.isUserInteractionEnabled = true
             descriptionLabel.text = "You can add, remove, change orders of characters."
         }

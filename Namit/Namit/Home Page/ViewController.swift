@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var rule_button: UIButton!
     @IBOutlet weak var setPlayer_button: UIButton!
     
+    @IBOutlet weak var play_button_top: NSLayoutConstraint!
+
     // STEP 1: initialize ads banner view
     var bannerView: GADBannerView!
     
@@ -61,16 +63,34 @@ class ViewController: UIViewController {
         bannerView.load(GADRequest())
         addBannerViewToView(bannerView)
         bannerView.delegate = self
+
     }
+
     
     @IBAction func play_action(_ sender: Any) {
+        if UserDefaults.standard.bool(forKey: "firstlaunchHome1.0") == true {
+            seguetoplay()
+        } else {
+            UserDefaults.standard.set(true, forKey: "firstlaunchHome1.0")
+            UserDefaults.standard.synchronize();
+            // programatically push segue to another VC
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerSelectionView")
+                else {
+                    print("View controller play not found")
+                    return
+            }
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func seguetoplay() {
         // programatically push segue to another VC
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "play")
             else {
                 print("View controller play not found")
-            return
-            }
-        navigationController?.present(vc, animated: true, completion: nil)
+                return
+        }
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func setting_action(_ sender: Any) {
@@ -98,6 +118,17 @@ class ViewController: UIViewController {
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        // hide edit player button at first launch
+        if(!UserDefaults.standard.bool(forKey: "firstlaunchHome1.0")){
+            //Put any code here and it will be executed only once.
+            setPlayer_button.isHidden = true
+            //TODO
+            play_button_top.constant = 160
+        } else {
+            play_button_top.constant = 60
+            setPlayer_button.isHidden = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

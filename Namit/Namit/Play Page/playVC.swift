@@ -146,7 +146,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
                 let p = selected_players[i]
                 //TODO
                 let person = Person(charName: p.name!, hp: 3, playerOrder: i, playerName: "Player \(i + 1)")
-//                let person = Person(charName: p.name!, hp: 1, playerOrder: i, playerName: "Player \(i + 1)")
                 players_data.append(person)
             }
             
@@ -178,12 +177,7 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         //initialize UI components
         setupLayout()
         setupLottieLayout()
-        
-        //punish_sound.loadsound(sound: "punishment")
-        
     }// \viewDidLoad
-    
-    
     
     // dismiss view
     @IBAction func quit_action(_ sender: Any) {
@@ -192,7 +186,6 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func pause_action(_ sender: Any) {
-        
         if self.resumeTapped == false {
             resumeTapped = true
             dimView.isHidden = false
@@ -219,10 +212,8 @@ class playVC: UIViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
-    
     // rotate to next player
     @objc func namedit_action(sender: UITapGestureRecognizer) {
-        
         self.namedit_button.isUserInteractionEnabled = false
         self.namedit_button.isEnabled = false
         

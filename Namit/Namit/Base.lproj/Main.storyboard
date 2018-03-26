@@ -5,8 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -375,8 +373,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rN-w9-77V">
                                 <rect key="frame" x="65" y="80" width="246" height="246"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="246" id="hBx-yt-vRg"/>
-                                    <constraint firstAttribute="height" constant="246" id="jZk-FV-vFT"/>
+                                    <constraint firstAttribute="width" constant="246" id="ZmN-tT-fme"/>
+                                    <constraint firstAttribute="height" constant="246" id="fH4-5S-NYT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="30"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
@@ -390,8 +388,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-Cu-d62">
                                 <rect key="frame" x="289" y="523" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="5Ob-Wh-qqc"/>
-                                    <constraint firstAttribute="width" constant="70" id="PgI-wG-feD"/>
+                                    <constraint firstAttribute="height" constant="70" id="Gi7-uB-2fP"/>
+                                    <constraint firstAttribute="width" constant="70" id="H4b-F7-2GI"/>
                                 </constraints>
                                 <state key="normal" image="rule_icon"/>
                                 <connections>
@@ -401,8 +399,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3A-lf-k8p">
                                 <rect key="frame" x="65" y="406" width="246" height="91"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="91" id="I0m-my-RzA"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="246" id="dkU-g4-j34"/>
+                                    <constraint firstAttribute="width" constant="246" id="EO6-o3-9WQ"/>
+                                    <constraint firstAttribute="height" constant="91" id="X3w-td-uaV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Viga-Regular" family="Viga" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
@@ -416,8 +414,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04n-eh-3Xw">
                                 <rect key="frame" x="16" y="523" width="77" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="3an-Y2-bRX"/>
-                                    <constraint firstAttribute="width" constant="77" id="q9k-3h-skC"/>
+                                    <constraint firstAttribute="height" constant="70" id="1HI-NM-Kht"/>
+                                    <constraint firstAttribute="width" constant="77" id="5gb-6T-2jM"/>
                                 </constraints>
                                 <state key="normal" image="setting_icon"/>
                                 <connections>
@@ -427,22 +425,21 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.16078431372549018" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8rN-w9-77V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6cK-xg-kuT"/>
-                            <constraint firstItem="1Il-Cu-d62" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7l8-10-4hs"/>
-                            <constraint firstItem="1Il-Cu-d62" firstAttribute="firstBaseline" secondItem="04n-eh-3Xw" secondAttribute="firstBaseline" id="DIb-Hn-1Yn"/>
-                            <constraint firstItem="e3A-lf-k8p" firstAttribute="top" secondItem="8rN-w9-77V" secondAttribute="bottom" constant="80" id="JIG-lf-svL"/>
-                            <constraint firstItem="8rN-w9-77V" firstAttribute="leading" secondItem="e3A-lf-k8p" secondAttribute="leading" id="L7L-QA-exP"/>
-                            <constraint firstItem="04n-eh-3Xw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LSV-Lk-enw"/>
-                            <constraint firstItem="8rN-w9-77V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="aRO-XV-34i"/>
-                            <constraint firstItem="04n-eh-3Xw" firstAttribute="top" secondItem="e3A-lf-k8p" secondAttribute="bottom" constant="26" id="iDG-IM-0fn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e3A-lf-k8p" secondAttribute="trailing" constant="64" id="lSw-41-cFV"/>
-                            <constraint firstItem="04n-eh-3Xw" firstAttribute="baseline" secondItem="1Il-Cu-d62" secondAttribute="baseline" id="r17-Yb-rTx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Il-Cu-d62" secondAttribute="trailing" constant="16" id="05u-dS-6RR"/>
+                            <constraint firstItem="8rN-w9-77V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C6j-ww-9u3"/>
+                            <constraint firstItem="8rN-w9-77V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="JYn-4Y-Rfj"/>
+                            <constraint firstItem="e3A-lf-k8p" firstAttribute="top" secondItem="8rN-w9-77V" secondAttribute="bottom" constant="80" id="LCd-qF-voX"/>
+                            <constraint firstItem="04n-eh-3Xw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Pw0-dT-AvX"/>
+                            <constraint firstItem="e3A-lf-k8p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ho1-hO-mqI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Il-Cu-d62" secondAttribute="bottom" constant="74" id="ijj-nD-Ixn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="04n-eh-3Xw" secondAttribute="bottom" constant="74" id="wep-1n-wyW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="59H-3E-GoG"/>
                     <connections>
                         <outlet property="play_button" destination="8rN-w9-77V" id="5PD-FI-GVN"/>
+                        <outlet property="play_button_top" destination="JYn-4Y-Rfj" id="3GD-Ov-Nzd"/>
                         <outlet property="rule_button" destination="1Il-Cu-d62" id="px2-fc-akb"/>
                         <outlet property="setPlayer_button" destination="e3A-lf-k8p" id="NRy-HD-SSL"/>
                         <outlet property="setting_button" destination="04n-eh-3Xw" id="GXz-RV-GH3"/>
