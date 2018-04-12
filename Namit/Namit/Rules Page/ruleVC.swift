@@ -25,6 +25,8 @@ class ruleVC: UIViewController {
         animateview = LOTAnimationView(name: "namit_tutorial_02")
         //animateview.frame.size = CGSize(width: displayWidth, height: displayHeight)
         animateview.center = self.little_tutorial.center
+        print(animateview.center)
+        print(self.little_tutorial.center)
         self.view.addSubview(animateview)
         animateview.play()
         animateview.loopAnimation = true
