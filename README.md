@@ -2,6 +2,9 @@
 
 **Namit** is a party game which plays with friends or at an ice breaking event.
 
+## Doc
+https://zhipengmei.github.io/namit.html
+
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
